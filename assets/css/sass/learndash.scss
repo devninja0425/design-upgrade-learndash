@@ -1521,6 +1521,7 @@ dd.course_progress div.course_progress_blue {
 
 	// Remove padding on headings
 	.learndash_profile_quiz_heading {
+		display: flex;
 		padding: 0 0 0.25em;
 		// Needed to override Astra's LD inline CSS
 		background: none;
