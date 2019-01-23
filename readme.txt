@@ -3,7 +3,7 @@ Contributors: escapecreative, davewarfel
 Donate link: https://www.paypal.me/escapecreative/10
 Tags: learndash, lms, learning management system, online courses, css
 Requires at least: 4.6
-Tested up to: 5.0
+Tested up to: 5.0.3
 Stable tag: 1.4.4
 Requires PHP: 5.6
 License: GPLv3
@@ -72,13 +72,13 @@ https://www.youtube.com/watch?v=IaTMGjA2-Lc
 
 ### Theme Compatibility
 
-Design Upgrade for LearnDash **should work on most themes**, assuming they have not customized the LearnDash markup in any way. While I can't guarantee full compatibility, I have tested with the following themes.
+Design Upgrade for LearnDash **should work on most themes**, assuming they have not customized the LearnDash markup in any way. While we can't guarantee full compatibility, we have tested with the following themes.
 
 #### Tested With
 
-I have tested with the following themes, and they all appear **to be compatible:**
+We have tested with the following themes, and they all appear **to be compatible:**
 
-* **NEW!** Boss. by BuddyBoss (must deactivate Social Learner/"Boss for LearnDash" plugin)
+* Boss. by BuddyBoss (must deactivate Social Learner/"Boss for LearnDash" plugin)
 * Astra
 * Divi
 * GeneratePress
@@ -190,10 +190,9 @@ We designed this plugin to be flexible so that it takes on many of the character
 
 == Changelog ==
 
-= 1.4.4 - Jan XX, 2019 =
+= 1.4.4 - Jan 23, 2019 =
 
-- TBD
-- Compatibility with Education theme from CactusThemes?
+- Tweaked the spacing on list count numbers in the course content table so there's more spacing between the number and the period
 
 = 1.4.3 - Dec 13, 2018 =
 

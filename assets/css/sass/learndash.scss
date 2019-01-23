@@ -280,7 +280,7 @@ $offwhite: #f7f7f7;
 }
 
 #lessons_list .list-count:after {
-	margin: -3px; // because LD puts a space in the .list-count <div>
+	margin: 0 0 0 -2px; // because LD puts a space in the .list-count <div>
 }
 
 // pretty sure this targets the exact same thing as above

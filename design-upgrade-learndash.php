@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name:       Design Upgrade for LearnDash
  * Description:       Instantly improve LearnDash's design &ndash; courses, lessons, topics, quizzes, profile page, course navigation widget, course grid, etc. &ndash; to more closely match your WordPress theme, and remove those unwanted default LearnDash styles. There are no options in this version, but our <a href="https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wp-admin&utm_medium=free%20plugin&utm_campaign=plugins%20page"><strong>pro version</strong></a> lets you customize over 80 LearnDash elements.
