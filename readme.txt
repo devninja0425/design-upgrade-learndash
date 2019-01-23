@@ -4,7 +4,6 @@ Donate link: https://www.paypal.me/escapecreative/10
 Tags: learndash, lms, learning management system, online courses, css
 Requires at least: 4.6
 Tested up to: 5.0.3
-Stable tag: 1.4.4
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -210,76 +209,3 @@ We designed this plugin to be flexible so that it takes on many of the character
 = 1.4 - Oct 31, 2018 =
 
 - Compatibility: OceanWP: Ensured compatibility with OceanWP's new LearnDash styles
-
-= 1.3.6 - Oct 15, 2018 =
-
-- Fixed: Course Grid: Columns weren't working properly with some page builders
-
-= 1.3.5 - Oct 15, 2018 =
-
-- Fixed: Added space between Topic table & "Mark Complete" button
-- Changed: Course Grid column styles updated for compatibility with the new Course Grid version 1.5.1
-
-= 1.3.4 - September 18, 2018 =
-
-- Compatibility: Course Grid: CSS was updated for better compatibility with the Divi plugin
-
-= 1.3.3 - September 11, 2018 =
-
-- Compatibility: Added a small change to fix course grid columns on some themes that also use Bootstrap (ex: Uncode, X Theme and others).
-
-= 1.3.2 - September 8, 2018 =
-
-- Fixed: RTL support for course grid
-
-= 1.3.1 - September 6, 2018 =
-
-- Added: Better styles for the "not available" message when a lesson is scheduled for a later date
-- Added: RTL support for recent course grid features
-- Changed: Force "Mark Complete" buttons to have a hand pointer on hover
-- Changed: Updated topic dots to use CSS background colors instead of images
-
-= 1.3 - September 4, 2018 =
-
-- Added: Completely revamped styles for the course grid add-on
-- Fixed: Astra compatibility: A small bug with the course content heading text color
-- Updated Screenshots, adding one for the Course Grid styles
-
-= 1.2.1 - August 8, 2018 =
-
-- Changed: A few minor tweaks to quiz styling
-- Changed: One small change for better compatibility with the Divi LearnDash Kit
-
-= 1.2 - August 6, 2018 =
-
-- Added: Completely revamped quiz styling to better match your theme. Red & green are used, where appropriate, to signify correct/incorrect answers. The quiz statistics popup styles now match the quiz result page.
-
-= 1.1.3 - August 2, 2018 =
-
-- Compatibility: Now compatible with the Astra theme
-- Fixed: A handful of tweaks to button styles for better theme compatibility
-
-= 1.1.2 - July 30, 2018 =
-
-- Added: Videos using Video Progression are now responsive
-- Fixed: Added back in button styles for the "mark complete" button. They were accidentally removed in the previous version.
-- Fixed: A few small CSS bugs with Uncanny Toolkit's [uo_dashboard] shortcode
-
-= 1.1.1 - July 26, 2018 =
-
-- Added: Compatibility with Uncanny Owl Toolkit's [uo_dashboard] shortcode. Styles have been adjusted to look like your course content lists & [ld_profile] shortcode styles.
-- Changed: Course Navigation Widget: Added a little spacing between icon & right edge
-- Changed: A few minor CSS tweaks
-- Fixed: More specific next/previous & "back to lesson" button styles to better accommodate more themes
-
-= 1.1 - June 1, 2018 =
-
-* Added: RTL languages now fully supported
-* Changed: Switched font size & padding units from rems to ems or pixels, for better compatibility with a variety of themes
-* Changed: Quiz Statistics Modal - Removed border radius
-* Changed: Quiz Statistics Modal - Switched some columns from left alignment back to center alignment to better support RTL languages. (There is currently no way to distinguish RTL in the modal)
-* Fixed: Quiz modal close button alignment on some themes
-
-= 1.0 - May 13, 2018 =
-
-* Initial release
