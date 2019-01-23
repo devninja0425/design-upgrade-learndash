@@ -1,0 +1,3425 @@
+/**
+ * Design Upgrade for LearnDash
+ *
+ * Override LearnDash's default styles.
+ * Make everything responsive.
+ * This file should contain basic styling that should apply to any and every theme/site using LearnDash. All selectors should be unique to LearnDash so that they don't affect any individual theme.
+ *
+ * Many of these styles can be overridden in the Customizer with the Pro version.
+ */
+
+// @media (max-width: 600px) = Mobile Breakpoint
+// sometimes using 400px, depending on the type of content
+
+// 1em: General margin for paragraphs & similar elements
+
+
+/**
+ * Table of Contents
+ *
+ *  0.0 - Sass Variables & Mixins
+ *  1.0 - General/Resets
+					- fonts, link colors, paragraph spacing, etc.
+				1.1 - Responsive Videos
+ *  2.0 - List Tables
+ *      2.1 - Main List Tables
+						- for courses, lessons, topics, quizzes
+ *      2.2 - Expand/Collapse
+ *      2.3 - Headings
+ *      2.4 - Complete/Incomplete
+ *      2.5 - Drip Content / Not Available
+ *  3.0 - Buttons
+ *  4.0 - Topic Progress
+ *        - topic dots, next/prev nav, back to lesson button, etc.
+ *      4.1 - Next/Previous & "Back to Lesson" Buttons
+ *	5.0 - Widgets/Shortcodes
+ *        - course progress (bar), course info, lesson list, etc.
+ *      5.1 - Course Progress [learndash_course_progress]
+ *      5.2 - Course Information [ld_course_info]
+ *      5.3 - Course Navigation
+ *      5.4 - Courses Widget, Lessons Widget
+ *	6.0 - Assignments
+ *  7.0 - Profile
+ *      7.1 - Profile Info
+ *      7.2 - Registered Courses List
+ *      7.3 - Profile Quizzes
+ *  8.0 - Pager
+ *  9.0 - wpProQuiz (Quiz Content)
+ *      9.1 - Top Section (timer, time limit, progress, X of X questions)
+ *      9.2 - Results Table (avg vs. user score)
+ *      9.3 - Category Overview
+ *      9.4 - Leaderboard
+ *      9.5 - View Questions: Question Review Box
+ *      9.6 - View Questions: Question List
+ *      9.7 - Quiz Statistics Modal
+ * 10.0 - Miscellaneous
+ * 11.0 - Course Grid Add-On
+ * 20.0 - Uncanny Owl Toolkit Compatibility
+ *      20.1 - Uncanny Owl Dashboard [uo_dashboard]
+ * 99.0 - Animations
+ */
+
+
+
+/**
+ * 0.0 - Sass Variables & Mixins
+ */
+$positive-color: #409c4c;
+$negative-color: #b71c1c;
+$lightgrey-transparent: rgba( 0, 0, 0, 0.1 );
+$lightgrey: #f0f0f0;
+$offwhite: #f7f7f7;
+
+
+
+/**
+ * 1.0 - General / Resets
+ *
+ * Resets all of LearnDash's inherit styling so that LD elements will more closely match the user's theme.
+ */
+
+// Elements that need general paragraph styling
+
+// "Course Status:" indicator, just before course content
+#learndash_course_status,
+// "Course Content" <h4>, just before course list
+#learndash_course_content_title,
+// <span> located immediately inside .learndash,
+// before the .learndash_content
+.learndash .learndash_join_button {
+	display: block;
+	margin-bottom: 1em;
+}
+
+// Message displayed at the top of course content on course pages
+#learndash_course_status {
+	padding: 0.5em 0.75em;
+	background: $offwhite;
+
+	br, + br {
+		display: none;
+	}
+}
+
+// Elements that need font size, weight, etc. reset
+#learndash_lessons a,
+#learndash_quizzes a,
+.expand_collapse a,
+.learndash_topic_dots a,
+.learndash_topic_dots a > span,
+#learndash_lesson_topics_list span a,
+#learndash_profile a,
+#learndash_profile a span,
+#learndash_lessons,
+#learndash_quizzes,
+.expand_collapse,
+.notavailable_message,
+#learndash_lesson_topics_list div > strong,
+#learndash_lesson_topics_list div ul > li .sn,
+.learndash_profile_heading,
+#learndash_profile a,
+#learndash_profile div,
+.widget_course_return,
+.course_navigation .widget_course_return a {
+	font-family: inherit;
+	font-weight: normal;
+	font-size: inherit;
+	box-shadow: none; // some themes use this for link styling
+}
+
+.learndash_topic_dots a > span,
+#learndash_profile a span {
+	color: inherit;
+}
+
+// General Links
+.learndash a {
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+/**
+ * 1.1 - Responsive Videos
+ *
+ * When using video progression and/or the [ld_video] shortcode, make sure all videos are responsive.
+ */
+
+.ld-video {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+	max-width: 100%;
+
+	iframe, object, embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;	
+	}
+}
+
+
+/**
+ * 2.0 - List Tables (for courses, lessons, topics, quizzes)
+ *
+ * Styling for all sections that contain listings (or rows) of courses, lessons, topics or quizzes. Also some general styling for profile sections, but see "Profile" for specific elements within a profile section.
+ */
+
+/**
+ * 2.1 - Main List Tables
+ */
+
+// Add basic link hover color for list tables by default
+#learndash_lessons h4 > a,
+#learndash_quizzes h4 > a,
+#learndash_lesson_topics_list ul > li > span a,
+#learndash_course_content .learndash_topic_dots ul > li a,
+// Profile Page
+// Course Titles
+#learndash_profile .learndash-course-link a,
+// Quiz Titles
+#learndash_profile .quiz_title a,
+// Edit Profile link
+#learndash_profile .profile_edit_profile a {
+	color: #2196f3;
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: #1565c0;
+	}
+}
+
+#learndash_course_content {
+	// So the "take this course" button doesn't overlap list tables
+	margin-top: 2em;
+}
+
+.learndash_lesson_topics_list {
+	// Adds space between topic table & "mark complete" button
+	margin-bottom: 1.5em;
+}
+
+// Since we can't remove them from the markup
+// Found at the bottom of lesson pages, after the topics lists
+.learndash_post_sfwd-lessons br,
+.learndash .learndash_content + br {
+	display: none;
+}
+
+// Containing boxes
+#learndash_lessons,
+#learndash_quizzes,
+#learndash_profile,
+#learndash_lesson_topics_list > div {
+	background: transparent;
+	border: 0;
+	border-radius: 0; // reset
+	box-shadow: none; // reset
+	// Border Radius managed via Customizer
+	margin-bottom: 2em;
+	clear: both;
+}
+
+#lessons_list,
+#course_list,
+#quiz_list,
+.learndash_profile_quizzes,
+#learndash_lesson_topics_list ul,
+.learndash_navigation_lesson_topics_list {
+	// remove "display: table"
+	display: block;
+	// default LD styles
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#lessons_list > div,
+#course_list > div,
+#quiz_list > div,
+.learndash_profile_quizzes > div,
+#learndash_lesson_topics_list ul > li,
+.learndash_navigation_lesson_topics_list > div {
+	// remove "display: table-row"
+	display: flex;
+}
+
+// Compatibility with BuddyBoss
+// Overrides the margin on ".entry-content li"
+#learndash_lesson_topics_list ul > li {
+	margin: 0;
+}
+
+// These are your entire lesson group
+// (which may/may not contain topics within)
+#learndash_lessons > div > div,
+#learndash_quizzes > div > div,
+// These are the topic rows in the topics list (on the lessons page)
+#learndash_lesson_topics_list ul > li > span a {
+	border: 0;
+	border-bottom: 1px solid $lightgrey-transparent;
+}
+
+#lessons_list .list-count,
+#quiz_list .list-count {
+	// remove LD's "display: table-cell"
+	display: block;
+	width: 5%;
+	text-align: center;
+	border: 0;
+	// to line it up with the lesson title
+	padding-top: 0.5em;
+	line-height: 1.4; // match line-height of lesson rows
+
+	&:after {
+		content: ".";
+	}
+}
+
+#lessons_list .list-count:after {
+	margin: -3px; // because LD puts a space in the .list-count <div>
+}
+
+// pretty sure this targets the exact same thing as above
+#lessons_list > div > div,
+#course_list > div > div,
+#quiz_list > div > div,
+.single-sfwd-lessons #learndash_lesson_topics_list ul > li > span.sn,
+.singular-sfwd-lessons #learndash_lesson_topics_list ul > li > span.sn {
+	display: block;
+	width: 5%;
+	text-align: center;
+	// remove LD's border
+	border: 0;
+}
+
+// .rtl only
+// removes border to the side of list-count
+.rtl #lessons_list > div > div,
+.rtl #course_list > div > div,
+.rtl #quiz_list > div > div,
+.rtl .single-sfwd-lessons #learndash_lesson_topics_list ul > li > span.sn,
+.rtl .singular-sfwd-lessons #learndash_lesson_topics_list ul > li > span.sn {
+	border: 0;
+}
+
+#lessons_list > div h4,
+#course_list > div h4,
+#quiz_list > div h4,
+#learndash_lesson_topics_list ul > li > span.topic_item {
+	display: block;
+	flex-grow: 1;
+	padding: 0;
+	margin: 0;
+	// remove LD's border
+	border: 0;
+	font-size: 1em;
+	font-weight: normal;
+	// some theme's use additional <h4> styles
+	text-transform: none;
+	letter-spacing: normal;
+}
+
+// These are your course rows/lesson rows/quiz rows
+// Added the div qualifier to override uo_dashboard CSS
+div#lessons_list > div h4 > a,
+div#course_list > div h4 > a,
+div#quiz_list > div h4 > a,
+// These are your topic rows in the topics list
+.single-sfwd-lessons #learndash_lesson_topics_list ul > li > span a,
+.singular-sfwd-lessons #learndash_lesson_topics_list ul > li > span a  {
+	display: block;
+	// 60px makes room for the status icons
+	padding: 0.5em 60px 0.5em 0.5em;
+	font-weight: normal;
+	text-decoration: none;
+	// !important needed to override uo_dashboard styles
+	line-height: 1.4 !important;
+	padding-left: 0.5em !important;
+
+	.rtl & {
+		padding-right: 0.5em !important;
+		padding-left: 60px;
+	}
+}
+
+// Remove LD's hover styles
+// Added <div> to override uo_dashboard.css
+div#learndash_lessons h4 > a:hover,
+div#learndash_quizzes h4 > a:hover,
+div#learndash_lesson_topics_list ul > li > span.topic_item:hover,
+div#learndash_course_content .learndash_topic_dots ul > li:hover {
+	background: none;
+}
+
+// #learndash_course_content #learndash_lessons .learndash_topic_dots {
+// 	display: block|none;
+// 	applied inline, based on expand|collapse state
+// }
+
+#learndash_course_content .learndash_topic_dots ul,
+#learndash_course_content .learndash_topic_dots li,
+#learndash_course_content .learndash_topic_dots ul > li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	// because LD puts a white background on <li>s
+	background: transparent;
+	// because some themes add explicit font sizes on ul/li elements
+	font-size: 1em;
+}
+
+#learndash_course_content .learndash_topic_dots ul > li:nth-of-type(odd),
+#learndash_course_content .learndash_topic_dots .nth-of-type-odd,
+.learndash_navigation_lesson_topics_list .nth-of-type-odd,
+#learndash_lesson_topics_list ul > li.nth-of-type-odd,
+#learndash_lesson_topics_list ul > li:nth-of-type(odd) {
+	background: transparent;
+}
+
+// LD adds no styles for this, but it should be displayed block
+// it's a <span> tag
+.learndash_topic_dots .topic_item {
+	display: block;
+}
+
+// These are your topic rows
+#learndash_course_content .learndash_topic_dots ul > li a {
+	display: block;
+	// update LD's default padding
+	// add additional left padding for indentation
+	// 60px makes room for the status icons
+	padding: 0.5em 60px 0.5em 1.5em;
+	line-height: 1.4;
+	border-top: 1px solid $lightgrey-transparent;
+}
+
+.learndash .learndash_topic_dots.type-list a > span,
+.learndash_topic_dots ul .topic-completed span,
+.learndash_topic_dots ul .topic-notcompleted span {
+	display: inline;
+	// override LD's default min-width & min-height values
+	min-width: 0;
+	min-height: 0;
+	// zero everything out. everything applied to the <a> tag above.
+	padding: 0;
+	margin: 0;
+	// remove completion indicator icons
+	background: none;
+	line-height: 1.4;
+}
+
+/* Woffice Theme Compatibility
+ * https://woffice.io/
+ * https://themeforest.net/item/woffice-intranetextranet-wordpress-theme/11671924
+ */
+
+// hide icons in lesson list & topics list
+.learndash #learndash_lesson_topics_list a span:after,
+.learndash #learndash_course_content a span:after,
+// hide topic dots
+.single-sfwd-topic #content-container .learndash .learndash_topic_dots a span:after {
+	display: none;
+}
+
+
+
+/**
+ * 2.2 - Expand/Collapse
+ */
+
+// "Expand All | Collapse All" links
+.expand_collapse {
+	width: 100%;
+	line-height: 0;
+	text-align: right;
+	position: relative;
+	top: -20px;
+	float: right;
+
+	.rtl & {
+		text-align: left;
+	}
+}
+
+.expand_collapse a,
+#learndash_profile .expand_collapse a,
+#learndash_course_content .expand_collapse a {
+	// reset LearnDash styles
+	font-size: 0.875em;
+	// remove any possible theme styling
+	text-decoration: none;
+	border: 0;
+	box-shadow: none;
+}
+
+
+
+/**
+ * 2.3 - Headings
+ */
+
+body div#learndash_lessons #lesson_heading,
+body div#learndash_profile div.learndash_profile_heading,
+body div#learndash_quizzes div#quiz_heading,
+body div#learndash_profile div.learndash_profile_quiz_heading,
+body div#learndash_lesson_topics_list div > strong {
+	display: block;
+	padding: 0.375em 0.5em;
+	background-color: transparent;
+	color: #333; // needed to override Astra's white color
+	// Need something by default
+	// Border is removed if any bg color is applied in the Customizer
+	border-bottom: 2px solid $lightgrey-transparent;
+	border-radius: 0; // reset
+	// Border Radius managed via Customizer
+	// Background managed via Customizer
+	// Color managed via Customizer
+	box-shadow: none;
+	font-weight: bold;
+}
+
+// .right inside of headings
+#learndash_lessons .right,
+#learndash_quizzes .right,
+#learndash_profile .learndash_profile_heading .ld_profile_status {
+	float: right;
+	text-align: right;
+	// reset LD's default 53px width
+	width: auto;
+
+	.rtl & {
+		float: left;
+	}
+}
+
+
+
+/**
+ * 2.4 - Complete/Incomplete Icons
+ */
+
+// Lessons List on Courses Page
+// Completed Lessons
+.learndash_lessons .notcompleted,
+.learndash_lessons .completed,
+.learndash_lessons .notavailable,
+// Some widgets/page builders only use the ID, not the .learndash_lessons class
+// aka: Divi LearnDash Toolkit
+#learndash_lessons .notcompleted,
+#learndash_lessons .completed,
+#learndash_lessons .notavailable,
+// Completed Topics
+#learndash_course_content .learndash_topic_dots ul > li .topic-notcompleted,
+#learndash_course_content .learndash_topic_dots ul > li .topic-completed,
+// Quiz List on Courses Page
+.learndash_quizzes .notcompleted,
+.learndash_quizzes .completed,
+.learndash_quizzes .notavailable,
+// My Courses List on Profile Page
+// Use 'a' to override Uncanny Owl's CSS for [uo_dashboard]
+#learndash_profile a.notcompleted,
+#learndash_profile a.completed,
+#learndash_profile a.notavailable,
+// Topic List on Lessons Page
+.learndash_lesson_topics_list .topic-notcompleted,
+.learndash_lesson_topics_list .topic-completed {
+	// remove LD's background images
+	background: none;
+	position: relative;
+	// create space for icon
+	padding-right: 60px;
+
+	.rtl & {
+		padding-right: 0.5em;
+		padding-left: 60px;
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: calc( 50% - 13px );
+		right: 10px;
+		width: 26px;
+		height: 26px;
+		background-repeat: no-repeat;
+		background-size: 26px;
+	}
+
+	.rtl &:after {
+		right: auto;
+		left: 10px;
+	}
+}
+
+.rtl #learndash_profile .notcompleted:after,
+.rtl #learndash_profile .completed:after,
+.rtl #learndash_profile .notavailable:after {
+	left: 80px;
+}
+
+.learndash .notcompleted,
+#learndash_profile .notcompleted,
+.learndash_lesson_topics_list .topic-notcompleted,
+#learndash_course_content .learndash_topic_dots ul > li .topic-notcompleted {
+
+	&:after {
+		background-image: url(../images/not-complete.svg);
+	}
+}
+
+.learndash .completed,
+#learndash_profile .completed,
+.learndash_lesson_topics_list .topic-completed,
+#learndash_course_content .learndash_topic_dots ul > li .topic-completed {
+
+	&:after {
+		background-image: url(../images/completed.svg);
+	}
+}
+
+.learndash .notavailable,
+#learndash_profile .notavailable,
+.learndash_lesson_topics_list .notavailable,
+#learndash_course_content .learndash_topic_dots ul > li .notavailable {
+
+	&:after {
+		background-size: 22px !important;
+		background-image: url(../images/calendar.svg);
+	}
+}
+
+/**
+ * 2.5 - Drip Content / Not Available
+ */
+
+// "Available on" message in course content table
+.learndash_course_content small.notavailable_message {
+	display: block;
+	padding: 0 0.5em 0.25em;
+	font-size: 90%;
+	cursor: default;
+}
+
+// "Return to course overview" link on the actual page
+div.notavailable_message a {
+	display: block;
+}
+
+
+
+/**
+ * 3.0 - Buttons
+ */
+
+/**
+ * 3.1 - All Buttons (global styles)
+ */
+
+// Standard Buttons (more subtle action)
+// Prev/Next Navigation, etc.
+// Also available in Customizer
+.learndash .btn-blue,
+.learndash .btn-join,
+.learndash #btn-join,
+.learndash_checkout_buttons input.btn-join[type="button"],
+.learndash_checkout_button input[type="submit"],
+.learndash a#quiz_continue_link,
+#learndash_back_to_lesson a,
+#learndash_next_prev_link a.prev-link,
+#learndash_next_prev_link a.next-link,
+#sfwd-mark-complete #learndash_mark_complete_button,
+// start quiz
+.learndash .wpProQuiz_button,
+// view questions
+.learndash .wpProQuiz_button[name="reShowQuestion"],
+// additional quiz buttons
+.wpProQuiz_content .wpProQuiz_button2,
+// course grid "see more" buttons
+.thumbnail.course a.btn-primary {
+	display: inline-block;
+	border: none;
+	padding: 0.5em 1em;
+	border-radius: 4px;
+	background: #d9d9d9;
+	box-shadow: none;
+	color: #777;
+	text-decoration: none;
+	font-family: inherit;
+	font-size: 1em;
+	font-weight: bold;
+	text-transform: capitalize;
+	line-height: 1.3;
+	letter-spacing: normal;
+	cursor: pointer;
+	transition: all 0.2s ease;
+
+	// add :visited states
+	// (because LD uses them in some places)
+	&:visited {
+		background: #d9d9d9;
+		color: #777;
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		background: #c4c4c4;
+		color: #555;
+	}
+}
+
+// Action Buttons
+// Take this Course, Mark Complete, Start Quiz, Payment Buttons, etc.
+// Also available in Customizer
+.learndash .btn-blue,
+.learndash .btn-join,
+.learndash #btn-join,
+.learndash_checkout_buttons input.btn-join[type="button"],
+.learndash_checkout_button input[type="submit"],
+.learndash a#quiz_continue_link,
+#sfwd-mark-complete #learndash_mark_complete_button,
+// start quiz
+.learndash .wpProQuiz_button,
+// course grid "see more" buttons
+.thumbnail.course a.btn-primary {
+	background: $positive-color;
+	color: #fff;
+
+	&:visited {
+		background: $positive-color;
+		color: #fff;
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		background: #2faf3e;
+		color: #fff;
+	}
+}
+
+// "Click Here to Continue" button after a passed quiz is taken
+// Add more bottom spacing because "retake" and "view questions" buttons are right beneath it
+.quiz_continue_link,
+.slickQuizWrapper .quizReturn {
+	margin: 1em 0;
+}
+
+// For Quizzes
+// Adds visual separation between "Click Here to Continue",
+// and the next line which contains both "Restart" & "View Questions" buttons
+.quiz_continue_link {
+	padding-bottom: 1em;
+	border-bottom: 2px solid #d5d5d5;
+}
+
+// Located just above the course content table,
+// if course is free/open & you can join.
+.learndash .learndash_join_button {
+	margin-bottom: 1em;
+}
+
+// 'Mark Complete' button, disabled when using
+// lesson timer, or if quizzes are not complete.
+form#sfwd-mark-complete input#learndash_mark_complete_button[disabled] {
+	opacity: 0.5;
+	cursor: not-allowed;
+	color: #777;
+}
+
+// Checkout Buttons
+
+// Container. Can contain multiple buttons
+// for different payment methods.
+.learndash_checkout_buttons {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 1em 0 2em;
+
+	// each individual button
+	.learndash_checkout_button {
+		margin-right: 0.5em;
+
+		@media (max-width: 600px) {
+			margin: 0 0 0.5em;
+		}
+	}
+} // .learndash_checkout_button
+
+
+
+/**
+ * 4.0 - Topic Progress
+ */
+
+ // Container
+.learndash .learndash_topic_dots.type-dots {
+	margin-bottom: 1.25em;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+// "Topic Progress:" text
+.learndash_topic_dots.type-dots b,
+.learndash_topic_dots.type-dots strong {
+	margin-right: 0.5em;
+}
+
+// Also has class topic-notcompleted|topic-completed
+.learndash .learndash_topic_dots.type-dots a {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-right: 0.5em;
+	// reset styles in case theme sets link styles on .entry-content a
+	text-decoration: none;
+	box-shadow: none;
+	// set up for completed/not competed dots
+	background-image: none;
+	border-radius: 50%;
+	border: 2px solid transparent;
+}
+
+// Background images for completed/not-completed
+.learndash .learndash_topic_dots.type-dots .topic-completed {
+	background-color: #409c4c;
+}
+
+.learndash .learndash_topic_dots.type-dots .topic-notcompleted {
+	background-color: #fff;
+	border: 2px solid #b2b2b2;
+}
+
+// inside each <a> tag
+.learndash .learndash_topic_dots.type-dots span {
+	// remove default LD styles
+	min-height: 0;
+	line-height: 1;
+	background: none;
+	padding: 0;
+}
+
+
+
+/**
+ * 4.1 - Next/Previous & "Back to Lesson" Buttons
+ */
+
+// "Back to Lesson" button
+// shown below topic dots, above topic content
+#learndash_back_to_lesson {
+	margin-bottom: 1em;
+}
+
+// Next/Previous Lesson Links
+#learndash_next_prev_link {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 1em 0;
+	padding: 0;
+
+	a {
+		margin: 0.5em 0 0;
+	}
+
+	.next-link {
+		margin-left: auto;
+
+		.rtl & {
+			margin: 0.5rem auto 0 0;
+		}
+
+		@media (max-width: 400px) {
+			margin-left: 0;
+		}
+	}
+
+} // #learndash_next_prev_link
+
+.rtl #learndash_next_prev_link .next-link {
+	margin: 0.5rem auto 0 0;
+
+	@media (max-width: 400px) {
+		margin-right: 0;
+	}
+} // .rtl
+
+
+
+/**
+ * 5.0 - Widgets
+ */
+
+/**
+ * 5.1 - Progress Bar [learndash_course_progress]
+ */
+
+dd.course_progress {
+	display: block;
+	margin: 10px 0;
+	padding: 0;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 1rem;
+	background-color: #efefef;
+	border: 0;
+	border-radius: 0.25rem;
+	box-shadow: inset 0 1px 3px rgba( 0, 0, 0, 0.08 );
+}
+
+// This ensures the "sending" quiz bar never flows outside the content area
+.wpProQuiz_sending dd.course_progress {
+	overflow: hidden;
+}
+
+dd.course_progress div.course_progress_blue {
+	display: block;
+	position: relative;
+	height: 100% ;
+	transition: width 0.2s;
+	background-color: $positive-color;
+	box-shadow: none;
+	text-align: left;
+	font-size: 85%;
+}
+
+.rtl dd.course_progress div.course_progress_blue {
+	float: right;
+}
+
+
+
+/**
+ * 5.2 - Course Information [ld_course_info]
+ *
+ * Wrapper: #ld_course_info
+ * My Courses: #ld_course_info_mycourses_list
+ * Course Progress: #course_progress_details
+ * Quiz Progress: #quiz_progress_details
+ */
+
+#ld_course_info_mycourses_list h4 {
+	// to make consistent with the other 2 sections
+	&:after {
+		content: ":";
+	}
+}
+
+#course_progress_details,
+#quiz_progress_details {
+	border-top: 2px solid $lightgrey-transparent;
+	margin-top: 1em;
+}
+
+.ld-course-info-my-courses,
+.ld-course-progress-content-container,
+.ld-quiz-progress-content-container {
+	line-height: 1.5;
+}
+
+#ld_course_info_mycourses_list h4:first-of-type,
+#course_progress_details h4:first-of-type,
+#quiz_progress_details h4:first-of-type {
+	font-size: 1.25em;
+	font-weight: normal;
+	line-height: 1.4;
+	margin: 1em 0;
+}
+
+// My Courses
+.ld-courseregistered-content-container {
+	// create spacing between title, content & pager
+	margin: 0.5em 0 1em;
+}
+
+// Each individual course
+.ld-course-info-my-courses {
+	padding: 1em 0;
+	border-bottom: 1px solid $lightgrey-transparent;
+
+	&:last-of-type {
+		border: 0;
+	}
+
+	img {
+		display: block;
+		// reset LD styles
+		max-width: 100%;
+		margin: 0 0 0.5em;
+	}
+
+	.ld-entry-title {
+		// reset LD styles
+		display: block;
+		line-height: 1.4;
+		margin: 0;
+	}
+
+	.ld-entry-title a {
+		display: block;
+		font-size: 22px;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+} // .ld-course-info-my-courses
+
+// Course Progress List
+.course_progress_details + br {
+	display: none;
+}
+
+.ld-course-progress-content-container {
+	padding-bottom: 1em;
+}
+
+.learndash-profile-course-title {
+	display: block;
+	margin-top: 1em;
+
+	&:first-of-type {
+		margin-top: 0;
+	}
+}
+
+// Misspelled in the markup
+.leardash-course-status {
+
+	// Moves "X of X steps" to a new line
+	&:after {
+		content: '';
+		display: block;
+	}
+}
+
+// Quiz Progress List
+.ld-quiz-progress-content-container {
+	// remove bottom border since this is the last section in the widget
+	border: 0;
+
+	// Each individual quiz
+	p {
+		margin-bottom: 1em;
+	}
+}
+
+
+
+/**
+ * 5.3 - Course Navigation
+ */
+
+// reset LD styles
+.course_navigation .learndash_topic_widget_list a > span {
+	margin: 0;
+}
+
+.learndash_navigation_lesson_topics_list > div > div.list_arrow {
+	display: block;
+	width: 24px;
+}
+
+// Use the same arrow for everything
+// This removes the green arrow functionality indicating a complete lesson
+.learndash_navigation_lesson_topics_list .list_arrow.collapse,
+.learndash_navigation_lesson_topics_list .list_arrow.expand,
+.list_arrow.collapse.lesson_completed,
+.list_arrow.expand.lesson_completed,
+.list_arrow.collapse.lesson_incomplete,
+.list_arrow.expand.lesson_incomplete {
+	position: relative;
+	top: 3px;
+	background: url(../images/gray_arrow_collapse.svg) no-repeat 0 0;
+	background-size: 24px;
+	width: 24px;
+	height: 24px;
+	opacity: 0.7;
+	transition: all 0.2s;
+
+	.rtl & {
+		transform: rotate(180deg);
+		background-image: url(../images/gray_arrow_collapse.svg);
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		cursor: pointer;
+		opacity: 1;
+	}
+}
+
+// Rotate the arrow when expanded
+.learndash_navigation_lesson_topics_list .list_arrow.expand,
+.rtl .learndash_navigation_lesson_topics_list .list_arrow.expand {
+	transform: rotate(90deg);
+}
+
+// Remove LD default margin
+.course_navigation .learndash_navigation_lesson_topics_list .lesson {
+	margin: 0;
+}
+
+// Make everything full width
+.course_navigation .list_lessons {
+	width: 100%;
+}
+
+// Adjust line-height for both lessons & topics
+.course_navigation .lesson a,
+.course_navigation li a {
+	line-height: 1.4;
+}
+
+// force <span>s to display block
+.course_navigation .topic_item {
+	display: block;
+}
+
+// for lessons
+.learndash_navigation_lesson_topics_list .lesson a,
+// for topics
+.course_navigation a {
+	display: block;
+	padding: 7px 3px;
+	border-bottom: 1px solid $lightgrey-transparent;
+}
+
+.learndash_navigation_lesson_topics_list .topic-completed span,
+.learndash_navigation_lesson_topics_list .topic-notcompleted span {
+	// reset LD styles
+	display: inline;
+	min-height: 0;
+	line-height: 1.4;
+	padding: 0;
+	// remove icons from <span> tags
+	background: none;
+}
+
+// put complete/not complete icons on <a> tags
+// topics
+.learndash_navigation_lesson_topics_list .topic-completed,
+.learndash_navigation_lesson_topics_list .topic-notcompleted {
+	background-size: 16px;
+	background-repeat: no-repeat;
+	// move icons from the left to the right
+	background-position: calc(100% - 8px) 50%;
+	// indent topics & create spacing for icons
+	padding-right: 24px;
+	padding-left: 1em;
+	border-bottom: 1px solid $lightgrey-transparent;
+}
+
+// indent topic quizzes
+.widget ul.learndash-topic-quiz-list {
+	margin-left: 0;
+
+	a {
+		padding-left: 2em;
+	}
+}
+
+.learndash_navigation_lesson_topics_list .topic-completed,
+.course_navigation .lesson_completed .lesson a {
+	background-image: url(../images/completed.svg);
+}
+
+.learndash_navigation_lesson_topics_list .topic-notcompleted,
+.course_navigation .lesson_incomplete .lesson a {
+	background-image: url(../images/not-complete.svg);
+}
+
+// Small text/link at bottom of "course navigation" widget
+// "Return to [COURSE NAME]"
+.course_navigation .widget_course_return {
+	margin: 1em 0 0;
+	padding: 0;
+	line-height: 1.5;
+	border: 0;
+
+	// ← &larr;
+	&:before {
+		content: '\2190 ';
+	}
+
+	.rtl &:before {
+		content: '';
+	}
+	// → &rarr;
+	.rtl &:after {
+		content: ' \2192';
+	}
+
+	a {
+		display: inline;
+		border: 0;
+		padding: 0;
+	}
+}
+
+
+
+/**
+ * 5.4 - Courses Widget & Lessons Widget
+ */
+
+// Create consistency amongst both widgets
+.widget_sfwd-lessons-widget,
+.widget_sfwd-courses-widget {
+
+	ul li h4 {
+		font-size: 1em;
+		font-weight: normal;
+		text-transform: none;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+// Lessons Widget only
+.widget_sfwd-lessons-widget {
+
+	ul {
+		// reset LD styles
+		padding: 0;
+	}
+
+	ul li a {
+		font-size: 1em;
+		line-height: 1.5;
+	}
+
+	.completed {
+		font-style: normal;
+		text-decoration: none;
+
+		&:after {
+			content: ' (complete)';
+			color: #999;
+		}
+	}
+
+} // .widget_sfwd-lessons-widget
+
+
+
+/**
+ * 6.0 - Assignments
+ */
+
+// Revisit this later when I have time to upload assignments and evaluate LD styles
+
+
+
+/**
+ * 7.0 - Profile
+ */
+#learndash_profile {
+	// make room for expand/collapse links
+	padding-top: 2.5em;
+}
+
+#learndash_profile .expand_collapse {
+	right: 0.375em;
+}
+
+
+
+/**
+ * 7.1 - Profile Info
+ */
+
+#learndash_profile {
+
+	.profile_info {
+		padding: 1em;
+		overflow: hidden;
+	}
+
+	.profile_info .profile_avatar {
+		width: auto;
+		float: left;
+		margin-right: 1em;
+
+		@media (max-width: 600px) {
+			float: none;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		img {
+			border: 0;
+			border-radius: 0;
+			padding: 0;
+			// Twenty Nineteen adds width & height on ".avatar"
+			width: auto;
+			height: auto;
+		}
+
+		.rtl & {
+			float: right;
+			margin-right: 0;
+			margin-left: 1em;
+		}
+
+	} // .profile_avatar
+
+	.learndash_profile_details {
+		float: left;
+		line-height: 1.5;
+	}
+
+	.profile_edit_profile {
+		margin-top: 0.5em;
+		text-align: center;
+		line-height: 1;
+		font-size: 95%;
+		text-transform: capitalize;
+
+		a {
+			font-size: 100%;
+		}
+
+		a:hover,
+		a:active,
+		a:focus {
+			text-decoration: underline;
+		}
+	}
+	
+} // #learndash_profile
+
+
+
+/**
+ * 7.2 - Registered Courses List
+ */
+
+// Expand/Collapse Arrows
+#learndash_profile .list_arrow.expand,
+#learndash_profile .list_arrow.collapse {
+	position: relative;
+	// reset LD styles
+	padding: 0;
+	// remove LD icon & positioning
+	background: none;
+	min-width: 26px;
+	
+	&:before {
+		position: absolute;
+		top: 0.4375em;
+		left: 0;
+		content: '';
+		width: 26px;
+		height: 26px;
+		background: url(../images/gray_arrow_collapse.svg) no-repeat;
+		background-size: 26px;
+		opacity: 0.55;
+		transition: all 0.2s;
+	}
+
+	.rtl &:before {
+		transform: rotate(180deg);
+	}
+
+	&:hover:before,
+	&:active:before {
+		cursor: pointer;
+		opacity: 1;
+	}
+}
+
+// When arrow is in expanded mode
+#learndash_profile .list_arrow.expand:before,
+.rtl #learndash_profile .list_arrow.expand:before {
+	transform: rotate(90deg);
+}
+
+// Each Course Row
+#course_list [id^="course"] {
+	border-bottom: 2px solid $lightgrey-transparent;
+}
+
+#learndash_profile #course_list h4 {
+	// so we can absolutely position status & certificate icons
+	position: relative;
+}
+
+#learndash_profile .learndash-course-link {
+	width: 100%;
+	float: none;
+	padding: 0;
+}
+
+#learndash_profile .learndash-course-link a {
+	line-height: 1.4;
+	// 80px makes room for status & certificate icons
+	padding: 0.675em 80px 0.675em 0.5em;
+
+	.rtl & {
+		padding: 0.675em 0.5em 0.675em 90px;
+	}
+}
+
+#learndash_profile .learndash-course-status {
+	float: none;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 26px;
+
+	.rtl & {
+		right: auto;
+		left: 0;
+	}
+
+	a {
+		position: absolute;
+		top: 0.4375em;
+		right: 0;
+		display: block;
+		width: 26px;
+		height: 26px;
+		line-height: 26px;
+		padding: 0;
+		text-indent: -999em;
+	}
+	/* complete/incomplete icons already added on the :before pseudo-element from previous styles */
+}
+
+#learndash_profile .learndash_profile_heading .ld_profile_certificate {
+	// remove "Certificate" heading
+	display: none;
+}
+
+// disable clicks when no certificate is available
+.learndash-course-certificate a[href="#"] {
+	cursor: default;
+	pointer-events: none;
+	opacity: 0;
+}
+
+#learndash_profile .learndash-course-certificate {
+	float: none;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 24px;
+
+	.rtl & {
+		right: auto;
+		left: 0;
+	}
+
+	a {
+		position: absolute;
+		top: 9px;
+		right: 45px;
+		display: block;
+		width: 24px;
+		height: 24px;
+		line-height: 24px;
+		padding: 0 !important;
+
+		.rtl & {
+			right: auto;
+			left: 65px;
+		}
+	}
+
+} // .learndash-course-certificate
+
+#learndash_profile .learndash-course-certificate .certificate_icon_large,
+.learndash_profile_quizzes .certificate_icon {
+	// these empty <div>s are inserted into the markup
+	// if a certificate is available for download
+	display: block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/icon-certificate.svg) no-repeat;
+	background-size: 24px;
+	opacity: 0.7;
+
+	&:hover,
+	&:active,
+	&:focus {
+		opacity: 1;
+	}
+}
+
+// Course Progress & Quiz Area
+// This is the hidden area when collapsed
+#learndash_profile .flip {
+	margin-bottom: 1.25em;
+	padding: 0 0.5em;
+}
+
+// Remove bold on "Course Progress Overview" heading
+#learndash_profile .flip .learndash_profile_heading {
+	font-weight: normal;
+	font-size: 95%;
+	color: inherit;
+	padding-left: 0;
+	border: 0;
+	// Needed to override Astra's LD inline CSS
+	background: none;
+}
+
+// Progress Bar Section
+#learndash_profile .course_progress {
+	width: 100%;
+	float: none;
+	margin: 0 0 0.5em;
+}
+
+// "XX% Complete", under the progress bar
+#learndash_profile #course_list .flip .right {
+	padding: 0;
+	width: 100%;
+	text-align: left;
+	font-size: 90%;
+	line-height: 1;
+	color: #777;
+}
+
+.rtl #learndash_profile #course_list .flip .right {
+	text-align: right;
+	float: none;
+}
+
+
+
+/**
+ * 7.3 - Profile Quizzes
+ */
+
+#learndash_profile .learndash_profile_quizzes {
+	margin-top: 1em;
+
+	// Shrink font size to create more space for columns on smaller devices
+	@media (max-width: 800px) {
+		font-size: 85%;
+	}
+
+	& > div > div {
+		display: block;
+		padding: 0 5px;
+	}
+
+	// Remove padding on headings
+	.learndash_profile_quiz_heading {
+		padding: 0 0 0.25em;
+		// Needed to override Astra's LD inline CSS
+		background: none;
+		color: inherit;
+	}
+
+	// Remove these headings
+	.learndash_profile_quiz_heading .certificate,
+	.learndash_profile_quiz_heading .scores {
+		display: none;
+	}
+
+	.quiz_title {
+		margin-right: auto;
+		width: auto;
+
+		.rtl & {
+			margin-right: 0;
+			margin-left: auto;
+		}
+	}
+
+	.passed .quiz_title,
+	.failed .quiz_title {
+		line-height: 1.4;
+		width: 100%;
+		padding: 0;
+		display: flex;
+
+		.passed_icon,
+		.failed_icon {
+			min-width: 20px;
+		}
+	}
+
+	.learndash_profile_quiz_heading .quiz_date,
+	.passed .quiz_date,
+	.failed .quiz_date {
+		min-width: 65px;
+		
+		@media (min-width: 500px) {
+			min-width: 150px;
+		}
+
+		@media (min-width: 800px) {
+			padding-left: 15px;
+		}
+
+		@media (min-width: 1100px) {
+			min-width: 250px;
+		}
+	}
+
+	.passed .scores,
+	.failed .scores {
+		min-width: 50px;
+
+		@media (min-width: 800px) {
+			min-width: 65px;
+		}
+	}
+
+	.certificate,
+	.statistics,
+	.scores,
+	.learndash_profile_quiz_heading .certificate,
+	.quiz_date {
+		text-align: right;
+	}
+
+	.rtl & .certificate,
+	.rtl & .statistics,
+	.rtl & .scores,
+	.rtl & .learndash_profile_quiz_heading .certificate,
+	.rtl & .quiz_date {
+		text-align: left;
+	}
+
+	// Each Quiz Row
+	.failed,
+	.passed {
+		padding: 0.375em 0;
+		border-bottom: 1px solid $lightgrey-transparent;
+		align-items: center;
+	}
+
+	.passed .scores {
+		color: $positive-color;
+	}
+
+	.passed_icon,
+	.failed_icon,
+	.pending_icon {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		background-size: 20px;
+		margin-left: 0;
+		margin-right: 8px;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+
+		.rtl & {
+			margin-left: 8px;
+		}
+	}
+
+	.passed_icon {
+		background-image: url('../images/checkmark.svg');
+	}
+
+	.failed_icon {
+		background-image: url('../images/x.svg');
+	}
+
+	.pending_icon {
+		background-image: url('../images/clock.svg');
+	}
+
+	.statistic_icon {
+		background: url('../images/statistics.svg') no-repeat 0 0;
+		width: 20px;
+		height: 20px;
+		margin: 0;
+		background-size: 20px;
+		opacity: 0.7;
+
+		&:hover,
+		&:active,
+		&:focus {
+			opacity: 1;
+		}
+	}
+
+} // .learndash_profile_quizzes
+
+
+
+/**
+ * 8.0 - Pager
+ *
+ * Arrow navigation located below certain widgets to load more content.
+ */
+.ld-course-progress-pager-container,
+.ld-quiz-progress-pager-container {
+	margin-top: 1em;
+}
+
+.learndash-pager {
+	// reset LD styles
+	margin: 0;
+	padding: 0;
+
+	// apply same styles to both
+	.pager-legend,
+	.pager-legend .pagedisplay {
+		float: none;
+		display: block;
+		clear: both;
+		position: static;
+		color: #777;
+	}
+
+	span.pager-left,
+	span.pager-right {
+		margin-bottom: 0.5em;
+	}
+
+	.rtl & span.pager-left {
+		float: right;
+		margin-left: 5px;
+	}
+	.rtl & span.pager-right {
+		float: right;
+	}
+
+	a {
+		line-height: 1;
+		padding: 0.375em 0.875em;
+		background-color: $lightgrey-transparent;
+
+		&.disabled {
+			opacity: 0.5;
+			cursor: default;
+			pointer-events: none;
+		}
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: rgba( 0, 0, 0, 0.2 );
+		}
+	} // a
+
+} // .learndash-pager
+
+
+
+/**
+ * 9.0 - wpProQuiz
+ */
+
+/**
+ * 9.1 - wpProQuiz: Top Section
+ */
+
+// Quiz "Results" Header
+// Using <h4> because the quiz summary question list uses the same class, but on <h5>s.
+.wpProQuiz_content h4.wpProQuiz_header {
+	margin: 0 0 1em;
+}
+
+// You answered X of X questions correctly
+// This bolds just the numbers in the sentence
+.wpProQuiz_header + p span {
+	font-weight: bold;
+}
+
+// Quiz Time
+// Shown after a quiz is taken
+// Displays amount of time it took to complete
+.wpProQuiz_quiz_time {
+	margin: 0 0 1em;
+}
+
+// Points message
+// Shown after a quiz is taken
+.wpProQuiz_content .wpProQuiz_points,
+.wpProQuiz_content .wpProQuiz_earned_points,
+.wpProQuiz_content .wpProQuiz_graded_points {
+	font-weight: normal;
+	text-align: left;
+	margin: 0 0 1em;
+
+	.rtl & {
+		text-align: right;
+	}
+}
+
+// Just for documentation purposes, these are in LearnDash's default styles.
+// .wpProQuiz_content .wpProQuiz_list,
+// .wpProQuiz_content .wpProQuiz_listItem,
+// .wpProQuiz_content .wpProQuiz_questionList,
+// .wpProQuiz_content .wpProQuiz_sortStringList,
+// .wpProQuiz_content .wpProQuiz_sortStringList,
+// .wpProQuiz_content .wpProQuiz_maxtrixSortCriterion,
+// .wpProQuiz_content .wpProQuiz_resultsList,
+// .wpProQuiz_content .wpProQuiz_catOverview ol {
+// 	// keep default
+// 	list-style-type: none;
+// 	margin: 0;
+// 	padding: 0;
+// }
+
+// Highlights the 00:00:00 part of the "time taken" message
+.wpProQuiz_quiz_time span {
+	display: inline;
+	background: $lightgrey;
+	padding: 0 5px;
+	font-family: monospace;
+	font-size: 150%;
+}
+
+// Quiz Points Awarded AND
+// Quiz Points Graded
+// Shown right after finishing a quiz
+// "X of X" questions, "X of X points awarded"
+// .wpProQuiz_points span:nth-child(1),
+// .wpProQuiz_points span:nth-child(2),
+// .wpProQuiz_graded_points span:nth-child(1),
+// .wpProQuiz_graded_points span:nth-child(2), {
+// 	// nothing yet
+// }
+
+// Bold the "(XX%)" at the end of the sentences
+.wpProQuiz_points span,
+.wpProQuiz_graded_points span {
+	font-weight: bold;
+}
+
+// Quiz Time Limit
+// Display as text, above the countdown bar
+.wpProQuiz_content .wpProQuiz_time_limit .time {
+	font-weight: normal;
+	margin: 0 0 1em;
+
+	// Highlights the "00:00:00" part
+	span {
+		display: inline;
+		background: $lightgrey;
+		padding: 0 5px;
+		font-family: monospace;
+		font-size: 160%;
+	}
+}
+
+// Quiz Countdown Progress Bar
+// if a time limit is set
+// Create a container for it using :before
+.wpProQuiz_content .wpProQuiz_time_limit .wpProQuiz_progress {
+	height: 24px;
+	background: $positive-color;
+	box-shadow: inset 0 1px 3px rgba( 0, 0, 0, 0.08 );
+	border-radius: 12px;
+	margin: 0 0 1em;
+}
+
+// "Time has expired" message
+.wpProQuiz_content .wpProQuiz_time_limit_expired {
+	text-align: left;
+	font-size: inherit;
+	margin: 0 0 1em;
+}
+
+
+/**
+ * 9.2 - wpProQuiz: Results Table
+ */
+
+// Shows graph of average score vs. user's score
+.wpProQuiz_content .wpProQuiz_resultTable {
+	margin: 1em 0;
+	width: 100%;
+	border: 0;
+	background: $lightgrey;
+	padding: 1em;
+	font-weight: normal;
+}
+
+// Name (left column)
+.wpProQuiz_content .wpProQuiz_resultName {
+	width: 40%;
+	border: 0;
+	padding: 0.5em;
+}
+
+// Bar graph & percent value (right column)
+.wpProQuiz_content .wpProQuiz_resultValue {
+	padding: 0.5em 0;
+
+	// the bar itself
+	div {
+		color: inherit;
+		box-shadow: none;
+		height: 1rem;
+		margin-right: 4px;
+	}
+}
+
+
+/**
+ * 9.3 - wpProQuiz: Category Overview
+ */
+
+// A breakdown is shown after the quiz is taken
+.wpProQuiz_content .wpProQuiz_catOverview {
+	margin: 0 0 1em;
+}
+// .wpProQuiz_content .wpProQuiz_catOverview li {
+// 	// keep default
+// 	list-style: none;
+// 	padding: 0;
+// 	clear: left;
+// 	border-bottom: 1px dashed #aaa;
+// 	height: 1.05em;
+// 	margin: 10px 0 0 0;
+// 	position: relative;
+// }
+// .wpProQuiz_content .wpProQuiz_catOverview span {
+// 	// keep default
+// 	background: #fff;
+// 	padding: 0 3px 0 0;
+// 	float: left;
+// 	position: absolute;
+// 	text-decoration: none;
+// }
+
+
+/**
+ * 9.4 - wpProQuiz: Leaderboard
+ */
+
+// Result entered into Leaderboard box
+// Contains "Send" button, as well as fields for name/email
+.wpProQuiz_content .wpProQuiz_addToplist {
+	margin: 1em 0;
+	background-color: $lightgrey;
+	padding: 1em;
+	border: 0;
+}
+
+// Confirmation message shown after clicking "Send"
+.wpProQuiz_content .wpProQuiz_addToplistMessage {
+	border: 1px solid #ccc;
+	background-color: #fff;
+	margin-bottom: 0;
+	border-radius: 0;
+	padding: 0.5em 1em;
+	color: inherit;
+}
+
+// Actual Leaderboard Table
+// Beneath the "Show Leaderboard" button
+// Shown on click (display:none --> display:block)
+.wpProQuiz_toplistTable {
+	border: 0;
+	margin: 1em 0;
+
+	caption {
+		padding-bottom: 5px;
+		font-size: 80%;
+		color: inherit;
+		opacity: 0.5;
+	}
+
+	thead tr {
+		background: transparent;
+		border-bottom: 2px solid $lightgrey-transparent;
+		padding: 0.375em 0.5em;
+		color: inherit;
+		font-weight: bold;
+	}
+	thead th {
+		background: transparent;
+	}
+
+	td, th {
+		padding: 0.5em;
+		text-align: left;
+	}
+
+	// bc LD puts inline style on date column in Leaderboard table
+	td {
+		color: inherit !important;
+		font-size: inherit !important;
+	}
+
+	tbody td:first-child {
+		font-weight: normal;
+	}
+
+} // .wpProQuiz_toplistTable
+
+
+/**
+ * 9.5 - wpProQuiz: Question Review Box
+ *
+ * Displayed after a quiz is complete, below all the action buttons.
+ * Also displayed during a quiz if the 'review' option is enabled.
+ */
+
+// Container for entire review area
+.wpProQuiz_content .wpProQuiz_reviewDiv {
+	margin: 1.25em 0;
+}
+
+// Container for all the numbered squares
+.wpProQuiz_content .wpProQuiz_reviewQuestion,
+.wpProQuiz_content .wpProQuiz_box {
+	padding: 7px 7px 0;
+	border: 0;
+	background-color: $lightgrey;
+	position: relative;
+}
+
+.wpProQuiz_content .wpProQuiz_reviewQuestion ol,
+.wpProQuiz_content .wpProQuiz_checkPage ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	zoom: 1;
+	position: relative;
+}
+
+// Each, Individual Question #
+.wpProQuiz_content .wpProQuiz_reviewQuestion li,
+.wpProQuiz_content .wpProQuiz_checkPage li {
+	// convert to flexbox at some point
+	float: left;
+	margin: 0 7px 7px 0;
+	border: 0;
+	box-shadow: 0 0 0 1px rgba( 0, 0, 0, 0.2 );
+	padding: 6px;
+	width: auto;
+	height: auto;
+	min-width: 15px;
+	text-align: center;
+	line-height: 1;
+	background: #fff;
+	cursor: pointer;
+	list-style-type: none;
+	background-image: none;
+	transition: all .2s;
+}
+
+.wpProQuiz_content .wpProQuiz_reviewQuestion li.wpProQuiz_reviewQuestionTarget {
+	font-weight: bold;
+	box-shadow: 0 0 0 3px #666;
+	background: #fff;
+}
+
+.wpProQuiz_content .wpProQuiz_reviewQuestion li.wpProQuiz_reviewQuestionSolved,
+.wpProQuiz_content .wpProQuiz_box li.wpProQuiz_reviewQuestionSolved {
+	font-weight: bold;
+	box-shadow: 0 0 0 1px $positive-color;
+	background: $positive-color;
+	color: #fff;
+}
+
+// When I figure out how to override the orange/yellow box for "Review",
+// I should update this accordingly
+.wpProQuiz_content .wpProQuiz_reviewQuestion li.wpProQuiz_reviewQuestionReview,
+.wpProQuiz_content .wpProQuiz_box li.wpProQuiz_reviewQuestionReview {
+	font-weight: bold;
+	border-color: #ffb800;
+	box-shadow: 0 0 0 1px #ffb800;
+	background: #ffb800;
+	color: #000;
+}
+
+// Legend, below the block of question #s
+.wpProQuiz_content .wpProQuiz_reviewLegend {
+	padding: 5px;
+	margin: 0 0 1em;
+}
+
+.wpProQuiz_content .wpProQuiz_reviewLegend li {
+	float: left;
+	padding-right: 1.25em;
+}
+// .wpProQuiz_content .wpProQuiz_reviewColor {
+// 	// keep default
+//   width: 10px;
+//   height: 10px;
+//   display: inline-block;
+//   margin-right: 2px;
+// }
+
+
+/**
+ * 9.6 - wpProQuiz: Question List
+ *
+ * The main list of questions shown onclick of "Quiz Summary" button
+ */
+
+// Container with all questions & answers
+.wpProQuiz_quiz {
+	margin-top: 1em;
+	padding-top: 1em;
+	border-top: 2px solid #d5d5d5;
+}
+
+.wpProQuiz_list h5.wpProQuiz_header {
+	margin: 0;
+}
+
+// Wrapper for each question
+.wpProQuiz_content .wpProQuiz_listItem {
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+	border-bottom: 2px solid #d5d5d5;
+}
+
+.wpProQuiz_question {
+	margin: 0 !important;
+	// necessary, because LearnDash uses inline styles
+}
+
+.wpProQuiz_content .wpProQuiz_question_text {
+	margin: 0;
+
+	p {
+		margin-bottom: 1em;
+	}
+}
+
+// Wrapper for just the answers
+.wpProQuiz_content .wpProQuiz_questionList,
+// For modal statistics
+.wpProQuiz_modal_window #wpProQuiz_user_content .wpProQuiz_questionList {
+	margin-bottom: 1em;
+	background: transparent;
+	border: 0;
+	padding: 0;
+	list-style: none;
+	text-align: left;
+
+	// adds space between likert-style answers (1 2 3 4 5)
+	p label {
+		padding: 0 0.375em;
+	}
+}
+
+.wpProQuiz_modal_window #wpProQuiz_user_content .wpProQuiz_questionList {
+	margin-left: 0;
+}
+
+.wpProQuiz_content .wpProQuiz_questionListItem {
+	padding: 3px;
+	margin-bottom: 5px;
+
+	.rtl & {
+		text-align: right;
+	}
+
+	input[type="radio"],
+	input[type="checkbox"] {
+		margin: 0 7px;
+	}
+
+	.wpProQuiz_questionInput[disabled] {
+		opacity: 0.8;
+	}
+
+} // .wpProQuiz_questionListItem
+
+// For statistics modal
+.wpProQuiz_questionList input[disabled] {
+	opacity: 0.8;
+}
+
+// Correct Answers
+.wpProQuiz_content .wpProQuiz_answerCorrect,
+.wpProQuiz_content .wpProQuiz_answerCorrect .wpProQuiz_questionInput[type="text"] {
+	background: transparent;
+	color: $positive-color;
+	font-weight: bold;
+	opacity: 1;
+}
+.wpProQuiz_content .wpProQuiz_answerCorrect .wpProQuiz_sortStringItem {
+	color: $positive-color;
+}
+
+// Incorrect Answers
+.wpProQuiz_content .wpProQuiz_answerIncorrect,
+.wpProQuiz_content .wpProQuiz_answerIncorrect .wpProQuiz_questionInput[type="text"] {
+	background: transparent;
+	color: $negative-color;
+	font-weight: bold;
+	opacity: 1;
+}
+.wpProQuiz_content .wpProQuiz_answerIncorrect .wpProQuiz_sortStringItem {
+	color: $negative-color;
+}
+
+// Sortable Questions
+// Put items in correct order
+
+// Each individual answer
+.wpProQuiz_content .wpProQuiz_sortable, // for sortable questions
+.wpProQuiz_sortStringItem, // for matrix sorting questions
+// for statistics modal
+.wpProQuiz_modal_window #wpProQuiz_user_content .wpProQuiz_sortable,
+.wpProQuiz_modal_window #wpProQuiz_user_content .wpProQuiz_sortStringItem {
+	padding: 0.375em 0.5em;
+	background: #fff;
+	border: 1px solid $lightgrey-transparent;
+	// !important overrides forced inline style by LD
+	box-shadow: 0 1px 3px rgba(0,0,0,0.05),
+							0 1px 1px rgba(0,0,0,0.1) !important;
+}
+
+// Matrix Sorting Questions
+// Match two items together out of a larger list
+
+// Wrapper for available answers
+.wpProQuiz_content .wpProQuiz_matrixSortString {
+	background: $lightgrey;
+	padding: 1em;
+	border: 0;
+}
+
+// List of available answers
+.wpProQuiz_content ul.wpProQuiz_sortStringList {
+	padding: 0.25em;
+	overflow: hidden; // bc of floated elements inside
+}
+
+// Each individual answer
+.wpProQuiz_content ul.wpProQuiz_sortStringList > li {
+	margin: 0 7px 7px 0;
+}
+
+// These are <td> cells for the answer area
+.wpProQuiz_content .wpProQuiz_mextrixTr > td {
+	background: $lightgrey;
+}
+
+// Inside the table, these are <div>s within each <td>
+.wpProQuiz_content .wpProQuiz_maxtrixSortText,
+.wpProQuiz_content ul.wpProQuiz_maxtrixSortCriterion {
+	padding: 0.25em;
+}
+
+// Cloze Questions
+// These are like fill in the blank
+.wpProQuiz_content .wpProQuiz_cloze input[type="text"],
+// for statistics modal
+.wpProQuiz_modal_window #wpProQuiz_user_content .wpProQuiz_cloze {
+	height: auto;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid;
+	margin: 0;
+	padding: 0.125em 0.375em;
+	color: inherit;
+	border-radius: 0;
+	box-shadow: none;
+	opacity: 1; // bc they are [disabled] & themes often reduce opacity
+}
+
+.wpProQuiz_content .wpProQuiz_cloze input[type="text"]:hover {
+	background: #fff9c4;
+}
+.wpProQuiz_content .wpProQuiz_cloze input[type="text"]:focus {
+	background: #fff176;
+}
+
+// The correct text that appears in parenthesis after the blank
+.wpProQuiz_clozeCorrect,
+// stats modal
+#wpProQuiz_user_content .wpProQuiz_cloze.wpProQuiz_answerCorrect {
+	color: $positive-color;
+}
+#wpProQuiz_user_content .wpProQuiz_cloze.wpProQuiz_answerIncorrect {
+	color: $negative-color;
+}
+
+// Can't do anything about the colors for incorrect/correct
+// because the lack of a class, plus LD injects inline style.
+
+// Likert Questions
+// .wpProQuiz_questionList[data-type="assessment_answer"] {
+// 	// not much to do with these yet
+// 	// also, markup is tough to work with
+// }
+
+// Essay Questions
+// .wpProQuiz_questionListItem .wpProQuiz_questionEssay {
+// 	// this is the <textarea> element
+// 	// let the theme dictate default styles
+// }
+
+// Small note below the textarea
+.wpProQuiz_questionList .graded-disclaimer {
+	font-size: 85%;
+	opacity: 0.65;
+	margin: 7px 0 0;
+}
+
+// Hint / Tips
+.wpProQuiz_content .wpProQuiz_tipp > div {
+	left: 0;
+	right: 0;
+	padding: 1.75em;
+	background: #ecf9ff;
+	border: 2px solid #c7eafa;
+	border-radius: 4px;
+	box-shadow: none;
+}
+
+
+// Response message below the question
+.wpProQuiz_content .wpProQuiz_response,
+// For statistics modal
+.wpProQuiz_modal_window #wpProQuiz_user_content .wpProQuiz_response {
+	background: $lightgrey;
+	border: 0;
+	padding: 0.75em;
+	margin: 1em 0 0;
+	box-shadow: none;
+}
+
+// Just the statistics modal
+.wpProQuiz_modal_window #wpProQuiz_user_content .wpProQuiz_response {
+	background: #fff;
+	border: 1px solid $lightgrey-transparent;
+}
+
+.wpProQuiz_content .wpProQuiz_correct,
+.wpProQuiz_content .wpProQuiz_incorrect {
+	span {
+		font-weight: bold;
+	}
+
+	p:last-child {
+		margin: 0;
+	}
+}
+
+.wpProQuiz_content .wpProQuiz_correct > span,
+.wpProQuiz_modal_window #wpProQuiz_user_content .wpProQuiz_answerCorrect {
+	background: transparent;
+	color: $positive-color;
+}
+
+.wpProQuiz_content .wpProQuiz_incorrect > span,
+.wpProQuiz_modal_window #wpProQuiz_user_content .wpProQuiz_answerIncorrect {
+	background: transparent;
+	color: $negative-color;
+}
+
+
+// Quiz Sending...
+// Disable progress bar animation when calculating quiz results
+// It causes issues when the quiz is added to a modal via page builder
+.wpProQuiz_sending div.course_progress_blue {
+	animation: none !important;
+}
+
+
+
+
+/**
+ * 9.7 - wpProQuiz: Quiz Statistics Modal
+ */
+
+#wpProQuiz_user_overlay {
+
+	.wpProQuiz_modal_window {
+		padding: 0 !important;
+		top: 8px;
+		bottom: 8px;
+		left: 8px;
+		right: 8px;
+
+		@media (max-width: 1150px) {
+			overflow: scroll;
+		}
+
+		@media (min-width: 600px) and (min-height: 600px) {
+			padding: 1em !important;
+			top: 20px;
+			bottom: 20px;
+			left: 20px;
+			right: 20px;
+		}
+	} // .wpProQuiz_modal_window
+
+	.wpProQuiz_modal_backdrop {
+		background: #000;
+		opacity: 0.55;
+	}
+
+} // #wpProQuiz_user_overlay
+
+// loading data
+#wpProQuiz_loadUserData {
+	max-width: 310px;
+	margin: 60px auto 0 !important;
+	padding: 1.5em;
+	background: rgba( 0, 0, 0, 0.1 ) !important;
+	border-radius: 8px;
+	border: 0;
+	font-size: 24px;
+	color: #999;
+	text-align: center;
+	animation: 1s ease loading-pulse infinite;
+}
+
+// close button
+#wpProQuiz_overlay_close {
+	position: fixed !important;
+	top: 8px !important;
+	right: 8px !important;
+	width: auto;
+	height: auto;
+	padding: 10px 17px;
+	margin: 0;
+	border: 0;
+	border-radius: 0;
+	background: rgba( 0, 0, 0, 0.7 );
+	box-shadow: -2px 2px 0 #fff;
+	font-size: 18px !important;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: -0.02rem;
+	text-shadow: none;
+
+	&:hover {
+		background: #1565c0;
+	}
+
+	@media (min-width: 600px) and (min-height: 600px) {
+		top: 20px !important;
+		right: 20px !important;
+	}
+}
+
+.wpProQuiz_modal_window #wpProQuiz_user_content {
+	margin: 0 !important;
+
+	h2 {
+		font-size: 16px;
+		font-weight: normal;
+		margin: 0;
+		padding: 0 15px;
+		color: #999;
+		font-family: sans-serif;
+		line-height: 22px;
+
+		&:first-of-type {
+			padding-top: 10px;
+		}
+
+		@media (min-width: 1000px) {
+			text-align: center;
+		}
+	} // h2
+
+	.wp-list-table {
+		margin-bottom: 0;
+
+		@media (min-width: 1000px) {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		// Question #
+		thead th:nth-child(1),
+		tbody th:nth-child(1) {
+			width: 45px !important;
+		}
+
+		// Question
+		thead th:nth-child(2),
+		tbody th:nth-child(2) {
+			width: 200px !important;
+
+			@media (min-width: 600px) {
+				width: 300px !important;
+			}
+		}
+
+		// Points
+		thead th:nth-child(3),
+		tbody th:nth-child(3) {
+			width: 90px !important;
+		}
+
+		// Correct
+		thead th:nth-child(4),
+		tbody th:nth-child(4) {
+			// default|width: 100px;
+		}
+
+		// Incorrect
+		thead th:nth-child(5),
+		tbody th:nth-child(5) {
+			// default|width: 100px;
+		}
+
+		// Hints Used
+		thead th:nth-child(6),
+		tbody th:nth-child(6) {
+			// default|width: 100px;
+		}
+
+		// Time
+		thead th:nth-child(7),
+		tbody th:nth-child(7) {
+			width: 110px;
+		}
+
+		// Points Scored
+		thead th:nth-child(8),
+		tbody th:nth-child(8) {
+			width: 90px !important;
+		}
+
+		// Results
+		thead th:nth-child(9),
+		tbody th:nth-child(9) {
+			// default|width: 100px;
+		}
+
+		thead th,
+		tfoot th {
+			background: rgba( 0, 0, 0, 0.06 );
+			box-shadow: none;
+			font-weight: bold;
+			color: #4c504a;
+		}
+
+		thead th {
+			border-bottom: 0;
+		}
+
+		tr {
+			transition: all 150ms ease;
+		}
+
+		th, td {
+			font-weight: normal;
+			vertical-align: middle;
+			text-align: center;
+			padding: 0.5em;
+
+			@media (min-width: 600px) and (min-height: 600px) {
+				padding: 0.75em;
+			}
+		}
+
+		th[style*="bold"] {
+			font-weight: normal;
+		}
+
+		thead th span[style*="x-small"] {
+			font-size: 80%;
+			font-weight: normal;
+		}
+
+		tbody tr:last-child {
+			display: none;
+		}
+
+		.categoryTr th {
+			background: #fff;
+			border-top: 2px solid #dcdcdc;
+			border-bottom: 2px solid #dcdcdc;
+
+			&:nth-child(2) {
+				width: 70px !important;
+				text-align: center;
+			}
+		}
+
+		// Sub-Total Row
+		[id*="wpProQuiz_ctr"] th {
+			border-top-width: 1px;
+		}
+
+		th[style*="green"],
+		td[style*="green"],
+		thead th:nth-child(4) {
+			color: $positive-color !important;
+		}
+
+		th[style*="red"],
+		td[style*="red"],
+		thead th:nth-child(5) {
+			color: $negative-color !important;
+		}
+
+		th p {
+			margin: 0;
+			line-height: 1.2;
+		}
+
+		tbody tr:nth-child(4n+4) {
+			background: #fafafa;
+		}
+		tbody tr:hover,
+		tfoot tr:hover th {
+			background: #ecf9ff;
+		}
+
+		.statistic_data {
+			display: inline-block;
+			margin-top: 0.375em;
+			padding: 0.25em;
+			border-radius: 3px;
+			font-weight: normal;
+			font-size: 85%;
+			text-decoration: none;
+			box-shadow: none;
+		}
+
+		tbody tr:hover .statistic_data {
+			background: rgba( 255, 255, 255, 0.7 );
+		}
+		tbody tr:hover .statistic_data:hover,
+		tbody tr:hover .statistic_data:active {
+			background: #fff;
+		}
+
+		tfoot th {
+			border-top: 3px solid #dcdcdc;
+
+			&:nth-child(2) {
+				text-transform: uppercase;
+				font-size: 110%;
+			}
+		}
+
+	} // .wp-list-table
+
+	.wpProQuiz_questionList > li {
+		background: none;
+	}
+
+	.wpProQuiz_mextrixTr > td {
+		border: 1px solid #d1d1d1;
+		padding: 5px;
+		vertical-align: middle;
+	}
+
+	.wpProQuiz_cloze + span {
+			font-family: monospace;
+	}
+
+	.alignleft {
+		display: inline;
+		float: left;
+		margin-right: 1.5em;
+	}
+
+	.alignright {
+		display: inline;
+		float: right;
+		margin-left: 1.5em;
+	}
+
+	.aligncenter {
+		clear: both;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+} // .wpProQuiz_modal_window #wpProQuiz_user_content
+
+
+
+/**
+ * 10.0 - Miscellaneous
+ *
+ * These are styles that LD uses for a few different elements. I'm keeping them here in case I decide to dequeue LD's stylesheets in the future.
+ */
+.no_radius {
+	border-radius: 0 !important;
+}
+.clear_both {
+	clear: both;
+}
+.ld-error {
+	color: $negative-color;
+}
+
+
+/**
+ * 11.0 - Course Grid Add-On
+ *
+ * These are styles for the official course grid add-on by LearnDash. It's a separate, free plugin that must be installed.
+ *
+ * Compatibility: Divi Plugin
+ * The Divi plugin adds styles for '#et-boc div'. Since LD does not have any IDs I can use to override this, I must add #et-boc in front of all course grid styles to override the Divi plugin.
+ */
+
+/**
+ * 11.1 - Category Dropdown Menu
+ */
+#ld_course_categorydropdown,
+#ld_lesson_categorydropdown,
+#ld_topic_categorydropdown,
+#et-boc #ld_course_categorydropdown,
+#et-boc #ld_lesson_categorydropdown,
+#et-boc #ld_topic_categorydropdown {
+	background: $offwhite;
+	padding: 1em;
+	margin-bottom: 1em;
+	border-radius: 8px;
+}
+
+// entire grid
+// #ld_course_list .ld-course-list-content .ld-course-list-items.row
+
+// Unfortunately, when using some page builders (Divi, Elementor),
+// #ld_course_list is not output in the HTML, so there is no ID
+// from LearnDash that I can use.
+
+// Fixes column issue with some themes that also use Bootstrap
+// Uncode theme is one example
+// Also looks like X theme and Cornerstone (theme.co)
+.ld-course-list-content .ld-course-list-items.row,
+#ld_course_list .ld-course-list-items.row,
+#et-boc .ld-course-list-items.row {
+	display: flex;
+	flex-wrap: wrap;
+	// remove default bootstrap spacing
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.ld-course-list-items {
+	// remove default bootstrap spacing
+	margin: 0;
+}
+
+.ld-course-list-content .ld_course_grid,
+#ld_course_list .ld-course-list-items .ld_course_grid,
+#et-boc .ld-course-list-items .ld_course_grid {
+	box-sizing: border-box;
+	// styles need to be placed here to create equal height items for flexbox
+	background: #fff;
+	border-radius: 8px;
+	border: 1px solid #ddd;
+	box-shadow: 0 1px 4px rgba( 0, 0, 0, 0.05 ),
+							0 4px 14px rgba( 0, 0, 0, 0.08 );
+	// remove default padding that bootstrap uses for spacing
+	padding: 0;
+	// to make for nice rounded corners
+	overflow: hidden;
+	// set up for hover animations in pro
+	transition: all 0.2s ease;
+}
+
+// 2 columns
+// col-md-6 col-sm-9
+@media (min-width: 576px) {
+	.ld-course-list-content .ld_course_grid.col-sm-9,
+	#ld_course_list .ld_course_grid.col-sm-9,
+	#et-boc .ld_course_grid.col-sm-9 {
+		flex: 0 0 48%;
+		max-width: 48%;
+		margin-right: 4%;
+		margin-bottom: 4%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-9:nth-child(2n),
+	#ld_course_list .ld_course_grid.col-sm-9:nth-child(2n),
+	#et-boc .ld_course_grid.col-sm-9:nth-child(2n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-9,
+	.rtl #ld_course_list .ld_course_grid.col-sm-9,
+	.rtl #et-boc .ld_course_grid.col-sm-9 {
+		margin-right: 0;
+		margin-left: 4%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-9:nth-child(2n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-9:nth-child(2n),
+	.rtl #et-boc .ld_course_grid.col-sm-9:nth-child(2n) {
+		margin-left: 0;
+	}
+}
+@media (min-width: 768px) {
+	.ld-course-list-content .ld_course_grid.col-md-6,
+	#ld_course_list .ld_course_grid.col-md-6,
+	#et-boc .ld_course_grid.col-md-6 {
+		flex: 0 0 48%;
+		max-width: 48%;
+		margin-right: 4%;
+		margin-bottom: 4%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-6,
+	.rtl #ld_course_list .ld_course_grid.col-md-6,
+	.rtl #et-boc .ld_course_grid.col-md-6 {
+		margin-left: 4%;
+	}
+}
+
+// 3 columns
+// col-sm-6 col-md-4
+@media (min-width: 576px) {
+	.ld-course-list-content .ld_course_grid.col-sm-6,
+	#ld_course_list .ld_course_grid.col-sm-6,
+	#et-boc .ld_course_grid.col-sm-6 {
+		flex: 0 0 48%;
+		max-width: 48%;
+		margin-right: 4%;
+		margin-bottom: 4%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-6:nth-child(2n),
+	#ld_course_list .ld_course_grid.col-sm-6:nth-child(2n),
+	#et-boc .ld_course_grid.col-sm-6:nth-child(2n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-6,
+	.rtl #ld_course_list .ld_course_grid.col-sm-6,
+	.rtl #et-boc .ld_course_grid.col-sm-6 {
+		margin-right: 0;
+		margin-left: 4%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-6:nth-child(2n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-6:nth-child(2n),
+	.rtl #et-boc .ld_course_grid.col-sm-6:nth-child(2n) {
+		margin-left: 0;
+	}
+}
+@media (min-width: 768px) {
+	.ld-course-list-content .ld_course_grid.col-md-4,
+	#ld_course_list .ld_course_grid.col-md-4,
+	#et-boc .ld_course_grid.col-md-4 {
+		flex: 0 0 31.5%;
+		max-width: 31.5%;
+		margin-right: 2.75%;
+		margin-bottom: 2.75%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-6:nth-child(2n),
+	#ld_course_list .ld_course_grid.col-sm-6:nth-child(2n),
+	#et-boc .ld_course_grid.col-sm-6:nth-child(2n) {
+		margin-right: 2.75%;
+	}
+	.ld-course-list-content .ld_course_grid.col-md-4:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-md-4:nth-child(3n),
+	#et-boc .ld_course_grid.col-md-4:nth-child(3n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-4,
+	.rtl #ld_course_list .ld_course_grid.col-md-4,
+	.rtl #et-boc .ld_course_grid.col-md-4 {
+		margin-right: 0;
+		margin-left: 2.75%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-6:nth-child(2n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-6:nth-child(2n),
+	.rtl #et-boc .ld_course_grid.col-sm-6:nth-child(2n) {
+		margin-right: 0;
+		margin-left: 2.75%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-4:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-md-4:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-md-4:nth-child(3n) {
+		margin-left: 0;
+	}
+}
+
+// 4 columns
+// col-sm-4 col-md-3
+@media (min-width: 576px) {
+	.ld-course-list-content .ld_course_grid.col-sm-4,
+	#ld_course_list .ld_course_grid.col-sm-4,
+	#et-boc .ld_course_grid.col-sm-4 {
+		flex: 0 0 31.5%;
+		max-width: 31.5%;
+		margin-right: 2.75%;
+		margin-bottom: 2.75%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-4:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-sm-4:nth-child(3n),
+	#et-boc .ld_course_grid.col-sm-4:nth-child(3n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-4,
+	.rtl #ld_course_list .ld_course_grid.col-sm-4,
+	.rtl #et-boc .ld_course_grid.col-sm-4 {
+		margin-right: 0;
+		margin-left: 2.75%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-4:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-4:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-sm-4:nth-child(3n) {
+		margin-left: 0;
+	}
+}
+@media (min-width: 768px) {
+	.ld-course-list-content .ld_course_grid.col-md-3,
+	#ld_course_list .ld_course_grid.col-md-3,
+	#et-boc .ld_course_grid.col-md-3 {
+		flex: 0 0 23.3%;
+		max-width: 23.3%;
+		margin-right: 2.26%;
+		margin-bottom: 2.26%;
+	}
+	.ld-course-list-content .ld_course_grid.col-md-3:nth-child(4n),
+	#ld_course_list .ld_course_grid.col-md-3:nth-child(4n),
+	#et-boc .ld_course_grid.col-md-3:nth-child(4n) {
+		margin-right: 0;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-4:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-sm-4:nth-child(3n),
+	#et-boc .ld_course_grid.col-sm-4:nth-child(3n) {
+		margin-right: 2.26%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-3,
+	.rtl #ld_course_list .ld_course_grid.col-md-3,
+	.rtl #et-boc .ld_course_grid.col-md-3,
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-4:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-4:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-sm-4:nth-child(3n) {
+		margin-right: 0;
+		margin-left: 2.26%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-3:nth-child(4n),
+	.rtl #ld_course_list .ld_course_grid.col-md-3:nth-child(4n),
+	.rtl #et-boc .ld_course_grid.col-md-3:nth-child(4n) {
+		margin-left: 0;
+	}
+}
+
+// 5 columns
+// 6 columns outputs the same exact classes
+// -- this appears to be a bug with LearnDash
+// col-sm-3 col-md-2
+@media (min-width: 576px) {
+	.ld-course-list-content .ld_course_grid.col-sm-3,
+	#ld_course_list .ld_course_grid.col-sm-3,
+	#et-boc .ld_course_grid.col-sm-3 {
+		flex: 0 0 23.3%;
+		max-width: 23.3%;
+		margin-right: 2.26%;
+		margin-bottom: 2.26%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-3:nth-child(4n),
+	#ld_course_list .ld_course_grid.col-sm-3:nth-child(4n),
+	#et-boc .ld_course_grid.col-sm-3:nth-child(4n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-3,
+	.rtl #ld_course_list .ld_course_grid.col-sm-3,
+	.rtl #et-boc .ld_course_grid.col-sm-3 {
+		margin-right: 0;
+		margin-left: 2.26%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-3:nth-child(4n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-3:nth-child(4n),
+	.rtl #et-boc .ld_course_grid.col-sm-3:nth-child(4n) {
+		margin-left: 0;
+	}
+}
+@media (min-width: 768px) {
+	.ld-course-list-content .ld_course_grid.col-md-2,
+	#ld_course_list .ld_course_grid.col-md-2,
+	#et-boc .ld_course_grid.col-md-2 {
+		flex: 0 0 18.5%;
+		max-width: 18.5%;
+		margin-right: 1.875%;
+		margin-bottom: 1.875%;
+	}
+	.ld-course-list-content .ld_course_grid.col-md-2:nth-child(5n),
+	#ld_course_list .ld_course_grid.col-md-2:nth-child(5n),
+	#et-boc .ld_course_grid.col-md-2:nth-child(5n) {
+		margin-right: 0;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-3:nth-child(4n),
+	#ld_course_list .ld_course_grid.col-sm-3:nth-child(4n),
+	#et-boc .ld_course_grid.col-sm-3:nth-child(4n) {
+		margin-right: 1.875%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-2,
+	.rtl #ld_course_list .ld_course_grid.col-md-2,
+	.rtl #et-boc .ld_course_grid.col-md-2 {
+		margin-right: 0;
+		margin-left: 1.875%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-3:nth-child(4n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-3:nth-child(4n),
+	.rtl #et-boc .ld_course_grid.col-sm-3:nth-child(4n) {
+		margin-left: 1.875%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-2:nth-child(5n),
+	.rtl #ld_course_list .ld_course_grid.col-md-2:nth-child(5n),
+	.rtl #et-boc .ld_course_grid.col-md-2:nth-child(5n) {
+		margin-left: 0;
+	}
+}
+
+// 7 columns
+// col-sm-2 col-md-1
+@media (min-width: 576px) {
+	.ld-course-list-content .ld_course_grid.col-sm-2,
+	#ld_course_list .ld_course_grid.col-sm-2,
+	#et-boc .ld_course_grid.col-sm-2 {
+		flex: 0 0 23.3%;
+		max-width: 23.3%;
+		margin-right: 2.26%;
+		margin-bottom: 2.26%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-2:nth-child(4n),
+	#ld_course_list .ld_course_grid.col-sm-2:nth-child(4n),
+	#et-boc .ld_course_grid.col-sm-2:nth-child(4n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-2,
+	.rtl #ld_course_list .ld_course_grid.col-sm-2,
+	.rtl #et-boc .ld_course_grid.col-sm-2 {
+		margin-right: 0;
+		margin-left: 2.26%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-2:nth-child(4n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-2:nth-child(4n),
+	.rtl #et-boc .ld_course_grid.col-sm-2:nth-child(4n) {
+		margin-left: 0;
+	}
+}
+@media (min-width: 768px) {
+	.ld-course-list-content .ld_course_grid.col-md-1,
+	#ld_course_list .ld_course_grid.col-md-1,
+	#et-boc .ld_course_grid.col-md-1 {
+		flex: 0 0 15%;
+		max-width: 15%;
+		margin-right: 2%;
+		margin-bottom: 2%;
+	}
+	.ld-course-list-content .ld_course_grid.col-md-1:nth-child(6n),
+	#ld_course_list .ld_course_grid.col-md-1:nth-child(6n),
+	#et-boc .ld_course_grid.col-md-1:nth-child(6n) {
+		margin-right: 0;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-2:nth-child(4n),
+	#ld_course_list .ld_course_grid.col-sm-2:nth-child(4n),
+	#et-boc .ld_course_grid.col-sm-2:nth-child(4n) {
+		margin-right: 2%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-1,
+	.rtl #ld_course_list .ld_course_grid.col-md-1,
+	.rtl #et-boc .ld_course_grid.col-md-1 {
+		margin-right: 0;
+		margin-left: 2%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-2:nth-child(4n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-2:nth-child(4n),
+	.rtl #et-boc .ld_course_grid.col-sm-2:nth-child(4n) {
+		margin-left: 2%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-1:nth-child(6n),
+	.rtl #ld_course_list .ld_course_grid.col-md-1:nth-child(6n),
+	.rtl #et-boc .ld_course_grid.col-md-1:nth-child(6n) {
+		margin-left: 0;
+	}
+}
+
+// single item
+// #ld_course_list .ld_course_grid .thumbnail,
+.ld_course_grid .thumbnail,
+#et-boc .ld_course_grid .thumbnail,
+// Twenty Nineteen theme compatibility
+.entry-content div.ld_course_grid .thumbnail {
+	max-width: 100%; // for Twenty Nineteen theme compat
+	padding: 0; // required to override Astra's padding
+	margin: 0; // for Twenty Nineteen theme compat
+	background: transparent;
+	border-radius: 0; // needs to stay
+	border: 0;
+	box-shadow: none;
+
+	// surrounding featured image
+	> a {
+		display: block;
+	}
+
+	// the image itself
+	a img {
+		display: block;
+		margin: 0;
+	}
+
+	// CAPTION contains title, description, button & progress bar
+	.caption {
+		position: relative; // for positioning the progress bar in pro version
+		padding: 1em 1.5em 0.75em;
+	}
+
+	.caption .entry-title {
+		color: #333;
+		line-height: 1.2;
+
+		// Twenty Nineteen theme compat
+		&:before {
+			display: none;
+		}
+	}
+
+	.caption .entry-content {
+		color: #808080;
+		font-size: 95%;
+		// Twenty Nineteen theme compat
+		padding: 0;
+	}
+
+	.caption .ld_course_grid_button {
+		margin-bottom: 15px !important;
+	}
+
+	a.btn {
+		font-size: 95%;
+		white-space: normal;
+	}
+
+} // .thumbnail
+
+
+// BuddyBoss Theme Compatibility
+body.page:not(.buddypress) .site-content .thumbnail:not(.comment),
+body.single:not(.buddypress):not(.bbpress) .site-content .thumbnail:not(.comment) {
+	padding: 0;
+}
+.thumbnail .btn {
+	width: auto;
+}
+
+
+// Astra Theme Compatibility
+// #ld_course_list .ld_course_grid .ast-article-single .entry-title,
+#ld_course_list .ast-article-single .entry-title,
+.ld_course_grid .ast-article-single .entry-title {
+	font-size: 1.5rem;
+}
+
+
+// Course Grid progress bar will always be 6px tall
+// This overrides any Pro setting in the Customizer
+.ld_course_grid dd.course_progress {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-top: -6px;
+	height: 6px;
+	border-radius: 0;
+
+	// Always hide the "X of Y steps completed" on the course grid
+	&:after {
+		display: none;
+	}
+}
+
+.ld_course_grid dd.course_progress div.course_progress_blue {
+	// remove any border radius that might be added in Customizer in Pro
+	border-radius: 0;
+}
+
+// Course Grid Ribbon
+.ld_course_grid .thumbnail.course .ld_course_grid_price,
+#et-boc .ld_course_grid .thumbnail.course .ld_course_grid_price {
+	top: 8px;
+	left: 8px;
+	padding: 4px 13px;
+	background: #409c4c;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1);
+	-moz-box-shadow: 1px 1px 4px rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1);
+	-webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1);
+	border-radius: 4px;
+	font-size: 90%;
+	text-shadow: none;
+
+	&:before {
+		display: none;
+	}
+
+	.rtl & {
+		left: unset;
+		right: 8px;
+	}
+
+	// &.ribbon-enrolled {
+	// 	// for the "enrolled" status ribbons
+	// }
+
+	// &.custom {
+	// 	// for ribbons with custom text
+	// }
+
+	// &.free {
+	// 	// for "free" courses
+	// }
+
+} // .ld_course_grid_price
+
+
+/**
+ * 20.0 - Uncanny Owl Toolkit Compatibility
+ *
+ * These styles clean up the design the Uncanny Owl's Toolkit plugin add when certain features are enabled.
+ *
+ * The uo_dashboard.css file loads after this one, so more specifity is needed in most cases.
+ */
+
+/**
+ * 20.1 - Uncanny Owl Dashboard [uo_dashboard]
+ *
+ * These styles clean up the design the Uncanny Owl's Toolkit plugin add when certain features are enabled.
+ */
+
+// specificity is needed to override (added div)
+body #learndash_lessons div#lesson_heading,
+body #learndash_profile.dashboard div.learndash_profile_heading,
+body #learndash_quizzes div#quiz_heading,
+body div#learndash_lesson_topics_list div > strong {
+	// These should match the corresponding styles above.
+	border-radius: 0;
+	padding: 0.375em 0.5em;
+}
+
+// Remove background image checkmarks
+// I've inserted them using :after pseudo-elements
+.learndash a.completed,
+#learndash_profile a.completed,
+.learndash a.notcompleted,
+#learndash_profile a.notcompleted {
+	background: none;
+}
+
+// Quiz Titles: Replace 12px font with inherit
+#learndash_profile.dashboard div.learndash_profile_quizzes a {
+	font-size: inherit;
+}
+
+// Remove 40px padding on quiz titles
+#learndash_profile.dashboard .learndash_profile_quizzes .quiz_title {
+	padding-left: 0 !important;
+}
+
+// Remove bolding on quiz title
+.learndash_profile_quiz_heading strong {
+	font-weight: normal;
+}
+
+// Remove zebra stripes
+// Use this when adding PRO support for [uo_dashboard]
+div#learndash_lesson_topics_list ul > li:nth-of-type(even) {
+	background: none;
+}
+
+// Row Borders for [uo_dashboard]
+div#learndash_profile.dashboard #lessons_list > div:first-child h4,
+div#learndash_profile.dashboard #quiz_list > div:first-child h4 {
+	// remove lesson borders
+	border: 0;
+}
+div#learndash_profile.dashboard #lessons_list > div h4 a,
+div#learndash_profile.dashboard #quiz_list > div h4 a {
+	// add lesson borders on <a>
+	border-top: 1px solid rgba( 0,0,0,0.1 );
+	border-bottom: 0;
+}
+#learndash_profile.dashboard div#learndash_lesson_topics_list span a {
+	// adjust indentation for topics
+	margin-left: 1em;
+}
+
+div#learndash_profile.dashboard #lessons_list > div .learndash_topic_dots .topic_item a {
+	// adjust padding for topic rows
+	padding: 0.375em 60px 0.5em 0.5em;
+	position: relative;
+
+	// adds icons back in for complete/not-complete
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: calc( 50% - 13px );
+		right: 10px;
+		width: 26px;
+		height: 26px;
+		background-repeat: no-repeat;
+		background-size: 26px;
+	}
+
+	&.topic-notcompleted:after {
+		background-image: url(../images/not-complete.svg);
+	}
+	&.topic-completed:after {
+		background-image: url(../images/completed.svg);
+	}
+
+}
+
+
+
+
+/**
+ * 99.0 - Animations
+ *
+ * Set up animations to be used for various LearnDash components. These might not be used in this stylesheet, but are used (or will be used) when user selects certain options in the Customizer.
+ */
+
+/**
+ * Progress Bar
+ * Animates the progress bar from left-to-right
+ */
+@keyframes progress-bar {
+	0% {
+		width: 0;
+	}
+}
+
+/**
+ * Fade In
+ * Used for:  
+ */
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/**
+ * Fade In Right, Small
+ * Used for:  
+ */
+@keyframes fade-in-right-small {
+	0% {
+		opacity: 0;
+		transform: translateX(-6px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/**
+ * Fade In Down, Small
+ * Used for:  
+ */
+@keyframes fade-in-down-small {
+	0% {
+		opacity: 0;
+		transform: translateY(-6px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/**
+ * Loading Pulse
+ * Used for: Quiz Statistics background loading graphic within modal
+ */
+@keyframes loading-pulse {
+	0% {
+		background: rgba( 0, 0, 0, 0.05 );
+		transform: scale(1);
+	}
+	25% {
+		background: rgba( 0, 0, 0, 0.1 );
+		transform: scale(1.01);
+	}
+	50% {
+		background: rgba( 0, 0, 0, 0.05 );
+		transform: scale(1);
+	}
+}
+
+
+
+
+
+
+/* RTL Support.... move this inline with each element/selector */
+
+// SHOULD BE DONE...
+
+// .rtl .learndash .topic-completed span, 
+// .rtl .learndash .topic-notcompleted span {
+// 	padding-left: 0px;
+// 	padding-right: 35px;
+// 	background-position: right 5px;
+// }
+
+// .rtl .learndash_navigation_lesson_topics_list .topic-notcompleted  span,
+// .rtl .learndash_navigation_lesson_topics_list .topic-completed  span {
+// 	padding-right: 20px;
+// 	padding-left: 0;
+// 	background-position: right 8px;
+// }
+
+// .rtl .expand_collapse {
+// 	text-align: left;
+// }
+
+// .rtl #learndash_lessons .right,
+// .rtl #learndash_quizzes .right,
+// .rtl #learndash_profile .right {
+// 	float: left;
+// }
+
+// .rtl #lessons_list > div  > div,.rtl #course_list > div  > div,.rtl  #quiz_list > div  > div, .rtl .single-sfwd-lessons #learndash_lesson_topics_list ul > li > span.sn , .rtl .singular-sfwd-lessons #learndash_lesson_topics_list ul > li > span.sn { 
+// 	border-left: 1px solid #ddd;
+// 	border-right: 0;
+// }
+
+// .rtl #lessons_list > div  h4 > a,.rtl #course_list > div  h4 > a,.rtl  #quiz_list > div  h4  > a {
+// 	padding-left: 75px;
+// 	padding-right: 2%;
+// }
+// .rtl.single-sfwd-lessons #learndash_lesson_topics_list ul > li > span a, .rtl.singular-sfwd-lessons #learndash_lesson_topics_list ul > li > span a {
+// 	padding-right: 2%;
+// }
+
+// .rtl .learndash_profile_quizzes .passed_icon , .rtl .learndash_profile_quizzes .failed_icon, .rtl .learndash_profile_quizzes .pending_icon  {
+// 	background-position: right bottom;
+// }
+// .rtl #learndash_profile .profile_info .profile_avatar {
+// 	float: right;
+// }
+// .rtl #learndash_profile .learndash_profile_details {
+// 	float: right;
+// 	margin-right: 10px;
+// }
+
+// .rtl .learndash .completed, .rtl #learndash_profile .completed, 
+// .rtl .learndash .notcompleted, .rtl #learndash_profile .notcompleted, 
+// .rtl .learndash .notavailable, .rtl #learndash_profile .notavailable  {
+// 	background-position: 2.1% center;
+// }
+
+
+
+// STILL NEEDS ADDRESSED...
+
+// .rtl .active .list_arrow.collapse, .rtl .list_arrow.collapse.lesson_completed {
+// 	background-image: url("images/green_arrow_collapse_rtl.png");
+// }
+// .rtl .list_arrow.collapse, .rtl .lesson_incomplete.list_arrow.collapse {
+//     background-image: url("images/gray_arrow_collapse_rtl.png");	
+// }
