@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Design Upgrade for LearnDash
  * Description:       Instantly improve LearnDash's design &ndash; courses, lessons, topics, quizzes, profile page, course navigation widget, course grid, etc. &ndash; to more closely match your WordPress theme, and remove those unwanted default LearnDash styles. There are no options in this version, but our <a href="https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wp-admin&utm_medium=free%20plugin&utm_campaign=plugins%20page"><strong>pro version</strong></a> lets you customize over 80 LearnDash elements.
- * Version:           1.4.4
+ * Version:           1.4.5
  * Author:            Escape Creative
  * Author URI:        https://escapecreative.com/
  * License:           GPLv3
@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'LDX_DESIGN_UPGRADE_LEARNDASH_VERSION', '1.4.4' );
+define( 'LDX_DESIGN_UPGRADE_LEARNDASH_VERSION', '1.4.5' );
 
 /**
  * Define Constants
@@ -45,7 +45,7 @@ include_once plugin_dir_path( __FILE__ ) . 'inc/theme-compat.php';
 function ldx_design_upgrade_learndash_enqueue_css() {
 
 	// Add main stylesheet that cleans up LD styles
-	wp_enqueue_style( 'ldx-design-upgrade-learndash', plugins_url( 'assets/css/learndash.css', __FILE__ ), array( 'learndash_style', 'sfwd_front_css', 'learndash_pager_css', 'learndash_template_style_css', 'learndash_quiz_front_css' ), '1.4.4' );
+	wp_enqueue_style( 'ldx-design-upgrade-learndash', plugins_url( 'assets/css/learndash.css', __FILE__ ), array( 'learndash_style', 'sfwd_front_css', 'learndash_pager_css', 'learndash_template_style_css', 'learndash_quiz_front_css' ), '1.4.5' );
 
 }
 

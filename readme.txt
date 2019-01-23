@@ -189,9 +189,13 @@ We designed this plugin to be flexible so that it takes on many of the character
 
 == Changelog ==
 
+= 1.4.5 - Jan 23, 2019 =
+
+- Changed: Adjusted alignment for quiz headings inside the [ld_profile] shortcode
+
 = 1.4.4 - Jan 23, 2019 =
 
-- Tweaked the spacing on list count numbers in the course content table so there's more spacing between the number and the period
+- Changed: Tweaked the spacing on list count numbers in the course content table so there's more spacing between the number and the period
 
 = 1.4.3 - Dec 13, 2018 =
 
