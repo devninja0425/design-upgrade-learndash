@@ -189,6 +189,10 @@ We designed this plugin to be flexible so that it takes on many of the character
 
 == Changelog ==
 
+= 1.4.7 - Mar 11, 2019 =
+
+- Fixed: Added a min-width of 45px to the number column in the course content table. This accounts for up to 999 items on most devices & themes, without forcing the number to a new line.
+
 = 1.4.6 - Mar 8, 2019 =
 
 - Fixed: Column alignment issues with LearnDash Course Grid version 1.5.2
