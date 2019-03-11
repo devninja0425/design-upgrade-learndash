@@ -2,7 +2,7 @@
 
 Instantly improve LearnDash's design -- courses, lessons, topics, quizzes, profile page, course navigation widget & course grid -- to more closely match your WordPress theme, and remove those unwanted default LearnDash styles.
 
-**[Download from wordpress.org]**(https://wordpress.org/plugins/design-upgrade-learndash/)
+[**Download from wordpress.org**](https://wordpress.org/plugins/design-upgrade-learndash/)
 
 ## Description
 
