@@ -2697,17 +2697,17 @@ dd.course_progress div.course_progress_blue {
 // Fixes column issue with some themes that also use Bootstrap
 // Uncode theme is one example
 // Also looks like X theme and Cornerstone (theme.co)
-.ld-course-list-content .ld-course-list-items.row,
-#ld_course_list .ld-course-list-items.row,
-#et-boc .ld-course-list-items.row {
-	display: flex;
-	flex-wrap: wrap;
-	// remove default bootstrap spacing
-	margin-left: 0;
-	margin-right: 0;
-}
+// .ld-course-list-content .ld-course-list-items.row,
+// #ld_course_list .ld-course-list-items.row,
+// #et-boc .ld-course-list-items.row {
+// 	display: flex;
+// 	flex-wrap: wrap;
+// 	// remove default bootstrap spacing
+// 	margin-left: 0;
+// 	margin-right: 0;
+// }
 
-.ld-course-list-items {
+.ld-course-list-items.row {
 	// remove default bootstrap spacing
 	margin: 0;
 }
@@ -2731,30 +2731,29 @@ dd.course_progress div.course_progress_blue {
 }
 
 // 2 columns
-// col-md-6 col-sm-9
+// col-md-6 col-sm-12
 @media (min-width: 576px) {
-	.ld-course-list-content .ld_course_grid.col-sm-9,
-	#ld_course_list .ld_course_grid.col-sm-9,
-	#et-boc .ld_course_grid.col-sm-9 {
-		flex: 0 0 48%;
-		max-width: 48%;
-		margin-right: 4%;
-		margin-bottom: 4%;
+	.ld-course-list-content .ld_course_grid.col-sm-12,
+	#ld_course_list .ld_course_grid.col-sm-12,
+	#et-boc .ld_course_grid.col-sm-12 {
+		flex: 0 0 100%;
+		max-width: 100%;
+		margin-right: 0;
+		margin-bottom: 1.5em;
 	}
-	.ld-course-list-content .ld_course_grid.col-sm-9:nth-child(2n),
-	#ld_course_list .ld_course_grid.col-sm-9:nth-child(2n),
-	#et-boc .ld_course_grid.col-sm-9:nth-child(2n) {
+	.ld-course-list-content .ld_course_grid.col-sm-12:nth-child(2n),
+	#ld_course_list .ld_course_grid.col-sm-12:nth-child(2n),
+	#et-boc .ld_course_grid.col-sm-12:nth-child(2n) {
 		margin-right: 0;
 	}
-	.rtl .ld-course-list-content .ld_course_grid.col-sm-9,
-	.rtl #ld_course_list .ld_course_grid.col-sm-9,
-	.rtl #et-boc .ld_course_grid.col-sm-9 {
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-12,
+	.rtl #ld_course_list .ld_course_grid.col-sm-12,
+	.rtl #et-boc .ld_course_grid.col-sm-12 {
 		margin-right: 0;
-		margin-left: 4%;
 	}
-	.rtl .ld-course-list-content .ld_course_grid.col-sm-9:nth-child(2n),
-	.rtl #ld_course_list .ld_course_grid.col-sm-9:nth-child(2n),
-	.rtl #et-boc .ld_course_grid.col-sm-9:nth-child(2n) {
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-12:nth-child(2n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-12:nth-child(2n),
+	.rtl #et-boc .ld_course_grid.col-sm-12:nth-child(2n) {
 		margin-left: 0;
 	}
 }
@@ -2775,30 +2774,30 @@ dd.course_progress div.course_progress_blue {
 }
 
 // 3 columns
-// col-sm-6 col-md-4
+// col-sm-8 col-md-4
 @media (min-width: 576px) {
-	.ld-course-list-content .ld_course_grid.col-sm-6,
-	#ld_course_list .ld_course_grid.col-sm-6,
-	#et-boc .ld_course_grid.col-sm-6 {
-		flex: 0 0 48%;
-		max-width: 48%;
+	.ld-course-list-content .ld_course_grid.col-sm-8,
+	#ld_course_list .ld_course_grid.col-sm-8,
+	#et-boc .ld_course_grid.col-sm-8 {
+		flex: 0 0 100%;
+		max-width: 100%;
 		margin-right: 4%;
 		margin-bottom: 4%;
 	}
-	.ld-course-list-content .ld_course_grid.col-sm-6:nth-child(2n),
-	#ld_course_list .ld_course_grid.col-sm-6:nth-child(2n),
-	#et-boc .ld_course_grid.col-sm-6:nth-child(2n) {
+	.ld-course-list-content .ld_course_grid.col-sm-8:nth-child(2n),
+	#ld_course_list .ld_course_grid.col-sm-8:nth-child(2n),
+	#et-boc .ld_course_grid.col-sm-8:nth-child(2n) {
 		margin-right: 0;
 	}
-	.rtl .ld-course-list-content .ld_course_grid.col-sm-6,
-	.rtl #ld_course_list .ld_course_grid.col-sm-6,
-	.rtl #et-boc .ld_course_grid.col-sm-6 {
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-8,
+	.rtl #ld_course_list .ld_course_grid.col-sm-8,
+	.rtl #et-boc .ld_course_grid.col-sm-8 {
 		margin-right: 0;
 		margin-left: 4%;
 	}
-	.rtl .ld-course-list-content .ld_course_grid.col-sm-6:nth-child(2n),
-	.rtl #ld_course_list .ld_course_grid.col-sm-6:nth-child(2n),
-	.rtl #et-boc .ld_course_grid.col-sm-6:nth-child(2n) {
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-8:nth-child(2n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-8:nth-child(2n),
+	.rtl #et-boc .ld_course_grid.col-sm-8:nth-child(2n) {
 		margin-left: 0;
 	}
 }
@@ -2811,9 +2810,9 @@ dd.course_progress div.course_progress_blue {
 		margin-right: 2.75%;
 		margin-bottom: 2.75%;
 	}
-	.ld-course-list-content .ld_course_grid.col-sm-6:nth-child(2n),
-	#ld_course_list .ld_course_grid.col-sm-6:nth-child(2n),
-	#et-boc .ld_course_grid.col-sm-6:nth-child(2n) {
+	.ld-course-list-content .ld_course_grid.col-sm-8:nth-child(2n),
+	#ld_course_list .ld_course_grid.col-sm-8:nth-child(2n),
+	#et-boc .ld_course_grid.col-sm-8:nth-child(2n) {
 		margin-right: 2.75%;
 	}
 	.ld-course-list-content .ld_course_grid.col-md-4:nth-child(3n),
@@ -2827,9 +2826,9 @@ dd.course_progress div.course_progress_blue {
 		margin-right: 0;
 		margin-left: 2.75%;
 	}
-	.rtl .ld-course-list-content .ld_course_grid.col-sm-6:nth-child(2n),
-	.rtl #ld_course_list .ld_course_grid.col-sm-6:nth-child(2n),
-	.rtl #et-boc .ld_course_grid.col-sm-6:nth-child(2n) {
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-8:nth-child(2n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-8:nth-child(2n),
+	.rtl #et-boc .ld_course_grid.col-sm-8:nth-child(2n) {
 		margin-right: 0;
 		margin-left: 2.75%;
 	}
@@ -2841,7 +2840,139 @@ dd.course_progress div.course_progress_blue {
 }
 
 // 4 columns
-// col-sm-4 col-md-3
+// col-sm-6 col-md-3
+@media (min-width: 576px) {
+	.ld-course-list-content .ld_course_grid.col-sm-6,
+	#ld_course_list .ld_course_grid.col-sm-6,
+	#et-boc .ld_course_grid.col-sm-6 {
+		flex: 0 0 31.5%;
+		max-width: 31.5%;
+		margin-right: 2.75%;
+		margin-bottom: 2.75%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-6:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-sm-6:nth-child(3n),
+	#et-boc .ld_course_grid.col-sm-6:nth-child(3n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-6,
+	.rtl #ld_course_list .ld_course_grid.col-sm-6,
+	.rtl #et-boc .ld_course_grid.col-sm-6 {
+		margin-right: 0;
+		margin-left: 2.75%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-6:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-6:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-sm-6:nth-child(3n) {
+		margin-left: 0;
+	}
+}
+@media (min-width: 768px) {
+	.ld-course-list-content .ld_course_grid.col-md-3,
+	#ld_course_list .ld_course_grid.col-md-3,
+	#et-boc .ld_course_grid.col-md-3 {
+		flex: 0 0 23.3%;
+		max-width: 23.3%;
+		margin-right: 2.26%;
+		margin-bottom: 2.26%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-6:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-sm-6:nth-child(3n),
+	#et-boc .ld_course_grid.col-sm-6:nth-child(3n) {
+		margin-right: 2.26%;
+	}
+	.ld-course-list-content .ld_course_grid.col-md-3:nth-child(4n),
+	#ld_course_list .ld_course_grid.col-md-3:nth-child(4n),
+	#et-boc .ld_course_grid.col-md-3:nth-child(4n),
+	.ld-course-list-content .ld_course_grid.col-sm-6:nth-child(4n),
+	#ld_course_list .ld_course_grid.col-sm-6:nth-child(4n),
+	#et-boc .ld_course_grid.col-sm-6:nth-child(4n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-3,
+	.rtl #ld_course_list .ld_course_grid.col-md-3,
+	.rtl #et-boc .ld_course_grid.col-md-3,
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-6:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-6:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-sm-6:nth-child(3n) {
+		margin-right: 0;
+		margin-left: 2.26%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-3:nth-child(4n),
+	.rtl #ld_course_list .ld_course_grid.col-md-3:nth-child(4n),
+	.rtl #et-boc .ld_course_grid.col-md-3:nth-child(4n) {
+		margin-left: 0;
+	}
+}
+
+// 5 columns
+// col-sm- col-md-2-4
+@media (min-width: 576px) {
+	.ld-course-list-content .ld_course_grid.col-sm-5,
+	#ld_course_list .ld_course_grid.col-sm-5,
+	#et-boc .ld_course_grid.col-sm-5 {
+		flex: 0 0 31.5%;
+		max-width: 31.5%;
+		margin-right: 2.75%;
+		margin-bottom: 2.75%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-5:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-sm-5:nth-child(3n),
+	#et-boc .ld_course_grid.col-sm-5:nth-child(3n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-5,
+	.rtl #ld_course_list .ld_course_grid.col-sm-5,
+	.rtl #et-boc .ld_course_grid.col-sm-5 {
+		margin-right: 0;
+		margin-left: 2.75%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-5:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-5:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-sm-5:nth-child(3n) {
+		margin-left: 0;
+	}
+}
+@media (min-width: 768px) {
+	.ld-course-list-content .ld_course_grid.col-md-2-4,
+	#ld_course_list .ld_course_grid.col-md-2-4,
+	#et-boc .ld_course_grid.col-md-2-4 {
+		flex: 0 0 18.5%;
+		max-width: 18.5%;
+		margin-right: 1.875%;
+		margin-bottom: 1.875%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-5:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-sm-5:nth-child(3n),
+	#et-boc .ld_course_grid.col-sm-5:nth-child(3n) {
+		margin-right: 1.875%;
+	}
+	.ld-course-list-content .ld_course_grid.col-md-2-4:nth-child(5n),
+	#ld_course_list .ld_course_grid.col-md-2-4:nth-child(5n),
+	#et-boc .ld_course_grid.col-md-2-4:nth-child(5n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-2-4,
+	.rtl #ld_course_list .ld_course_grid.col-md-2-4,
+	.rtl #et-boc .ld_course_grid.col-md-2-4 {
+		margin-right: 0;
+		margin-left: 1.875%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-5:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-5:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-sm-5:nth-child(3n) {
+		margin-left: 1.875%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-2-4:nth-child(5n),
+	.rtl #ld_course_list .ld_course_grid.col-md-2-4:nth-child(5n),
+	.rtl #et-boc .ld_course_grid.col-md-2-4:nth-child(5n) {
+		margin-left: 0;
+	}
+}
+
+// 6 columns
+// col-sm-4 col-md-2
+// 7 columns also outputs the same classes
 @media (min-width: 576px) {
 	.ld-course-list-content .ld_course_grid.col-sm-4,
 	#ld_course_list .ld_course_grid.col-sm-4,
@@ -2869,168 +3000,38 @@ dd.course_progress div.course_progress_blue {
 	}
 }
 @media (min-width: 768px) {
-	.ld-course-list-content .ld_course_grid.col-md-3,
-	#ld_course_list .ld_course_grid.col-md-3,
-	#et-boc .ld_course_grid.col-md-3 {
-		flex: 0 0 23.3%;
-		max-width: 23.3%;
-		margin-right: 2.26%;
-		margin-bottom: 2.26%;
-	}
-	.ld-course-list-content .ld_course_grid.col-md-3:nth-child(4n),
-	#ld_course_list .ld_course_grid.col-md-3:nth-child(4n),
-	#et-boc .ld_course_grid.col-md-3:nth-child(4n) {
-		margin-right: 0;
+	.ld-course-list-content .ld_course_grid.col-md-2,
+	#ld_course_list .ld_course_grid.col-md-2,
+	#et-boc .ld_course_grid.col-md-2 {
+		flex: 0 0 15.625%;
+		max-width: 15.625%;
+		margin-right: 1.25%;
+		margin-bottom: 1.25%;
 	}
 	.ld-course-list-content .ld_course_grid.col-sm-4:nth-child(3n),
 	#ld_course_list .ld_course_grid.col-sm-4:nth-child(3n),
 	#et-boc .ld_course_grid.col-sm-4:nth-child(3n) {
-		margin-right: 2.26%;
+		margin-right: 1.25%;
 	}
-	.rtl .ld-course-list-content .ld_course_grid.col-md-3,
-	.rtl #ld_course_list .ld_course_grid.col-md-3,
-	.rtl #et-boc .ld_course_grid.col-md-3,
-	.rtl .ld-course-list-content .ld_course_grid.col-sm-4:nth-child(3n),
-	.rtl #ld_course_list .ld_course_grid.col-sm-4:nth-child(3n),
-	.rtl #et-boc .ld_course_grid.col-sm-4:nth-child(3n) {
+	.ld-course-list-content .ld_course_grid.col-md-2:nth-child(6n),
+	#ld_course_list .ld_course_grid.col-md-2:nth-child(6n),
+	#et-boc .ld_course_grid.col-md-2:nth-child(6n) {
 		margin-right: 0;
-		margin-left: 2.26%;
-	}
-	.rtl .ld-course-list-content .ld_course_grid.col-md-3:nth-child(4n),
-	.rtl #ld_course_list .ld_course_grid.col-md-3:nth-child(4n),
-	.rtl #et-boc .ld_course_grid.col-md-3:nth-child(4n) {
-		margin-left: 0;
-	}
-}
-
-// 5 columns
-// 6 columns outputs the same exact classes
-// -- this appears to be a bug with LearnDash
-// col-sm-3 col-md-2
-@media (min-width: 576px) {
-	.ld-course-list-content .ld_course_grid.col-sm-3,
-	#ld_course_list .ld_course_grid.col-sm-3,
-	#et-boc .ld_course_grid.col-sm-3 {
-		flex: 0 0 23.3%;
-		max-width: 23.3%;
-		margin-right: 2.26%;
-		margin-bottom: 2.26%;
-	}
-	.ld-course-list-content .ld_course_grid.col-sm-3:nth-child(4n),
-	#ld_course_list .ld_course_grid.col-sm-3:nth-child(4n),
-	#et-boc .ld_course_grid.col-sm-3:nth-child(4n) {
-		margin-right: 0;
-	}
-	.rtl .ld-course-list-content .ld_course_grid.col-sm-3,
-	.rtl #ld_course_list .ld_course_grid.col-sm-3,
-	.rtl #et-boc .ld_course_grid.col-sm-3 {
-		margin-right: 0;
-		margin-left: 2.26%;
-	}
-	.rtl .ld-course-list-content .ld_course_grid.col-sm-3:nth-child(4n),
-	.rtl #ld_course_list .ld_course_grid.col-sm-3:nth-child(4n),
-	.rtl #et-boc .ld_course_grid.col-sm-3:nth-child(4n) {
-		margin-left: 0;
-	}
-}
-@media (min-width: 768px) {
-	.ld-course-list-content .ld_course_grid.col-md-2,
-	#ld_course_list .ld_course_grid.col-md-2,
-	#et-boc .ld_course_grid.col-md-2 {
-		flex: 0 0 18.5%;
-		max-width: 18.5%;
-		margin-right: 1.875%;
-		margin-bottom: 1.875%;
-	}
-	.ld-course-list-content .ld_course_grid.col-md-2:nth-child(5n),
-	#ld_course_list .ld_course_grid.col-md-2:nth-child(5n),
-	#et-boc .ld_course_grid.col-md-2:nth-child(5n) {
-		margin-right: 0;
-	}
-	.ld-course-list-content .ld_course_grid.col-sm-3:nth-child(4n),
-	#ld_course_list .ld_course_grid.col-sm-3:nth-child(4n),
-	#et-boc .ld_course_grid.col-sm-3:nth-child(4n) {
-		margin-right: 1.875%;
 	}
 	.rtl .ld-course-list-content .ld_course_grid.col-md-2,
 	.rtl #ld_course_list .ld_course_grid.col-md-2,
 	.rtl #et-boc .ld_course_grid.col-md-2 {
 		margin-right: 0;
-		margin-left: 1.875%;
+		margin-left: 1.25%;
 	}
-	.rtl .ld-course-list-content .ld_course_grid.col-sm-3:nth-child(4n),
-	.rtl #ld_course_list .ld_course_grid.col-sm-3:nth-child(4n),
-	.rtl #et-boc .ld_course_grid.col-sm-3:nth-child(4n) {
-		margin-left: 1.875%;
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-4:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-4:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-sm-4:nth-child(3n) {
+		margin-left: 1.25%;
 	}
-	.rtl .ld-course-list-content .ld_course_grid.col-md-2:nth-child(5n),
-	.rtl #ld_course_list .ld_course_grid.col-md-2:nth-child(5n),
-	.rtl #et-boc .ld_course_grid.col-md-2:nth-child(5n) {
-		margin-left: 0;
-	}
-}
-
-// 7 columns
-// col-sm-2 col-md-1
-@media (min-width: 576px) {
-	.ld-course-list-content .ld_course_grid.col-sm-2,
-	#ld_course_list .ld_course_grid.col-sm-2,
-	#et-boc .ld_course_grid.col-sm-2 {
-		flex: 0 0 23.3%;
-		max-width: 23.3%;
-		margin-right: 2.26%;
-		margin-bottom: 2.26%;
-	}
-	.ld-course-list-content .ld_course_grid.col-sm-2:nth-child(4n),
-	#ld_course_list .ld_course_grid.col-sm-2:nth-child(4n),
-	#et-boc .ld_course_grid.col-sm-2:nth-child(4n) {
-		margin-right: 0;
-	}
-	.rtl .ld-course-list-content .ld_course_grid.col-sm-2,
-	.rtl #ld_course_list .ld_course_grid.col-sm-2,
-	.rtl #et-boc .ld_course_grid.col-sm-2 {
-		margin-right: 0;
-		margin-left: 2.26%;
-	}
-	.rtl .ld-course-list-content .ld_course_grid.col-sm-2:nth-child(4n),
-	.rtl #ld_course_list .ld_course_grid.col-sm-2:nth-child(4n),
-	.rtl #et-boc .ld_course_grid.col-sm-2:nth-child(4n) {
-		margin-left: 0;
-	}
-}
-@media (min-width: 768px) {
-	.ld-course-list-content .ld_course_grid.col-md-1,
-	#ld_course_list .ld_course_grid.col-md-1,
-	#et-boc .ld_course_grid.col-md-1 {
-		flex: 0 0 15%;
-		max-width: 15%;
-		margin-right: 2%;
-		margin-bottom: 2%;
-	}
-	.ld-course-list-content .ld_course_grid.col-md-1:nth-child(6n),
-	#ld_course_list .ld_course_grid.col-md-1:nth-child(6n),
-	#et-boc .ld_course_grid.col-md-1:nth-child(6n) {
-		margin-right: 0;
-	}
-	.ld-course-list-content .ld_course_grid.col-sm-2:nth-child(4n),
-	#ld_course_list .ld_course_grid.col-sm-2:nth-child(4n),
-	#et-boc .ld_course_grid.col-sm-2:nth-child(4n) {
-		margin-right: 2%;
-	}
-	.rtl .ld-course-list-content .ld_course_grid.col-md-1,
-	.rtl #ld_course_list .ld_course_grid.col-md-1,
-	.rtl #et-boc .ld_course_grid.col-md-1 {
-		margin-right: 0;
-		margin-left: 2%;
-	}
-	.rtl .ld-course-list-content .ld_course_grid.col-sm-2:nth-child(4n),
-	.rtl #ld_course_list .ld_course_grid.col-sm-2:nth-child(4n),
-	.rtl #et-boc .ld_course_grid.col-sm-2:nth-child(4n) {
-		margin-left: 2%;
-	}
-	.rtl .ld-course-list-content .ld_course_grid.col-md-1:nth-child(6n),
-	.rtl #ld_course_list .ld_course_grid.col-md-1:nth-child(6n),
-	.rtl #et-boc .ld_course_grid.col-md-1:nth-child(6n) {
+	.rtl .ld-course-list-content .ld_course_grid.col-md-2:nth-child(6n),
+	.rtl #ld_course_list .ld_course_grid.col-md-2:nth-child(6n),
+	.rtl #et-boc .ld_course_grid.col-md-2:nth-child(6n) {
 		margin-left: 0;
 	}
 }
@@ -3046,7 +3047,7 @@ dd.course_progress div.course_progress_blue {
 	margin: 0; // for Twenty Nineteen theme compat
 	background: transparent;
 	border-radius: 0; // needs to stay
-	border: 0;
+	border: 0 !important;
 	box-shadow: none;
 
 	// surrounding featured image
@@ -3090,6 +3091,7 @@ dd.course_progress div.course_progress_blue {
 	a.btn {
 		font-size: 95%;
 		white-space: normal;
+		width: auto;
 	}
 
 } // .thumbnail
@@ -3135,7 +3137,7 @@ body.single:not(.buddypress):not(.bbpress) .site-content .thumbnail:not(.comment
 }
 
 // Course Grid Ribbon
-.ld_course_grid .thumbnail.course .ld_course_grid_price,
+body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_price,
 #et-boc .ld_course_grid .thumbnail.course .ld_course_grid_price {
 	top: 8px;
 	left: 8px;

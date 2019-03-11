@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 1.4.6 - Mar 8, 2019 =
+
+- Fixed: Column alignment issues with LearnDash Course Grid version 1.5.2
+
 = 1.4.5 - Jan 23, 2019 =
 
 - Changed: Adjusted alignment for quiz headings inside the [ld_profile] shortcode

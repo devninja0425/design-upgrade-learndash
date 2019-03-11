@@ -2,6 +2,8 @@
 
 Instantly improve LearnDash's design -- courses, lessons, topics, quizzes, profile page, course navigation widget & course grid -- to more closely match your WordPress theme, and remove those unwanted default LearnDash styles.
 
+**[Download from wordpress.org]**(https://wordpress.org/plugins/design-upgrade-learndash/)
+
 ## Description
 
 [LearnDash](https://www.learndash.com/) is a powerful learning management system (LMS) for managing your online courses, but let's be honest &ndash; the default styles are outdated. In order to provide your students with an exceptional learning experience, you need a professional design.
@@ -24,7 +26,7 @@ I literally went through every line of CSS that LearnDash uses and gave it all a
 * Larger pager navigation buttons to improve usability
 * Full support for RTL languages
 
-Tested with LearnDash 2.6.3
+Tested with LearnDash 2.6.4
 
 ## Who is this for?
 
