@@ -3,7 +3,7 @@ Contributors: escapecreative, davewarfel
 Donate link: https://www.paypal.me/escapecreative/10
 Tags: learndash, lms, learning management system, online courses, css
 Requires at least: 4.6
-Tested up to: 5.0.3
+Tested up to: 5.1
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -34,7 +34,7 @@ I literally went through every line of CSS that LearnDash uses and gave it all a
 * Larger pager navigation buttons to improve usability
 * Full support for RTL languages
 
-Tested with LearnDash 2.6.3
+Tested with LearnDash 2.6.4
 
 ### Who is this for?
 
@@ -188,6 +188,10 @@ We designed this plugin to be flexible so that it takes on many of the character
 9. Uncanny Owl Toolkit's [uo_dashboard] shortcode output
 
 == Changelog ==
+
+= 1.4.6 - Mar 8, 2019 =
+
+- Fixed: Column alignment issues with LearnDash Course Grid version 1.5.2
 
 = 1.4.5 - Jan 23, 2019 =
 
