@@ -3039,6 +3039,7 @@ dd.course_progress div.course_progress_blue {
 
 // single item
 // #ld_course_list .ld_course_grid .thumbnail,
+.ld-course-list-items div.ld_course_grid .thumbnail,
 .ld_course_grid .thumbnail,
 #et-boc .ld_course_grid .thumbnail,
 // Twenty Nineteen theme compatibility
@@ -3050,6 +3051,11 @@ dd.course_progress div.course_progress_blue {
 	border-radius: 0; // needs to stay
 	border: 0 !important;
 	box-shadow: none;
+
+	// added 3-23-2019, to push button to bottom of container
+	display: flex !important;
+	flex-direction: column;
+	min-height: 100%;
 
 	// surrounding featured image
 	> a {
@@ -3065,12 +3071,23 @@ dd.course_progress div.course_progress_blue {
 	// CAPTION contains title, description, button & progress bar
 	.caption {
 		position: relative; // for positioning the progress bar in pro version
-		padding: 1em 1.5em 0.75em;
+		padding: 1em 1.5em 1.5em;
+
+		// added 3-23-2019, to push button to bottom of container
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.caption p:not(.ld_course_grid_button):not(.entry-content) {
+		// remove empty <p> tags that course grid plugin adds
+		display: none;
 	}
 
 	.caption .entry-title {
 		color: #333;
 		line-height: 1.2;
+		margin-bottom: 15px !important;
 
 		// Twenty Nineteen theme compat
 		&:before {
@@ -3081,12 +3098,13 @@ dd.course_progress div.course_progress_blue {
 	.caption .entry-content {
 		color: #808080;
 		font-size: 95%;
-		// Twenty Nineteen theme compat
-		padding: 0;
+		padding: 0; // Twenty Nineteen theme compat
+		margin: 0 0 15px !important;
 	}
 
 	.caption .ld_course_grid_button {
-		margin-bottom: 15px !important;
+		margin-top: auto !important; // pushes button to bottom of container
+		padding-bottom: 0; // Divi compatibility
 	}
 
 	a.btn {
