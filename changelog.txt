@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 1.4.8 - Mar 23, 2019 =
+
+- Changed: Course Grid: Buttons are now displayed at the very bottom of each grid item.
+
 = 1.4.7 - Mar 11, 2019 =
 
 - Fixed: Added a min-width of 45px to the number column in the course content table. This accounts for up to 999 items on most devices & themes, without forcing the number to a new line.

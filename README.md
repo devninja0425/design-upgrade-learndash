@@ -26,7 +26,7 @@ I literally went through every line of CSS that LearnDash uses and gave it all a
 * Larger pager navigation buttons to improve usability
 * Full support for RTL languages
 
-Tested with LearnDash 2.6.4
+Tested with LearnDash 2.6.5
 
 ## Who is this for?
 
