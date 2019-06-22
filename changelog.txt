@@ -1,5 +1,25 @@
 == Changelog ==
 
+= 2.1 - Jun 22, 2019 =
+
+- Added: Many more CSS custom properties, preparing for Pro version release
+- Added: Course Grid styles are back: equal height columns & other small improvements
+- Added: Stop images from overflowing outside the answer label area when used in single & multiple choice quiz questions (props [Anthony](https://perfectmymusic.com/))
+
+= 2.0.1 - Jun 10, 2019 =
+
+- Added: Styles for Uncanny LearnDash Toolkit Resume button
+- Fixed: Updated all font sizes for broader theme compatibility (specifically with OceanWP)
+- Tweak: Removed more empty <p> tags that are output with some LearnDash widgets
+- Tweak: A few other minor adjustments for broader theme compatibility
+
+= 2.0 - Jun 7, 2019 =
+
+- NEW: Now compatible with the "LearnDash 3.0" Active Template
+- [Changelog & New Features →](https://ldx.design/design-upgrade-pro-learndash-3/#free-changelog)
+- NOTE: We're still compatible with LearnDash 2.x, as well as the "Legacy" template, but there are no changes for those versions. All future development will be focused around the new design.
+- Fixed: Course Grid: Rounded corners were quickly disappearing on hover of adjacent course grid items (Legacy, Safari only)
+
 = 1.4.8 - Mar 23, 2019 =
 
 - Changed: Course Grid: Buttons are now displayed at the very bottom of each grid item.

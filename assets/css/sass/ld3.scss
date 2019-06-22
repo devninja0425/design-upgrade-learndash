@@ -1,0 +1,2259 @@
+/**
+ * Design Upgrade for LearnDash
+ *
+ * Override LearnDash's default styles.
+ * 
+ * This file is only loaded when the "LearnDash 3.0" theme is active.
+ */
+
+
+/**
+ * Table of Contents
+ *
+ *  0.0 - Sass Variables & Mixins
+ *  1.0 - General/Resets
+					- fonts, link colors, paragraph spacing, etc.
+ *  2.0 - Buttons
+ *  3.0 - Alerts
+ *  4.0 - Course Content / Content Lists
+ *     4.1 - Tabs
+ *           - __ Content, Materials
+ *  5.0 - Course Status
+ *     5.1 - Status Indicators
+ *  6.0 - Course Progress
+ *  7.0 - Breadcrumbs
+ *  8.0 - Focus Mode
+ *     8.1 - Focus Mode: Sidebar
+ *     8.2 - Focus Mode: Top Bar
+ *     8.3 - Focus Mode: Content Area
+ *  9.0 - Profile
+ * 10.0 - Course Navigation
+ * 11.0 - Assignments
+ * 12.0 - Tooltips
+ * 13.0 - Pagination
+ * 14.0 - Login & Registration
+ * 15.0 - Widgets
+ *     15.1 - Widget: User Status
+ *     15.2 - Widget: Course Information
+ * 16.0 - Course Grid Add-On
+ * 17.0 - Quizzes (import styles from LQC plugin)
+ * 20.0 - Uncanny Owl Toolkit Compatibility
+ *     20.1 - Uncanny Owl Dashboard [uo_dashboard]
+ * 99.0 - Animations
+
+// @TODO - [learndash_login] shortcode
+// @TODO - go through all shortcodes/blocks to double-check
+
+// @RTL  - needs RTL language consideration
+// @TODO - anything else that needs attention
+
+// @astra          - Astra theme compatibility
+// @oceanwp        - OceanWP theme compatibility
+// @storefront     - Storefront theme compatibility
+// @twentynineteen - Twenty Nineteen theme compatibility
+
+/**
+ * 0.0 - Sass Variables & Mixins
+ */
+@import 'variables';
+
+
+/**
+ * 1.0 - General/Resets
+ */
+.learndash-wrapper {
+	// LD forces 16px & 1.5em. Revert to theme default.
+	font-size: inherit;
+	line-height: inherit;
+}
+
+
+/**
+ * 2.0 - Buttons
+ */
+// General Buttons
+.learndash-wrapper .ld-button,
+// "Expand/Collapse All"
+.learndash-wrapper .ld-expand-button,
+// "Take this Course" Button
+.learndash-wrapper .btn-join,
+.learndash-wrapper #btn-join,
+// "Mark Complete" Button
+.learndash-wrapper .learndash_mark_complete_button,
+.learndash-wrapper #learndash_mark_complete_button,
+// Login Modal Button - "Log In"
+.learndash-wrapper .ld-login-modal .ld-button,
+.learndash-wrapper .ld-login-modal input[type="submit"],
+// Registration "Register" Button
+.learndash-wrapper .ld-login-modal .ld-login-modal-register #wp-submit,
+// LD Profile "Search" button
+.learndash-wrapper .ld-item-list .ld-item-search .ld-item-search-fields .ld-item-search-submit .ld-button,
+// Course Grid Button
+.ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary,
+// UO Resume Button
+.learndash-resume-button input[type="submit"] {
+	padding: 0.625em 1.5em;
+	font-size: 95%;
+	font-weight: 700;
+	line-height: inherit;
+	letter-spacing: inherit;
+	border-radius: 24px; // increase from 20px bc I increased font size
+	border-radius: var(--ldx-btn-border-radius);
+	transition: all 0.15s ease; // LD defaults to 0.3s, only opacity
+
+	&:hover {
+		opacity: 1;
+		background-color: #5abaee;
+	}
+}
+
+.learndash-wrapper .ld-button .ld-icon {
+	transition: all 0.15s ease;
+}
+
+// Standard Buttons
+// - Prev/Next Navigation
+// - Expand/Collapse All
+// - Buttons within alerts (.learndash-wrapper .ld-alert .ld-button)
+// - "Browse" for uploading assignments
+
+// All Standard Buttons
+.learndash-wrapper .ld-button,
+// "Expand/Collapse All"
+.learndash-wrapper .ld-expand-button,
+// Within Alerts
+.learndash-wrapper .ld-alert .ld-button
+// "Browse" for uploading assignments
+// .learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-file-input+label strong
+{
+	background: var(--ldx-btn-standard-bg-color);
+	color: var(--ldx-btn-standard-text-color);
+
+	&:hover,
+	&:active,
+	&:focus {
+		background: var(--ldx-btn-standard-bg-color-hover);
+		color: var(--ldx-btn-standard-text-color-hover);
+	}
+}
+
+// Alternate Buttons (Reverse BG & Text Colors)
+.learndash-wrapper .ld-expand-button.ld-button-alternate {
+	color: var(--ldx-color-link);
+	font-weight: normal;
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--ldx-color-link-hover);
+	}
+}
+
+.learndash-wrapper .ld-expand-button.ld-button-alternate:hover .ld-icon {
+	background: var(--ldx-color-link-hover);
+}
+
+// Primary Buttons
+// - Mark Complete
+// - Login to Enroll, Buy Now (with "Course Status" area)
+// - LD Profile "Search" button
+// - "Upload" Assignment button
+// - Course Grid buttons
+// - UO "Resume" button
+// - "Login" button (modal)
+
+// "Take this Course"
+.learndash-wrapper .btn-join,
+.learndash-wrapper #btn-join,
+// "Mark Complete"
+.learndash-wrapper .learndash_mark_complete_button,
+.learndash-wrapper #learndash_mark_complete_button,
+// "Login to Enroll"
+.ld-course-status-action .ld-button,
+// Profile "Search"
+.learndash-wrapper .ld-item-list .ld-item-search .ld-item-search-fields .ld-item-search-submit .ld-button,
+// "Upload" Assignment
+.learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-button,
+// Course Grid "See More"
+.ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary,
+// UO "Resume"
+.learndash-resume-button input[type="submit"],
+// "Login" modal
+.learndash-wrapper .ld-login-modal input[type="submit"] {
+	background: var(--ldx-btn-primary-bg-color);
+	color: var(--ldx-btn-primary-text-color);
+
+	&:hover,
+	&:active,
+	&:focus {
+		background: var(--ldx-btn-primary-bg-color-hover);
+		color: var(--ldx-btn-primary-text-color-hover);
+	}
+}
+
+// "Mark Complete" Button <input>
+.learndash-wrapper .learndash_mark_complete_button,
+.learndash-wrapper #learndash_mark_complete_button {
+	// make room for the checkmark icon
+	padding-right: 2.5em;
+}
+
+/* Mark Complete <form>: Because LD puts the icon on the <form>, not the <input> */
+.learndash-wrapper .sfwd-mark-complete::after,
+.learndash-wrapper #sfwd-mark-complete::after {
+	color: var(--ldx-btn-primary-text-color);
+}
+.learndash-wrapper .sfwd-mark-complete:hover::after,
+.learndash-wrapper #sfwd-mark-complete:hover::after {
+	color: var(--ldx-btn-primary-text-color-hover);
+}
+
+/* Buttons inside Alerts */
+.learndash-wrapper .ld-alert .ld-button {
+	// make space for icon on left
+	// @RTL
+	padding: 0.625em 1em 0.625em 1.5em;
+}
+
+/* Assignments "Upload" Button */
+.learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-button {
+	padding: 0.25em 0.75em;
+	font-size: 95%;
+}
+
+/* Course Grid Button */
+.ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary {
+	border: 0;
+}
+
+
+/**
+ * 3.0 - Alerts
+ */
+.learndash-wrapper .ld-alert {
+	border-radius: var(--ldx-global-border-radius);
+}
+
+
+/**
+ * 4.0 - Course Content / Content Lists
+ */
+.learndash-wrapper .ld-table-list {
+	border-radius: var(--ldx-global-border-radius);
+}
+
+/* "Course Content" Header */
+.learndash-wrapper .ld-lesson-list .ld-section-heading {
+	color: var(--ldx-content-lists-course-content-text-color);
+
+	h2 {
+		color: var(--ldx-content-lists-course-content-text-color);
+	}
+}
+
+/* Sub-items of all table lists */
+.learndash-wrapper .ld-table-list .ld-table-list-item {
+	border-bottom: 1px solid var(--ldx-content-lists-separator-color);
+}
+
+/* Table List Title
+ * Used for: Assignment titles, Topic titles
+ */
+// Assignment list
+.learndash-wrapper .ld-table-list .ld-table-list-item .ld-table-list-title a,
+// Topic list
+// Quiz list
+.learndash-wrapper .ld-table-list a.ld-table-list-item-preview {
+	color: var(--ldx-content-lists-lesson-text-color); // LD forces this to #333
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--ldx-content-lists-lesson-text-color-hover);
+	}
+}
+
+/* All table lists: Header BG & Text */
+.learndash-wrapper .ld-table-list .ld-table-list-header {
+	background-color: var(--ldx-content-lists-header-bg-color);
+	color: var(--ldx-content-lists-header-text-color);
+}
+
+/* Used in Quiz & Essay lists on Profile */
+.learndash-wrapper .ld-table-list .ld-table-list-header a,
+.learndash-wrapper .ld-table-list .ld-table-list-item-preview a {
+	color: var(--ldx-color-link); // LD forces this to #333
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--ldx-color-link-hover);
+	}
+}
+
+/* Sections */
+.learndash-wrapper .ld-item-list.ld-course-list .ld-lesson-section-heading,
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-lesson-section-heading {
+	padding: 0 0.25em;
+	margin: 1.25em 0 0.5em;
+	font-size: 125%;
+	color: var(--ldx-content-lists-section-text-color);
+}
+
+/* XX% Complete | X/Y Steps */
+.learndash-wrapper .ld-topic-list.ld-table-list .ld-table-list-lesson-details {
+	font-size: inherit;
+	opacity: 0.85;
+
+	@media (max-width: 640px) {
+		margin: 0.125em 0 0 0;
+	}
+}
+
+/* Parent Container: Holds all lesson & topic material */
+.learndash-wrapper .ld-lesson-list .ld-item-list-item {
+	margin-bottom: 0.75em; // LD sets to 12px
+	background-color: var(--ldx-content-lists-lesson-bg-color);
+	border-radius: var(--ldx-global-border-radius);
+	border-width: var(--ldx-content-lists-lesson-border-width);
+	border-color: var(--ldx-content-lists-lesson-border-color);
+	overflow: hidden; // so bg color doesn't overflow rounded corners
+}
+
+/* Lesson Content Container */
+/* Also applies to Assignments */
+.learndash-wrapper .ld-table-list .ld-table-list-items {
+	padding: 0;
+	font-size: inherit;
+	background-color: var(--ldx-content-lists-lesson-bg-color);
+	border: var(--ldx-content-lists-lesson-border-width) solid var(--ldx-content-lists-lesson-border-color);
+	border-top: 0; // hide top border when NOT the main course content list
+	border-radius: 0 0 var(--ldx-global-border-radius) var(--ldx-global-border-radius);
+}
+
+/* Lesson Content Individual Items <a> */
+.learndash-wrapper .ld-table-list .ld-table-list-item-preview,
+// For Essay List in Profile Block
+.learndash-wrapper .ld-table-list .ld-table-list-item-expanded .ld-table-list .ld-table-list-item-preview {
+	padding: 1em 1.25em; // decrease padding
+}
+
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-topic-list .ld-table-list-item {
+	margin: 0;
+	border-bottom: 1px solid var(--ldx-content-lists-separator-color);
+
+	@media (max-width: 768px) {
+		margin: 0;
+	}
+
+	&:last-child {
+		border-bottom: 0;
+	}
+}
+
+/* Lesson Content: Header */
+.learndash-wrapper .ld-item-list.ld-lesson-list .ld-topic-list .ld-table-list-header {
+	// reduce padding of "Lesson Content" header
+	padding: 0.875em 1.25em;
+
+	// remove icon next to "Lesson Content"
+	.ld-table-list-title .ld-item-icon {
+		display: none;
+	}
+}
+
+.learndash-wrapper .ld-table-list .ld-table-list-header .ld-table-list-title {
+	font-weight: 700;
+	font-size: 110%;
+}
+
+.learndash-wrapper .ld-topic-list.ld-table-list .ld-table-list-lesson-details .ld-lesson-list-progress {
+	text-transform: none; // remove all caps
+	font-weight: normal; // remove 800 font weight
+	border-color: var(--ldx-content-lists-header-text-color);
+}
+
+/* Lesson Container <div>
+ * Also used in "User Status" widget */
+.learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-list-item-preview {
+	// remove padding to allow for <a> to be full-width clickable
+	padding: 0;
+}
+/* Lesson Container ONLY */
+// .learndash-wrapper .ld-lesson-list .ld-item-list-item .ld-item-list-item-preview {
+	
+// }
+// Arrow before the expanded "lesson content"
+.learndash-wrapper .ld-lesson-list .ld-item-list-item .ld-item-list-item-expanded::before {
+	display: none; // hide it
+	// but if people want to put it back in, inherit the bg color
+	background-color: var(--ldx-content-lists-lesson-bg-color);
+}
+
+/* Lesson <a> */
+.learndash-wrapper .ld-item-list .ld-item-list-item a.ld-item-name {
+	// make entire area clickable
+	padding: 1em 1.25em;
+	// inherit theme color
+	color: var(--ldx-content-lists-lesson-text-color);
+
+	@media (max-width: 640px) {
+		width: 100%;
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--ldx-color-link-hover);
+	}
+}
+
+/* Lesson <a> (Lesson ONLY) */
+.learndash-wrapper .ld-lesson-list .ld-item-list-item a.ld-item-name {
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: var(--ldx-content-lists-lesson-bg-color-hover);
+		color: var(--ldx-content-lists-lesson-text-color-hover);
+	}
+}
+
+/* Topic <a> */
+.learndash-wrapper .ld-topic-list.ld-table-list .ld-table-list-item .ld-table-list-item-preview {
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: var(--ldx-content-lists-lesson-bg-color-hover);
+	}
+
+}
+
+.learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-title {
+	font-size: inherit;
+}
+
+
+/* Sample Lesson icon */
+.learndash-wrapper .ld-status-unlocked {
+	// LD uses a light blue that doesn't work with custom colors
+	background: rgba( $black, 0.05 );
+	color: inherit;
+}
+
+/* Completed icon */
+.learndash-wrapper .ld-status-complete {
+	background: var(--ldx-color-correct);
+}
+
+/* Quiz completed icon */
+.learndash-wrapper .ld-status-icon.ld-quiz-complete {
+	color: var(--ldx-color-correct);
+}
+
+/* In progress icon */
+.learndash-wrapper .ld-status-in-progress,
+// LD added colors to course nav widget as well (ugh!)
+.learndash-wrapper .ld-course-navigation .ld-status-icon.ld-status-in-progress {
+	border-left-color: var(--ldx-color-correct);
+	border-top-color: var(--ldx-color-correct);
+}
+
+/* Expand/Collapse links */
+.learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-list-item-preview .ld-item-details {
+
+	@media (max-width: 640px) {
+		margin: 0 0 15px 15px;
+		padding: 5px;
+	}
+}
+
+/* "X Topics | X Quiz" (below lesson title) */
+.learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-title .ld-item-components {
+	margin-top: 0.125em;
+	font-size: 95%;
+	font-weight: normal;
+	color: inherit;
+	opacity: 0.8;
+}
+/* Vertical Separator Line */
+.learndash-wrapper .ld-item-list .ld-item-list-item .ld-sep {
+	padding: 0 0.125em;
+	color: rgba( $black, 0.15 );
+}
+/* When hovering over an item in the Item List */
+.learndash-wrapper .ld-item-list .ld-item-list-item a.ld-item-name:hover .ld-item-title .ld-item-components {
+	color: inherit;
+}
+
+/* Expand/Collapse Button */
+.learndash-wrapper .ld-expand-button {
+	font-size: 90%;
+	font-weight: 700;
+}
+
+/* Assignments: File Upload */
+.learndash-wrapper .ld-table-list-items .ld-file-upload {
+	margin: 0;
+	border-radius: 0;
+}
+
+/* Assignments: X/Y Approved */
+.learndash-wrapper .ld-table-list .ld-table-list-header .ld-table-list-columns .ld-table-list-column {
+	font-size: inherit;
+	font-weight: normal;
+}
+
+/* Table List Footer */
+.learndash-wrapper .ld-table-list .ld-table-list-footer {
+	padding: 0.75em;
+	background: rgba( $black, 0.07 );
+
+	&:empty {
+		// remove it when empty
+		padding: 0;
+	}
+}
+
+/* Remove border when there's no pagination */
+.learndash-wrapper .ld-table-list.ld-no-pagination {
+	border-bottom: 0; // LD adds a 2px border
+}
+
+
+/**
+ * 4.1 - Tabs (Course|Lesson|Topic|Materials)
+ */
+
+// Add global border radius
+.learndash-wrapper .ld-tabs .ld-tabs-navigation::after,
+.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab::after {
+	border-radius: var(--ldx-global-border-radius);
+}
+.learndash-wrapper .ld-tabs .ld-tabs-navigation::after {
+	background-color: rgba( $black, 0.1 );
+}
+
+
+.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab {
+	color: rgba( $black, 0.6 );
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--ldx-color-link-hover);
+	}
+}
+
+.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab.ld-active {
+	color: var(--ldx-color-link-hover);
+}
+.learndash-wrapper .ld-tabs .ld-tabs-navigation .ld-tab.ld-active::after {
+	background: var(--ldx-color-link-hover);
+}
+
+/**
+ * 5.0 - Course Status
+ */
+// Container
+.learndash-wrapper .ld-course-status.ld-course-status-enrolled,
+.learndash-wrapper .ld-course-status.ld-course-status-not-enrolled {
+	background: rgba( $black, 0.04 );
+	border-radius: var(--ldx-global-border-radius);
+}
+
+.learndash-wrapper .ld-course-status.ld-course-status-not-enrolled .ld-course-status-label {
+	font-size: 0.875em;
+}
+
+/* Make several spacing adjustments on mobile */
+@media (max-width: 640px) {
+
+	.learndash-wrapper .ld-course-status.ld-course-status-not-enrolled {
+		padding: 0;
+	}
+
+	.learndash-wrapper .ld-course-status.ld-course-status-not-enrolled > * {
+		padding: 0.875em 0;
+	}
+
+	.learndash-wrapper .ld-course-status.ld-course-status-not-enrolled .ld-course-status-label {
+		margin-bottom: 0.25em;
+	}
+
+	.learndash-wrapper .ld-course-status.ld-course-status-not-enrolled .ld-course-status-content {
+		margin-bottom: 0;
+	}
+
+} // @media
+
+
+
+/* "In Progress" label */
+// On the course page
+.learndash-wrapper .ld-course-status .ld-status.ld-status-progress,
+// In breadcrumbs
+.learndash-wrapper .ld-breadcrumbs .ld-status.ld-status-progress {
+	background: #e2e7ed;
+	color: #728188;
+}
+
+/**
+ * 5.1 - Status Indicators
+ */
+.learndash-wrapper .ld-status {
+	letter-spacing: normal;
+	font-size: 85%; // LD forces 11px
+
+	.ld-icon {
+		margin-right: 2px;
+	}
+}
+
+
+/**
+ * 6.0 - Course Progress
+ */
+
+// Height & Radius are global to all instances of the bar
+.learndash-wrapper .ld-progress .ld-progress-bar,
+.learndash-wrapper .ld-progress .ld-progress-bar .ld-progress-bar-percentage {
+	height: var(--ldx-progress-bar-height);
+	border-radius: var(--ldx-progress-bar-border-radius);
+}
+
+// Container
+.learndash-wrapper .ld-progress .ld-progress-bar,
+.learndash-wrapper.learndash-widget .ld-progress .ld-progress-bar,
+.learndash-wrapper .ld-focus .ld-focus-header .ld-progress .ld-progress-bar {
+	background-color: var(--ldx-progress-bar-container-bg);
+}
+
+// Bar Itself
+.learndash-wrapper .ld-progress .ld-progress-bar .ld-progress-bar-percentage {
+	background-color: var(--ldx-progress-bar-bg);
+}
+
+/* when shortcode is used to place widget inline */
+.learndash-widget .ld-progress.ld-progress-inline {
+	// moves "% complete, X of Y steps" to the left
+	// @RTL
+	flex-direction: row;
+}
+.learndash-wrapper .ld-progress .ld-progress-heading,
+.learndash-wrapper .ld-progress.ld-progress-inline .ld-progress-heading {
+	padding: 0 0.125em;
+	font-size: 95%;
+}
+
+/* "50% COMPLETE" */
+.learndash-wrapper .ld-progress .ld-progress-heading .ld-progress-stats .ld-progress-percentage {
+	font-weight: 700;
+	color: var(--ldx-progress-bar-bg);
+}
+
+/* In Focus Mode Header:
+ * Container <div> for the bar itself */
+.learndash-wrapper .ld-focus-header .ld-progress .ld-progress-bar {
+	margin-top: 3px;
+}
+// In Focus Mode: Set max height
+.learndash-wrapper .ld-focus .ld-focus-header .ld-progress .ld-progress-bar,
+.learndash-wrapper .ld-focus .ld-focus-header .ld-progress .ld-progress-bar-percentage {
+	max-height: 14px;
+}
+
+/**
+ * 7.0 - Breadcrumbs
+ */
+
+.learndash-wrapper .ld-breadcrumbs {
+	border-radius: var(--ldx-global-border-radius);
+}
+.learndash-wrapper .ld-breadcrumbs a {
+	color: var(--ldx-color-link);
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--ldx-color-link-hover);
+	}
+}
+
+/* also applied in focus mode */
+.learndash-wrapper .ld-breadcrumbs .ld-breadcrumbs-segments {
+	font-size: 95%;
+}
+.learndash-wrapper .ld-breadcrumbs .ld-breadcrumbs-segments span a {
+	font-weight: normal;
+}
+
+/* Status within Breadcrumbs */
+.learndash-wrapper .ld-breadcrumbs .ld-status {
+	@media (max-width:640px) {
+		width: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+/**
+ * 8.0 - Focus Mode
+ */
+
+/**
+ * 8.1 - Focus Mode: Sidebar
+ */
+
+/* Sidebar */
+.learndash-wrapper .ld-focus .ld-focus-sidebar {
+	background-color: var(--ldx-focus-mode-sidebar-bg-color);
+	border-right: 1px solid var(--ldx-course-nav-line-separator-color);
+}
+.learndash-wrapper .ld-focus-sidebar-collapsed .ld-focus-sidebar {
+	// remove border when sidebar is collapsed
+	border-right: 0;
+}
+
+/* Sidebar (Tablet & Below) */
+@media (max-width: 768px) {
+	.learndash-wrapper .ld-focus .ld-focus-sidebar {
+		box-shadow: 0 0 10px 0 rgba( $black, 0.15 ),
+		            3px 3px 12px rgba( $black, 0.05 );
+	}
+	.learndash-wrapper .ld-focus-sidebar-collapsed .ld-focus-sidebar {
+		// remove shadow when collapsed
+		box-shadow: none;
+	}
+}
+
+// @bug: hide erroneous arrow
+.learndash-wrapper .ld-focus .ld-course-navigation .ld-lesson-item-expanded::before,
+// hide the intentional arrow because it's not needed
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-topic-list.ld-table-list::before {
+	display: none;
+}
+
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-focus-sidebar-trigger {
+	// allows the header bg color to shine through the trigger area
+	background: transparent;
+}
+
+/* Side Tray Close Icon */
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-focus-sidebar-trigger .ld-icon {
+	// move icon inside tray
+	transform: translateY(-50%) translateX(-20%);
+	// make it more visible
+	font-weight: bold;
+	// remove the "inherit" so that I can add bg hover to parent item
+	background: rgba( $black, 0.1 );
+	padding: 7px;
+}
+
+/* Sidebar in Collapsed Mode */
+.learndash-wrapper .ld-focus-sidebar-collapsed .ld-focus-sidebar .ld-focus-sidebar-trigger .ld-icon {
+	// flip icon
+	transform: translateY(-50%) translateX(-20%) rotate(180deg);
+}
+
+/* Icon itself */
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-focus-sidebar-trigger .ld-icon::before {
+	position: relative;
+	left: -1px;
+	font-size: 16px;
+	color: var(--ldx-focus-mode-sidebar-course-text-color);
+}
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-focus-sidebar-trigger:hover .ld-icon::before {
+	opacity: 1;
+}
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-focus-sidebar-trigger:hover .ld-icon {
+	background: rgba( $black, 0.15 );
+}
+
+/* Course Title */
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation-heading {
+	width: 349px; // subtract 1px to let the sidebar border be shown
+	background-color: var(--ldx-focus-mode-sidebar-course-bg-color);
+}
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation-heading h3 {
+	padding: 0; // remove space for the icon
+	font-size: 110%;
+
+	a {
+		color: var(--ldx-focus-mode-sidebar-course-text-color);
+	}
+}
+/* Remove Icon Next to Course Title.
+ * It's the same icon used for "Lesson" so it doesn't make
+ * sense here and unnecessarily takes up space.
+ */
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation-heading h3 .ld-icon {
+	display: none; // hide icon
+}
+
+/* Section Headings */
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-lesson-item-section-heading {
+	margin-top: 0;
+	padding-top: 0.75em;
+	padding-bottom: 0.75em;
+	background-color: var(--ldx-course-nav-section-bg-color);
+	border-radius: 0;
+	color: var(--ldx-course-nav-section-text-color);
+}
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-lesson-item-section-heading .ld-lesson-section-heading {
+	font-size: 110%;
+}
+
+/* All Lesson Items */
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-lesson-item {
+	// remove white background
+	background: transparent;
+	// change borders to be transparent; allows for better customizations
+	border-color: var(--ldx-course-nav-line-separator-color);
+}
+
+/* Remove border radius from all focus mode items */
+.learndash-wrapper .ld-focus-sidebar .ld-table-list .ld-table-list-items {
+	border-radius: 0;
+	background-color: var(--ldx-focus-mode-sidebar-bg-color);
+}
+
+/* Lesson Titles */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item-preview .ld-lesson-title,
+/* Topic Titles */
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-topic-list.ld-table-list .ld-table-list-item {
+	font-size: inherit;
+}
+
+/* Lesson: Individual Titles <div> wrapper */
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-lesson-item .ld-lesson-item-preview {
+	padding: 0;
+}
+/* Lesson: Individual Titles <a> */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item-preview a.ld-lesson-item-preview-heading {
+	padding: 0.75em;
+	padding-left: 1em;
+}
+/* Lesson: Current Lesson */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-item-preview-heading,
+// Current Final Quiz
+.learndash-wrapper .ld-course-navigation .ld-lesson-item-preview.ld-is-current-item .ld-lesson-item-preview-heading {
+	background: var(--ldx-course-nav-link-bg-color-hover);
+	color: var(--ldx-course-nav-link-text-color-hover);
+}
+
+/* Current Final Quiz */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item-preview.ld-is-current-item .ld-lesson-item-preview-heading .ld-lesson-title {
+	color: var(--ldx-course-nav-link-text-color-hover);
+	font-weight: 700;
+}
+
+/* Expand/Collapse Links ("X Topics | X Quizzes") */
+.learndash-wrapper .ld-focus .ld-course-navigation .ld-lesson-item-preview .ld-expand-button {
+	padding-bottom: 0.6875em;
+}
+.learndash-wrapper .ld-course-navigation .ld-lesson-item-preview .ld-expand-button {
+	opacity: 0.75;
+	color: var(--ldx-course-nav-link-text-color);
+
+	&:hover {
+		color: var(--ldx-course-nav-link-text-color);
+		opacity: 1;
+	}
+}
+/* Arrow next to "X Topics | X Quizzes" */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item-preview .ld-expand-button .ld-icon {
+	background-color: transparent;
+	color: var(--ldx-course-nav-link-text-color);
+	opacity: 0.75;
+}
+.learndash-wrapper .ld-course-navigation .ld-lesson-item-preview .ld-expand-button:hover .ld-icon {
+	opacity: 1;
+}
+
+/* Topic Area (expandable/collapsible) */
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-topic-list.ld-table-list {
+	padding: 0;
+	background: transparent;
+}
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-lesson-item-expanded .ld-table-list-items {
+	padding: 0;
+}
+
+/* Topic: Indvidual Titles <a> */
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-course-navigation .ld-topic-list.ld-table-list .ld-table-list-item .ld-table-list-item-preview {
+	padding: 0.6875em;
+	padding-left: 1.6em;
+
+	&.ld-is-current-item {
+		background-color: var(--ldx-course-nav-link-bg-color-hover);
+		color: var(--ldx-course-nav-link-text-color-hover);
+	}
+}
+
+.learndash-wrapper .ld-course-navigation .ld-topic-list.ld-table-list .ld-table-list-item .ld-table-list-item-preview {
+	border-top: 1px solid var(--ldx-course-nav-line-separator-color);
+}
+
+/* Lesson: Current Lesson */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-item-preview-heading,
+.learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-title {
+	background-color: var(--ldx-course-nav-link-bg-color-hover);
+	color: var(--ldx-course-nav-link-text-color-hover);
+}
+/* Lesson: Current Lesson Icons */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-item-preview-heading .ld-status-incomplete,
+.learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-title .ld-status-incomplete {
+	border-color: rgba( $black, 0.1 );
+}
+
+/* Line Separators */
+.learndash-wrapper .ld-focus-sidebar .ld-table-list .ld-table-list-item {
+	border-bottom: 1px solid var(--ldx-course-nav-line-separator-color);
+}
+
+/* <a> tags for lesson & topic items (in FOCUS MODE only)
+ * Keep this at the bottom of the focus mode sidebar styles so it overrides */
+.learndash-wrapper .ld-focus-sidebar .ld-table-list .ld-table-list-item .ld-table-list-title a,
+.learndash-wrapper .ld-focus-sidebar .ld-table-list a.ld-table-list-item-preview,
+.learndash-wrapper .ld-focus-sidebar .ld-topic-list.ld-table-list .ld-table-list-item .ld-table-list-item-preview,
+.learndash-wrapper .ld-focus-sidebar .ld-topic-list.ld-table-list .ld-table-list-item .ld-table-list-item-preview,
+.learndash-wrapper .ld-focus-sidebar .ld-topic-list.ld-table-list .ld-table-list-item .ld-table-list-item-preview {
+	color: var(--ldx-course-nav-link-text-color);
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: var(--ldx-course-nav-link-bg-color-hover);
+		color: var(--ldx-course-nav-link-text-color-hover);
+	}
+}
+
+
+/**
+ * 8.2 - Focus Mode: Top Bar
+ */
+
+/* Brand Logo */
+.learndash-wrapper .ld-focus .ld-focus-header .ld-brand-logo {
+	padding: 5px 1em;
+}
+
+/* Salutation: Name */
+.learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-text {
+	text-transform: capitalize;
+	font-size: 95%;
+	color: inherit;
+}
+
+/* Avatar */
+// .learndash-wrapper .ld-focus .ld-focus-header .ld-profile-avatar {
+	
+// }
+
+/* Menu */
+.learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-user-menu-items {
+	min-width: 170px;
+	background: var(--ldx-focus-mode-topmenu-bg-color);
+	border-radius: var(--ldx-global-border-radius);
+	box-shadow: 0 3px 6px rgba( $black, 0.2 );
+	transform: translateY(-7px);
+	transition: all 0.15s ease;
+
+	&::before {
+		border-bottom-color: var(--ldx-focus-mode-topmenu-bg-color);
+	}
+}
+/* Slide down effect for menu */
+.learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu:hover .ld-user-menu-items {
+	transform: translateY(0);
+}
+
+.learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-user-menu-items a {
+	background: transparent;
+	border-bottom: 1px solid rgba( $black, 0.1 ) !important;
+	padding: 0.6875em 1em;
+	color: var(--ldx-focus-mode-topmenu-text-color);
+	font-size: 95%;
+	font-weight: normal;
+
+	&:first-of-type {
+    border-radius: 6px 6px 0 0;
+    border-radius: var(--ldx-global-border-radius) var(--ldx-global-border-radius) 0 0;
+	}
+	&:last-of-type {
+    border-radius: 0 0 6px 6px;
+    border-radius: 0 0 var(--ldx-global-border-radius) var(--ldx-global-border-radius);
+    border-bottom: none !important;
+	}
+}
+
+.learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-user-menu-items a:hover {
+	opacity: 1;
+	background: rgba( $black, 0.05 );
+}
+
+/* Content Actions / Buttons / Progress */
+.learndash-wrapper .ld-focus .ld-focus-header .ld-content-actions {
+	// bc it inherits the styles of the regular ones at the bottom of the page
+	border: 0;
+	padding: 0;
+
+	@media (max-width: 768px) {
+		border-top: 1px solid #e2e7ed;
+	}
+}
+.learndash-wrapper .ld-focus .ld-focus-header .ld-content-action {
+	height: 51px; // LD incorrectly set it to 50px
+}
+
+/* Prev/Next Buttons */
+.learndash-wrapper .ld-focus .ld-focus-header .ld-button {
+	height: 51px;
+	border-radius: 0;
+	color: var(--ldx-color-link);
+
+	&:hover {
+		background: rgba( $black, 0.03 ) !important;
+		color: var(--ldx-color-link-hover);
+		opacity: 1;
+	}
+}
+
+/* Mark Complete Button */
+.learndash-wrapper .ld-focus .ld-focus-header .ld-content-action .sfwd-mark-complete,
+.learndash-wrapper .ld-focus .ld-focus-header .ld-content-action #sfwd-mark-complete {
+	margin: 0;
+}
+.learndash-wrapper .ld-focus .ld-focus-header .ld-content-action .sfwd-mark-complete input[type="submit"] {
+	height: 51px;
+	border-radius: 0;
+	font-size: 95%;
+	font-weight: 700;
+	color: var(--ldx-color-correct);
+	transition: 0.15s all ease;
+
+	&:hover {
+		background: rgba( $black, 0.03 ) !important;
+		color: var(--ldx-color-correct);
+		opacity: 1;
+	}
+}
+/* <form> element: change color of icon */
+.learndash-wrapper .ld-focus .ld-focus-header .sfwd-mark-complete::after,
+.learndash-wrapper .ld-focus .ld-focus-header #sfwd-mark-complete::after {
+	color: var(--ldx-color-correct);
+}
+
+/* "Mark Complete" Disabled (open courses, not logged in) */
+.learndash-wrapper .ld-focus .ld-focus-header .ld-content-action .sfwd-mark-complete input[disabled],
+.learndash-wrapper .ld-focus .ld-focus-header .sfwd-mark-complete .learndash_mark_complete_button[disabled],
+.learndash-wrapper .ld-focus .ld-focus-header .sfwd-mark-complete #learndash_mark_complete_button[disabled],
+.learndash-wrapper .ld-focus .ld-focus-header #sfwd-mark-complete .learndash_mark_complete_button[disabled],
+.learndash-wrapper .ld-focus .ld-focus-header #sfwd-mark-complete #learndash_mark_complete_button[disabled] {
+	opacity: 0.7;
+	color: $black;
+
+	&:hover {
+		background: none !important;
+		color: $black;
+		opacity: 0.7;
+		cursor: default;
+	}
+}
+
+/* Progress Bar */
+.learndash-wrapper .ld-focus .ld-focus-header .ld-progress {
+	padding-top: 0.25em;
+}
+
+/**
+ * 8.3 - Focus Mode: Content Area
+ */
+
+// Content BG Color
+body.ld-in-focus-mode,
+body.ld-in-focus-mode .learndash-wrapper {
+	background-color: var(--ldx-focus-mode-content-bg-color);
+}
+
+/* "Back to Course" link */
+.learndash-wrapper .ld-content-actions > a {
+	font-size: inherit;
+	color: var(--ldx-color-link);
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--ldx-color-link-hover);
+	}
+}
+
+/**
+ * 8.4 - Focus Mode: Footer
+ */
+.learndash-wrapper .ld-focus-content .ld-content-actions {
+	border-color: rgba( $black, 0.1 );
+}
+
+
+/**
+ * 9.0 - Profile
+ */
+
+/* Sections */
+.learndash-wrapper .ld-profile-summary {
+	margin: 0; // Remove margin on summary container; add individually
+}
+.learndash-wrapper .ld-profile-summary .ld-profile-card {
+	margin: 1.5em 0 0; // Remove bottom margin
+}
+.learndash-wrapper .ld-profile-summary .ld-profile-stats {
+	margin: 1.5em 0 0; // Add top margin
+}
+#ld-profile .ld-course-list {
+	margin: 2.25em 0 1.5em;
+}
+
+
+/**
+ * 9.1 - Profile: User Info
+ */
+
+/* Avatar */
+.learndash-wrapper .ld-profile-summary .ld-profile-card .ld-profile-avatar {
+	border: 5px solid rgba( $black, 0.1 );
+}
+
+/* Name */
+.learndash-wrapper .ld-profile-summary .ld-profile-card .ld-profile-heading {
+	margin-bottom: 0;
+}
+/* Edit Profile link */
+.learndash-wrapper .ld-profile-summary .ld-profile-card .ld-profile-edit-link {
+	font-size: 90%;
+	color: var(--ldx-color-link);
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--ldx-color-link-hover);
+	}
+}
+
+/* Stats */
+.learndash-wrapper .ld-profile-summary .ld-profile-stats {
+	line-height: 1;
+}
+
+.learndash-wrapper .ld-profile-summary .ld-profile-stats .ld-profile-stat {
+	border-color: rgba( $black, 0.1 );
+}
+
+.learndash-wrapper .ld-profile-summary .ld-profile-stats .ld-profile-stat strong {
+	font-size: 2.25em; // LD forces 36px
+}
+
+.learndash-wrapper .ld-profile-summary .ld-profile-stats .ld-profile-stat span {
+	font-size: 1em; // LD forces 14px
+	color: inherit;
+	opacity: 0.75;
+}
+
+
+/**
+ * 9.2 - Profile: Your Courses
+ */
+
+.learndash-wrapper #ld-profile .ld-section-heading h3 {
+	margin-left: 0.25em;
+}
+
+/* Expand/Collapse Button */
+.learndash-wrapper #ld-profile .ld-section-heading .ld-expand-button {
+
+	@media (max-width: 640px) {
+		max-width: unset;
+		width: auto;
+	}
+}
+
+/* Search Prompt */
+.learndash-wrapper .ld-item-list .ld-section-heading .ld-search-prompt {
+	font-weight: 700;
+	color: var(--ldx-color-link);
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--ldx-color-link-hover);
+	}
+}
+
+/* Search Container */
+.learndash-wrapper .ld-item-list .ld-item-search .ld-item-search-wrapper {
+	padding: 1em;
+	margin-top: 0.5em;
+	border-radius: var(--ldx-global-border-radius);
+
+	&::before {
+		// hide the little arrow
+		display: none;
+	}
+}
+
+/* "close" link */
+.learndash-wrapper .ld-item-list .ld-item-search .ld-closer {
+	top: 1em;
+	right: 1em;
+	font-size: 90%;
+	color: var(--ldx-color-link);
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--ldx-color-link-hover);
+	}
+}
+
+/* Search Input Field */
+.learndash-wrapper .ld-item-list .ld-item-search .ld-item-search-fields input,
+// not sure what the <select> is for??
+.learndash-wrapper .ld-item-list .ld-item-search .ld-item-search-fields select {
+	height: auto;
+	padding: 0.25em 0.5em;
+	border-radius: 6px;
+	border-radius: var(--ldx-global-border-radius);
+
+	&:focus {
+		outline: none;
+	}
+}
+
+/* Profile: Courses List */
+
+// Container for each course under "Your Courses"
+#ld-profile .ld-item-list .ld-item-list-item {
+	border-radius: var(--ldx-global-border-radius);
+}
+
+/* Expand Arrows */
+.learndash-wrapper #ld-profile .ld-item-list .ld-item-list-item .ld-item-details {
+	margin-right: 0.75em;
+	// @RTL
+	.rtl & {
+		margin-right: 0;
+		margin-left: 0.75em;
+	}
+}
+
+/* Course Progress area */
+.learndash-wrapper #ld-profile .ld-item-list .ld-item-list-item .ld-item-list-item-expanded .ld-progress {
+	margin-bottom: 0;
+	background-color: transparent;
+	padding: 0 calc( 1.75em + 26px ) 0.5em;
+	// 1.25em + 26px icon size + .5em icon margin
+}
+.learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-list-item-expanded::before {
+	// remove arrow
+	display: none;
+}
+
+/* "Course Progress" label */
+.learndash-wrapper .ld-progress .ld-progress-heading .ld-progress-label {
+	display: none;
+}
+
+.learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-list-item-expanded .ld-item-contents {
+	padding: 0 1em 1em 1em;
+
+	.ld-table-list {
+		margin: 1em 0;
+	}
+}
+
+/* Quiz & Assignment Lists */
+#ld-profile .ld-table-list .ld-table-list-items {
+	// bc the footer is shown even when it's empty
+	border-radius: 0;
+
+	// This overrides the link colors set for the course content table in Customizer,
+	// since we're not adding background colors to the profile area
+	.ld-table-list-item .ld-table-list-title a {
+		color: var(--ldx-color-link);
+
+		&:hover {
+			color: var(--ldx-color-link-hover);
+		}
+	}
+} // #ld-profile .ld-table-list .ld-table-list-items
+
+#ld-profile .ld-item-list .ld-item-list-item a.ld-item-name {
+	color: var(--ldx-color-link);
+
+	&:hover {
+		color: var(--ldx-color-link-hover);
+	}
+}
+
+/* Quiz Lists */
+// Adds margin after icon
+.learndash-wrapper .ld-table-list-title .ld-status-icon {
+	margin-right: 0.375em;
+	// @RTL
+}
+
+
+/**
+ * 10.0 - Course Navigation
+ */
+
+/* "Course Home" link */
+.learndash-wrapper .ld-home-link {
+	font-size: inherit;
+	color: var(--ldx-color-link);
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--ldx-color-link-hover);
+	}
+}
+
+/* "Expand All" link */
+.learndash-wrapper .ld-course-navigation .ld-course-navigation-actions .ld-expand-button {
+	font-size: 90%;
+}
+
+/* Sections */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item-section-heading {
+	padding: 0.25em 0.75em;
+	background-color: var(--ldx-course-nav-section-bg-color);
+	border-radius: var(--ldx-global-border-radius);
+	color: var(--ldx-course-nav-section-text-color);
+
+	// <span> inside of it
+	.ld-lesson-section-heading {
+		margin-bottom: 0;
+	}
+}
+
+/* <div> surrounding lessons */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item-preview {
+	padding: 0;
+}
+
+/* Each lesson */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item {
+	border-color: var(--ldx-course-nav-line-separator-color);
+}
+
+/* Lesson titles */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item-preview a.ld-lesson-item-preview-heading {
+	color: var(--ldx-course-nav-link-text-color);
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: var(--ldx-course-nav-link-bg-color-hover);
+		color: var(--ldx-course-nav-link-text-color-hover);
+	}
+}
+
+/* X Topics | X Quizzes */
+.widget_ldcoursenavigation .learndash-wrapper .ld-course-navigation .ld-lesson-item-preview .ld-expand-button {
+	padding-top: 0;
+	margin: 0.5em 0;
+}
+
+/* Topics Area */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item-expanded {
+	background: transparent; // remove grey background
+	border-radius: 0;
+
+	// remove arrow
+	&::before {
+		display: none;
+	}
+
+	&.ld-expanded {
+		margin-bottom: 0;
+	}
+
+} // .learndash-wrapper .ld-course-navigation .ld-lesson-item-expanded
+
+.learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list,
+.learndash-wrapper .ld-course-navigation .ld-table-list .ld-table-list-items {
+	border-radius: 0;
+}
+
+.learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-items {
+	padding: 0;
+}
+
+.learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item .ld-table-list-title a,
+.learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item a.ld-table-list-item-preview {
+	color: var(--ldx-course-nav-link-text-color);
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: var(--ldx-course-nav-link-bg-color-hover);
+		color: var(--ldx-course-nav-link-text-color-hover);
+	}
+}
+
+/* Line between X Topics | X Quizzes */
+.learndash-wrapper .ld-course-navigation .ld-sep {
+	color: rgba( $black, 0.1 );
+}
+
+/* Topic: Current Topic */
+// also applies in focus mode
+.learndash-wrapper .ld-course-navigation .ld-table-list.ld-topic-list .ld-table-list-item .ld-table-list-item-preview.ld-is-current-item:hover {
+	cursor: default;
+}
+
+
+/**
+ * 11.0 - Assignments
+ */
+/* This also applies to ALL table lists */
+.learndash-wrapper .ld-table-list .ld-table-list-item-preview .ld-table-list-columns .ld-table-list-column {
+	font-size: 95%;
+}
+
+/* Comment number & bubble icon */
+.learndash-wrapper .ld-table-list .ld-table-list-item .ld-comments-column a {
+	color: inherit;
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--ldx-color-link-hover);
+	}
+}
+
+/* X/X Approved */
+.learndash-wrapper .ld-table-list .ld-table-list-header .ld-table-list-columns .ld-table-list-column.ld-assignment-column-approved {
+	opacity: 0.85;
+}
+
+/* Assignment Title */
+.learndash-wrapper .ld-table-list.ld-assignment-list .ld-table-list-item-preview .ld-table-list-title {
+	font-size: inherit;
+	font-weight: normal;
+}
+
+/* Assignment File Upload */
+.learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-file-input + label {
+	border-radius: var(--ldx-global-border-radius);
+}
+
+/* Assignment Status Column */
+.learndash-wrapper .ld-table-list.ld-assignment-list .ld-table-list-item-preview .ld-table-list-columns .ld-table-list-column {
+	flex-basis: 175px;
+
+	@media (max-width: 768px) {
+		flex: 1 auto;
+	}
+}
+
+/* Assignment List: Delete Icon */
+.learndash-wrapper .ld-icon-delete:hover {
+	color: var(--ldx-color-incorrect);
+}
+
+/* Assignment Upload: Filename */
+.learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-file-input+label span {
+	padding: 0.5em 0.75em;
+	font-weight: normal;
+	font-style: unset;
+}
+
+
+/**
+ * 12.0 - Tooltips
+ */
+#learndash-tooltips {
+	font-family: inherit;
+	font-size: inherit;
+
+	.ld-tooltip {
+		min-width: unset;
+		padding: 0.5em 1.125em;
+		box-shadow: inset 0 0 0 1px rgba( $black, 0.1 );
+		font-size: 90%;
+		font-weight: normal;
+		line-height: 1.25;
+		transition: all 0.15s ease;
+		transform: translateX(-50%) translateY(-30px);
+		border-radius: var(--ldx-global-border-radius);
+		background: var(--ldx-tooltip-bg-color);
+		color: var(--ldx-tooltip-text-color);
+
+		&::after {
+			box-shadow: 0 1px 0 0 rgba( $black, 0.1 ),
+									1px 1px 0 0 rgba( $black, 0.1 );
+			background: var(--ldx-tooltip-bg-color);
+		}
+
+		&.ld-visible {
+			transform: translateX(-50%) translateY(-35px);
+		}
+	}
+
+} // #learndash-tooltips
+
+
+/**
+ * 13.0 - Pagination
+ */
+.learndash-wrapper .ld-pagination {
+	font-size: 90%;
+	font-weight: normal;
+	text-transform: unset;
+	justify-content: center;
+}
+
+/* Table List Footer Pagination */
+.learndash-wrapper .ld-table-list .ld-table-list-footer .ld-pagination {
+	justify-content: center;
+}
+
+// in table list footers
+.learndash-wrapper .ld-pagination .ld-pages,
+// at bottom of course content tables
+.learndash-wrapper .ld-item-list-item-expanded .ld-pagination .ld-pages,
+// in course navigation widgets
+// .learndash-wrapper .ld-course-navigation .ld-pagination .ld-pages
+{
+	padding: 0.25em 0.375em;
+	background-color: rgba( $black, 0.07 );
+
+	> span {
+		margin: 0 0.5em;
+	}
+}
+
+.learndash-wrapper .ld-pagination .ld-pages,
+.learndash-wrapper .ld-course-navigation .ld-pagination .ld-pages,
+.learndash-wrapper .ld-table-list-footer .ld-pagination .ld-pages,
+.learndash-wrapper .ld-focus .ld-focus-sidebar .ld-pagination .ld-pages {
+	// universalize for all instances
+	flex-basis: auto; // LD uses 120px globally; then 180px for main course content list
+}
+
+.learndash-wrapper .ld-pagination .ld-pages a {
+	// larger clickable area
+	padding: 5px;
+}
+
+
+/**
+ * 14.0 - Login & Registration
+ */
+
+/* Modal Parent Container */
+.learndash-wrapper .ld-modal {
+	border-radius: var(--ldx-global-border-radius);
+}
+
+/* Text Intro */
+.learndash-wrapper .ld-login-modal .ld-login-modal-login .ld-modal-text {
+	font-size: inherit;
+	color: inherit;
+}
+
+/* <label>s */
+.learndash-wrapper .ld-login-modal .ld-login-modal-form label {
+	font-size: 90%;
+	color: inherit;
+}
+.learndash-wrapper .ld-login-modal .ld-login-modal-register label {
+	font-size: 90%;
+}
+
+/* <input> Fields */
+.learndash-wrapper .ld-login-modal input[type="text"],
+.learndash-wrapper .ld-login-modal input[type="password"],
+.learndash-wrapper .ld-login-modal .ld-login-field,
+.learndash-wrapper .ld-login-modal .ld-password-field {
+	border-radius: 6px;
+	border-radius: var(--ldx-global-border-radius);
+	font-size: 95%;
+	color: inherit;
+	transition: all 0.15s ease;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+/* Registration Only */
+.learndash-wrapper .ld-login-modal .ld-login-modal-register input[type="text"],
+.learndash-wrapper .ld-login-modal .ld-login-modal-register input[type="password"],
+.learndash-wrapper .ld-login-modal .ld-login-modal-register input[type="email"] {
+	margin: 0.5em 0 1em;
+	padding: 0.5em; // matches default LD styles for login inputs
+	border-radius: 6px;
+	border-radius: var(--ldx-global-border-radius);
+	font-size: inherit;
+	color: #728188;
+	transition: all 0.15s ease;
+
+	&:focus {
+		border-color: $white;
+		box-shadow: 0 0 0 2px rgba( $black, 0.15 );
+	}
+}
+
+.learndash-wrapper .ld-login-modal .ld-login-modal-register #reg_passmail {
+	font-size: 90%;
+}
+
+
+/**
+ * 15.0 - Widgets
+ */
+
+/* ALL list items in widgets with empty <p> tags */
+.learndash-wrapper .ld-item-list-item p:empty {
+	display: none;
+}
+
+
+/**
+ * 15.1 - Widget: User Status
+ */
+.learndash-wrapper .ld-user-status.ld-is-widget .ld-item-list .ld-item-list-item .ld-item-list-item-preview .ld-item-components {
+	font-size: inherit;
+}
+
+.learndash-wrapper .ld-user-status.ld-is-widget .ld-item-list .ld-item-list-item {
+	border-bottom: 2px solid rgba( $black, 0.1 );
+}
+
+.learndash-wrapper .ld-user-status .ld-item-list .ld-item-list-item .ld-item-name {
+	padding: 0;
+	color: var(--ldx-color-link);
+}
+
+/* Course Title */
+.learndash-wrapper .ld-user-status.ld-is-widget .ld-item-list .ld-item-list-item .ld-item-list-item-preview .ld-item-title {
+	font-size: inherit;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+/* % Complete, X/X Steps */
+.learndash-wrapper .ld-user-status.ld-is-widget .ld-item-list .ld-item-list-item .ld-item-list-item-preview .ld-item-components span {
+	margin: 0 0 0.375em;
+	font-size: inherit;
+	font-weight: normal;
+	line-height: 1.25;
+	color: $darkgrey;
+}
+
+.learndash-wrapper .ld-user-status.ld-is-widget .ld-item-list .ld-item-list-item .ld-item-list-item-preview .ld-item-name:hover .ld-item-components span {
+	color: $darkgrey;
+}
+
+
+/**
+ * 15.2 - Widget: Course Information
+ */
+.ld-course-info-my-courses {
+	padding: 1em 0;
+	border-bottom: 2px solid rgba( $black, 0.1 );
+
+	h2.ld-entry-title {
+		// removes styles from theme's default .entry-title styling
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: inherit;
+	}
+
+	.ld-entry-title a {
+		display: block;
+		padding: 0 0.125em;
+		font-size: inherit;
+		font-weight: 600;
+		line-height: 1.4;
+	}
+
+	img {
+		margin-bottom: 0.5em;
+	}
+}
+
+
+/**
+ * 16.0 - Course Grid Add-On
+ */
+
+/*****************************
+ * These were copied from LD2
+ *
+ * These are styles for the official course grid add-on by LearnDash. It's a separate, free plugin that must be installed.
+ *
+ * Compatibility: Divi Plugin
+ * The Divi plugin adds styles for '#et-boc div'. Since LD does not have any IDs I can use to override this, I must add #et-boc in front of all course grid styles to override the Divi plugin.
+ */
+
+// entire grid
+// #ld_course_list .ld-course-list-content .ld-course-list-items.row
+
+// Unfortunately, when using some page builders (Divi, Elementor),
+// #ld_course_list is not output in the HTML, so there is no ID
+// from LearnDash that I can use.
+
+// Fixes column issue with some themes that also use Bootstrap
+// Uncode theme is one example
+// Also looks like X theme and Cornerstone (theme.co)
+// .ld-course-list-content .ld-course-list-items.row,
+// #ld_course_list .ld-course-list-items.row,
+// #et-boc .ld-course-list-items.row {
+// 	display: flex;
+// 	flex-wrap: wrap;
+// 	// remove default bootstrap spacing
+// 	margin-left: 0;
+// 	margin-right: 0;
+// }
+
+.ld-course-list-items.row {
+	// remove default bootstrap spacing
+	margin: 0;
+}
+
+.ld-course-list-content .ld_course_grid,
+#ld_course_list .ld-course-list-items .ld_course_grid,
+#et-boc .ld-course-list-items .ld_course_grid {
+	box-sizing: border-box;
+	// styles need to be placed here to create equal height items for flexbox
+	background: #fff;
+	border-radius: var(--ldx-grid-item-border-radius);
+	border: var(--ldx-grid-item-border-width) solid var(--ldx-grid-item-border-color);
+	box-shadow: none;
+	// remove default padding that bootstrap uses for spacing
+	padding: 0;
+	// to make for nice rounded corners
+	overflow: hidden;
+	// set up for hover animations in pro
+	transition: all 0.15s ease;
+	// fix bug in safari with rounded corners turning square on hover
+	z-index: 1;
+}
+
+// 2 columns
+// col-md-6 col-sm-12
+@media (min-width: 576px) {
+	.ld-course-list-content .ld_course_grid.col-sm-12,
+	#ld_course_list .ld_course_grid.col-sm-12,
+	#et-boc .ld_course_grid.col-sm-12 {
+		flex: 0 0 100%;
+		max-width: 100%;
+		margin-right: 0;
+		margin-bottom: 1.5em;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-12:nth-child(2n),
+	#ld_course_list .ld_course_grid.col-sm-12:nth-child(2n),
+	#et-boc .ld_course_grid.col-sm-12:nth-child(2n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-12,
+	.rtl #ld_course_list .ld_course_grid.col-sm-12,
+	.rtl #et-boc .ld_course_grid.col-sm-12 {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-12:nth-child(2n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-12:nth-child(2n),
+	.rtl #et-boc .ld_course_grid.col-sm-12:nth-child(2n) {
+		margin-left: 0;
+	}
+}
+@media (min-width: 768px) {
+	.ld-course-list-content .ld_course_grid.col-md-6,
+	#ld_course_list .ld_course_grid.col-md-6,
+	#et-boc .ld_course_grid.col-md-6 {
+		flex: 0 0 48%;
+		max-width: 48%;
+		margin-right: 4%;
+		margin-bottom: 4%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-6,
+	.rtl #ld_course_list .ld_course_grid.col-md-6,
+	.rtl #et-boc .ld_course_grid.col-md-6 {
+		margin-left: 4%;
+	}
+}
+
+// 3 columns
+// col-sm-8 col-md-4
+@media (min-width: 576px) {
+	.ld-course-list-content .ld_course_grid.col-sm-8,
+	#ld_course_list .ld_course_grid.col-sm-8,
+	#et-boc .ld_course_grid.col-sm-8 {
+		flex: 0 0 100%;
+		max-width: 100%;
+		margin-right: 4%;
+		margin-bottom: 4%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-8:nth-child(2n),
+	#ld_course_list .ld_course_grid.col-sm-8:nth-child(2n),
+	#et-boc .ld_course_grid.col-sm-8:nth-child(2n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-8,
+	.rtl #ld_course_list .ld_course_grid.col-sm-8,
+	.rtl #et-boc .ld_course_grid.col-sm-8 {
+		margin-right: 0;
+		margin-left: 4%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-8:nth-child(2n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-8:nth-child(2n),
+	.rtl #et-boc .ld_course_grid.col-sm-8:nth-child(2n) {
+		margin-left: 0;
+	}
+}
+@media (min-width: 768px) {
+	.ld-course-list-content .ld_course_grid.col-md-4,
+	#ld_course_list .ld_course_grid.col-md-4,
+	#et-boc .ld_course_grid.col-md-4 {
+		flex: 0 0 31.5%;
+		max-width: 31.5%;
+		margin-right: 2.75%;
+		margin-bottom: 2.75%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-8:nth-child(2n),
+	#ld_course_list .ld_course_grid.col-sm-8:nth-child(2n),
+	#et-boc .ld_course_grid.col-sm-8:nth-child(2n) {
+		margin-right: 2.75%;
+	}
+	.ld-course-list-content .ld_course_grid.col-md-4:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-md-4:nth-child(3n),
+	#et-boc .ld_course_grid.col-md-4:nth-child(3n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-4,
+	.rtl #ld_course_list .ld_course_grid.col-md-4,
+	.rtl #et-boc .ld_course_grid.col-md-4 {
+		margin-right: 0;
+		margin-left: 2.75%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-8:nth-child(2n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-8:nth-child(2n),
+	.rtl #et-boc .ld_course_grid.col-sm-8:nth-child(2n) {
+		margin-right: 0;
+		margin-left: 2.75%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-4:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-md-4:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-md-4:nth-child(3n) {
+		margin-left: 0;
+	}
+}
+
+// 4 columns
+// col-sm-6 col-md-3
+@media (min-width: 576px) {
+	.ld-course-list-content .ld_course_grid.col-sm-6,
+	#ld_course_list .ld_course_grid.col-sm-6,
+	#et-boc .ld_course_grid.col-sm-6 {
+		flex: 0 0 31.5%;
+		max-width: 31.5%;
+		margin-right: 2.75%;
+		margin-bottom: 2.75%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-6:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-sm-6:nth-child(3n),
+	#et-boc .ld_course_grid.col-sm-6:nth-child(3n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-6,
+	.rtl #ld_course_list .ld_course_grid.col-sm-6,
+	.rtl #et-boc .ld_course_grid.col-sm-6 {
+		margin-right: 0;
+		margin-left: 2.75%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-6:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-6:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-sm-6:nth-child(3n) {
+		margin-left: 0;
+	}
+}
+@media (min-width: 768px) {
+	.ld-course-list-content .ld_course_grid.col-md-3,
+	#ld_course_list .ld_course_grid.col-md-3,
+	#et-boc .ld_course_grid.col-md-3 {
+		flex: 0 0 23.3%;
+		max-width: 23.3%;
+		margin-right: 2.26%;
+		margin-bottom: 2.26%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-6:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-sm-6:nth-child(3n),
+	#et-boc .ld_course_grid.col-sm-6:nth-child(3n) {
+		margin-right: 2.26%;
+	}
+	.ld-course-list-content .ld_course_grid.col-md-3:nth-child(4n),
+	#ld_course_list .ld_course_grid.col-md-3:nth-child(4n),
+	#et-boc .ld_course_grid.col-md-3:nth-child(4n),
+	.ld-course-list-content .ld_course_grid.col-sm-6:nth-child(4n),
+	#ld_course_list .ld_course_grid.col-sm-6:nth-child(4n),
+	#et-boc .ld_course_grid.col-sm-6:nth-child(4n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-3,
+	.rtl #ld_course_list .ld_course_grid.col-md-3,
+	.rtl #et-boc .ld_course_grid.col-md-3,
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-6:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-6:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-sm-6:nth-child(3n) {
+		margin-right: 0;
+		margin-left: 2.26%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-3:nth-child(4n),
+	.rtl #ld_course_list .ld_course_grid.col-md-3:nth-child(4n),
+	.rtl #et-boc .ld_course_grid.col-md-3:nth-child(4n) {
+		margin-left: 0;
+	}
+}
+
+// 5 columns
+// col-sm-5 col-md-2-4
+@media (min-width: 576px) {
+	.ld-course-list-content .ld_course_grid.col-sm-5,
+	#ld_course_list .ld_course_grid.col-sm-5,
+	#et-boc .ld_course_grid.col-sm-5 {
+		flex: 0 0 31.5%;
+		max-width: 31.5%;
+		margin-right: 2.75%;
+		margin-bottom: 2.75%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-5:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-sm-5:nth-child(3n),
+	#et-boc .ld_course_grid.col-sm-5:nth-child(3n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-5,
+	.rtl #ld_course_list .ld_course_grid.col-sm-5,
+	.rtl #et-boc .ld_course_grid.col-sm-5 {
+		margin-right: 0;
+		margin-left: 2.75%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-5:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-5:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-sm-5:nth-child(3n) {
+		margin-left: 0;
+	}
+}
+@media (min-width: 768px) {
+	.ld-course-list-content .ld_course_grid.col-md-2-4,
+	#ld_course_list .ld_course_grid.col-md-2-4,
+	#et-boc .ld_course_grid.col-md-2-4 {
+		flex: 0 0 18.5%;
+		max-width: 18.5%;
+		margin-right: 1.875%;
+		margin-bottom: 1.875%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-5:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-sm-5:nth-child(3n),
+	#et-boc .ld_course_grid.col-sm-5:nth-child(3n) {
+		margin-right: 1.875%;
+	}
+	.ld-course-list-content .ld_course_grid.col-md-2-4:nth-child(5n),
+	#ld_course_list .ld_course_grid.col-md-2-4:nth-child(5n),
+	#et-boc .ld_course_grid.col-md-2-4:nth-child(5n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-2-4,
+	.rtl #ld_course_list .ld_course_grid.col-md-2-4,
+	.rtl #et-boc .ld_course_grid.col-md-2-4 {
+		margin-right: 0;
+		margin-left: 1.875%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-5:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-5:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-sm-5:nth-child(3n) {
+		margin-left: 1.875%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-2-4:nth-child(5n),
+	.rtl #ld_course_list .ld_course_grid.col-md-2-4:nth-child(5n),
+	.rtl #et-boc .ld_course_grid.col-md-2-4:nth-child(5n) {
+		margin-left: 0;
+	}
+}
+
+// 6 columns
+// col-sm-4 col-md-2
+// 7 columns also outputs the same classes
+@media (min-width: 576px) {
+	.ld-course-list-content .ld_course_grid.col-sm-4,
+	#ld_course_list .ld_course_grid.col-sm-4,
+	#et-boc .ld_course_grid.col-sm-4 {
+		flex: 0 0 31.5%;
+		max-width: 31.5%;
+		margin-right: 2.75%;
+		margin-bottom: 2.75%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-4:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-sm-4:nth-child(3n),
+	#et-boc .ld_course_grid.col-sm-4:nth-child(3n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-4,
+	.rtl #ld_course_list .ld_course_grid.col-sm-4,
+	.rtl #et-boc .ld_course_grid.col-sm-4 {
+		margin-right: 0;
+		margin-left: 2.75%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-4:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-4:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-sm-4:nth-child(3n) {
+		margin-left: 0;
+	}
+}
+@media (min-width: 768px) {
+	.ld-course-list-content .ld_course_grid.col-md-2,
+	#ld_course_list .ld_course_grid.col-md-2,
+	#et-boc .ld_course_grid.col-md-2 {
+		flex: 0 0 15.625%;
+		max-width: 15.625%;
+		margin-right: 1.25%;
+		margin-bottom: 1.25%;
+	}
+	.ld-course-list-content .ld_course_grid.col-sm-4:nth-child(3n),
+	#ld_course_list .ld_course_grid.col-sm-4:nth-child(3n),
+	#et-boc .ld_course_grid.col-sm-4:nth-child(3n) {
+		margin-right: 1.25%;
+	}
+	.ld-course-list-content .ld_course_grid.col-md-2:nth-child(6n),
+	#ld_course_list .ld_course_grid.col-md-2:nth-child(6n),
+	#et-boc .ld_course_grid.col-md-2:nth-child(6n) {
+		margin-right: 0;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-2,
+	.rtl #ld_course_list .ld_course_grid.col-md-2,
+	.rtl #et-boc .ld_course_grid.col-md-2 {
+		margin-right: 0;
+		margin-left: 1.25%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-sm-4:nth-child(3n),
+	.rtl #ld_course_list .ld_course_grid.col-sm-4:nth-child(3n),
+	.rtl #et-boc .ld_course_grid.col-sm-4:nth-child(3n) {
+		margin-left: 1.25%;
+	}
+	.rtl .ld-course-list-content .ld_course_grid.col-md-2:nth-child(6n),
+	.rtl #ld_course_list .ld_course_grid.col-md-2:nth-child(6n),
+	.rtl #et-boc .ld_course_grid.col-md-2:nth-child(6n) {
+		margin-left: 0;
+	}
+}
+
+// single item
+// #ld_course_list .ld_course_grid .thumbnail,
+.ld-course-list-items div.ld_course_grid .thumbnail.course,
+.ld_course_grid .thumbnail,
+#et-boc .ld_course_grid .thumbnail,
+// Twenty Nineteen theme compatibility
+.entry-content div.ld_course_grid .thumbnail {
+	max-width: 100%; // for Twenty Nineteen theme compat
+	padding: 0 !important; // required to override Astra's padding
+												 // !important required for Boss theme compat
+	margin: 0; // for Twenty Nineteen theme compat
+	background: transparent;
+	border-radius: 0; // needs to stay
+	border: 0 !important;
+	box-shadow: none;
+
+	// added 3-23-2019, to push button to bottom of container
+	display: flex !important;
+	flex-direction: column;
+	min-height: 100%;
+
+	// surrounding featured image
+	> a {
+		display: block;
+	}
+
+	// the image itself
+	a img {
+		display: block;
+		margin: 0;
+	}
+
+	// CAPTION contains title, description, button & progress bar
+	.caption {
+		position: relative; // for positioning the progress bar in pro version
+		padding: 1em 1.5em 1.5em;
+
+		// added 3-23-2019, to push button to bottom of container
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.caption p:not(.ld_course_grid_button):not(.entry-content) {
+		// remove empty <p> tags that course grid plugin adds
+		display: none;
+	}
+
+	.caption .entry-title {
+		color: #333;
+		line-height: 1.2;
+		margin-bottom: 15px !important;
+
+		// Twenty Nineteen theme compat
+		&:before {
+			display: none;
+		}
+	}
+
+	.caption .entry-content {
+		color: #808080;
+		font-size: 95%;
+		padding: 0; // Twenty Nineteen theme compat
+		margin: 0 0 15px !important;
+	}
+
+	.caption .ld_course_grid_button {
+		margin-top: auto !important; // pushes button to bottom of container
+		padding-bottom: 0; // Divi compatibility
+	}
+
+	a.btn {
+		font-size: 95%;
+		white-space: normal;
+	}
+
+} // .thumbnail
+
+
+// Astra Theme Compatibility
+// #ld_course_list .ld_course_grid .ast-article-single .entry-title,
+#ld_course_list .ast-article-single .entry-title,
+.ld_course_grid .ast-article-single .entry-title {
+	font-size: 1.5em;
+}
+
+// Course Grid Ribbon
+body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_price,
+#et-boc .ld_course_grid .thumbnail.course .ld_course_grid_price {
+	top: 8px;
+	left: 8px;
+	padding: 4px 13px;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1);
+	-moz-box-shadow: 1px 1px 4px rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1);
+	-webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1);
+	border-radius: calc( var(--ldx-grid-item-border-radius) / 2 );
+	font-size: 90%;
+	text-shadow: none;
+
+	&:before {
+		display: none;
+	}
+
+	.rtl & {
+		left: unset;
+		right: 8px;
+	}
+
+} // .ld_course_grid_price
+
+/**************************************
+ * Everything below was added for LD3 */
+
+/* Category Dropdown */
+#ld_course_categorydropdown,
+#ld_lesson_categorydropdown,
+#ld_topic_categorydropdown,
+#et-boc #ld_course_categorydropdown,
+#et-boc #ld_lesson_categorydropdown,
+#et-boc #ld_topic_categorydropdown {
+	padding: var(--ldx-grid-filter-padding);
+	margin-bottom: 1em;
+	border-radius: var(--ldx-global-border-radius);
+	background-color: var(--ldx-grid-filter-bg-color);
+
+	label {
+		display: none;
+	}
+}
+
+// @storefront
+.ld-course-list-items .ld_course_grid .hentry .wp-post-image {
+	margin-bottom: 0;
+}
+
+/* Videos */
+.ld-course-list-items .ld_course_grid .ld_course_grid_video_embed {
+	padding: 0; // LD sets this to 1px
+	border-radius: var(--ldx-global-border-radius) var(--ldx-global-border-radius) 0 0;
+	overflow: hidden; // to cut off video from overflowing the border-radius
+}
+
+/* Caption */
+.ld-course-list-items .ld_course_grid .thumbnail .caption {
+	padding: 0.875em;
+	color: inherit;
+}
+
+/* Title */
+.ld-course-list-items .ld_course_grid .caption .entry-title {
+	font-weight: 600;
+	// Font size will typically inherit theme's <h3> styles
+	
+	&::before {
+		// @twentynineteen (removes line above title)
+		display: none;
+	}
+}
+// @astra
+.ld-course-list-items .ld_course_grid .ast-article-single .entry-title {
+	font-size: 1.375em;
+}
+
+/* Short Description */
+.ld-course-list-items .ld_course_grid .caption .entry-content {
+	opacity: 0.9;
+
+	// @oceanwp
+	.oceanwp-theme & {
+		opacity: 1;
+	}
+}
+
+/* Progress Bar */
+.thumbnail .learndash-wrapper .ld-progress {
+	margin-bottom: 0;
+}
+
+/* Empty <p> Tags */
+.ld-course-list-items .ld_course_grid .thumbnail .caption p:empty {
+	margin: 0 !important;
+}
+
+
+/**
+ * 17.0 - Quizzes
+ */
+
+@import 'quiz';
+
+
+/**
+ * 99.0 - Animations
+ */
+/**
+ * Progress Bar
+ * Animates the progress bar from left-to-right
+ */
+@keyframes progress-bar {
+	0% {
+		width: 0;
+	}
+}
