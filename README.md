@@ -1,6 +1,6 @@
 # Design Upgrade for LearnDash
 
-Instantly improve LearnDash's design -- courses, lessons, topics, quizzes, profile page, course navigation widget & course grid -- to more closely match your WordPress theme, and remove those unwanted default LearnDash styles.
+Instantly improve LearnDash's design -- focus mode, course content lists, profile page, course navigation & course grid -- to more closely match your WordPress theme, and improve LearnDash styles.
 
 [**Download from wordpress.org**](https://wordpress.org/plugins/design-upgrade-learndash/)
 
@@ -10,9 +10,33 @@ Instantly improve LearnDash's design -- courses, lessons, topics, quizzes, profi
 
 Design Upgrade for LearnDash completely redesigns every aspect of LearnDash so that it closely resembles your existing WordPress theme. No settings or custom code. Just activate & enjoy!
 
+## 🎉 Now Compatible with LD3! 🎉
+
+We'll automatically detect whether you're using the "LearnDash 3.0" or "Legacy" template, and assign styles appropriately. If you're still running LearnDash 2.x, all of the same design upgrades that you've always enjoyed will still be there.
+
+See "Features" below for a list of what's new.
+
 ## Features
 
-I literally went through every line of CSS that LearnDash uses and gave it all a fresh coat of paint. Here are the highlights:
+**LearnDash 3.x Features**
+
+Tested with LearnDash 3.0.5.1
+
+* **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
+* **Buttons:** All buttons have matching rounded corners & increased font size
+* **Font Sizes:** These will now be inherited from your theme, which should increase your font sizes across the board
+* **Focus Mode:** Improved sidebar tray design, Course Sections, shadow added to mobile menu, collapse arrow flips to show current menu state, and more.
+* **Focus Mode:** Top navigation bar received several small improvements
+* **Animations:** Subtle animations for LearnDash tooltips & the Focus Mode menu
+* **Profile:** Several styles were improved & standardized
+* **Login/Registration:** Unified styles for all form fields
+* **Course Grid:** Equal height columns & other small tweaks
+
+**Also:** Small tweaks were made to assignments, pagination, the "User Status" widget and more.
+
+**[Full changelog & list of features →](https://ldx.design/design-upgrade-pro-learndash-3/#free-changelog)**
+
+**LearnDash 2.x Features**
 
 * Much improved course grid styles, equal height cards & no more weird spacing issues 👍
 * All fonts have been reset to use your theme's default font family, size & color
@@ -52,7 +76,6 @@ Design Upgrade for LearnDash **should work on most themes**, assuming they have 
 
 We have tested with the following themes, and they all appear **to be compatible:**
 
-* **NEW!** Boss. by BuddyBoss (must deactivate Social Learner/"Boss for LearnDash" plugin)
 * Astra
 * Divi
 * GeneratePress
@@ -64,13 +87,14 @@ We have tested with the following themes, and they all appear **to be compatible
 
 ## Incompatible Themes
 
+* BuddyBoss Platform (released June 2019)
+* Boss. / Social Learner (If you deactivate the "Boss for LearnDash" plugin, it will still work in "Legacy" mode)
 * LearnMate by Wbcom Designs
 * eLumine by WisdmLabs
 
 ## Incompatible Plugins
 
 * **LearnDash Visual Customizer by SnapOrbital:** The Visual Customizer takes a similar approach to designing LearnDash components, and thus the code conflicts with ours.
-* **Boss for LearnDash:** We **are** compatible with the Boss. theme, as well as "BuddyPress for LearnDash," but in order to use this plugin, you need to deactivate the "Boss for LearnDash" plugin.
 
 ### Uncanny Owl Toolkit Compatibility
 
@@ -90,8 +114,8 @@ As LearnDash adds new features, it is our goal to keep this plugin updated.
 
 Features planned for future release:
 
-* Evaluating: Switch from SVG icons to font icons
-* Compatibility with LearnDash 3.0 when it is released
+* Consistent & improved form styling for native LearnDash Login/Registration
+* Compatibility with more of the Uncanny LearnDash Toolkit modules
 
 ## We'd love to hear from you!
 
@@ -125,9 +149,7 @@ Absolutely. Feel free to add your own CSS if you want to further customize the l
 
 ### Will this slow down my site?
 
-Nope. We do add one small CSS file to the header (63KB), but as long as you're using a reliable WordPress host with decent performance, you shouldn't notice a difference.
-
-For reference, the LearnDash plugin loads 5 CSS files that total 45KB (7 files totaling 67KB if you count the Course Grid).
+Nope. We do add one CSS file to the header, but as long as you're using a reliable WordPress host with decent performance, you shouldn't notice a difference.
 
 ### My course/lesson/topic/quiz still looks weird. Can you help?
 

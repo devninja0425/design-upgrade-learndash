@@ -2729,6 +2729,8 @@ dd.course_progress div.course_progress_blue {
 	overflow: hidden;
 	// set up for hover animations in pro
 	transition: all 0.2s ease;
+	// fix bug in safari with rounded corners turning square on hover
+	z-index: 1;
 }
 
 // 2 columns
@@ -2907,7 +2909,7 @@ dd.course_progress div.course_progress_blue {
 }
 
 // 5 columns
-// col-sm- col-md-2-4
+// col-sm-5 col-md-2-4
 @media (min-width: 576px) {
 	.ld-course-list-content .ld_course_grid.col-sm-5,
 	#ld_course_list .ld_course_grid.col-sm-5,
@@ -3045,7 +3047,8 @@ dd.course_progress div.course_progress_blue {
 // Twenty Nineteen theme compatibility
 .entry-content div.ld_course_grid .thumbnail {
 	max-width: 100%; // for Twenty Nineteen theme compat
-	padding: 0; // required to override Astra's padding
+	padding: 0 !important; // required to override Astra's padding
+												 // !important required for Boss theme compat
 	margin: 0; // for Twenty Nineteen theme compat
 	background: transparent;
 	border-radius: 0; // needs to stay
@@ -3117,9 +3120,8 @@ dd.course_progress div.course_progress_blue {
 
 
 // BuddyBoss Theme Compatibility
-body.page:not(.buddypress) .site-content .thumbnail:not(.comment),
-body.single:not(.buddypress):not(.bbpress) .site-content .thumbnail:not(.comment) {
-	padding: 0;
+#ld_course_categorydropdown .buddyboss-select {
+	margin-right: 0;
 }
 .thumbnail .btn {
 	width: auto;

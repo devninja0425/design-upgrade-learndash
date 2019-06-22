@@ -3,16 +3,22 @@ Contributors: escapecreative, davewarfel
 Donate link: https://www.paypal.me/escapecreative/10
 Tags: learndash, lms, learning management system, online courses, css
 Requires at least: 4.6
-Tested up to: 5.1.1
+Tested up to: 5.2.2
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Instantly improve LearnDash's design -- courses, lessons, topics, quizzes, profile page, course navigation widget & course grid -- to more closely match your WordPress theme, and remove those unwanted default LearnDash styles.
+Instantly improve LearnDash's design -- focus mode, course content lists, profile page, course navigation & course grid -- to more closely match your WordPress theme, and improve LearnDash styles.
 
 == Description ==
 
-LearnDash is a powerful learning management system (LMS) for managing your online courses, but let's be honest &ndash; the default styles are outdated. In order to provide your students with an exceptional learning experience, you need a professional design.
+LearnDash is a powerful learning management system (LMS) for managing your online courses, but there are some areas where the design falls short. In order to provide your students with an exceptional learning experience, you need a professional design.
+
+### 🎉 Now Compatible with LD3! 🎉
+
+We'll automatically detect whether you're using the "LearnDash 3.0" or "Legacy" template, and assign styles appropriately. If you're still running LearnDash 2.x, all of the same design upgrades that you've always enjoyed will still be there.
+
+See "Features" below for a list of what's new.
 
 ### Enter Design Upgrade for LearnDash
 
@@ -20,7 +26,25 @@ Design Upgrade for LearnDash completely redesigns every aspect of LearnDash so t
 
 ### Features
 
-I literally went through every line of CSS that LearnDash uses and gave it all a fresh coat of paint. Here are the highlights:
+**LearnDash 3.x Features**
+
+Tested with LearnDash 3.0.5.1
+
+* **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
+* **Buttons:** All buttons have matching rounded corners & increased font size
+* **Font Sizes:** These will now be inherited from your theme, which should increase your font sizes across the board
+* **Focus Mode:** Improved sidebar tray design, Course Sections, shadow added to mobile menu, collapse arrow flips to show current menu state, and more.
+* **Focus Mode:** Top navigation bar received several small improvements
+* **Animations:** Subtle animations for LearnDash tooltips & the Focus Mode menu
+* **Profile:** Several styles were improved & standardized
+* **Login/Registration:** Unified styles for all form fields
+* **Course Grid:** Equal height columns & other small tweaks
+
+**Also:** Small tweaks were made to assignments, pagination, the "User Status" widget and more.
+
+**[Full changelog & list of features →](https://ldx.design/design-upgrade-pro-learndash-3/#free-changelog)**
+
+**LearnDash 2.x Features**
 
 * Much improved course grid styles, equal height cards & no more weird spacing issues 👍
 * All fonts have been reset to use your theme's default font family, size & color
@@ -34,7 +58,7 @@ I literally went through every line of CSS that LearnDash uses and gave it all a
 * Larger pager navigation buttons to improve usability
 * Full support for RTL languages
 
-Tested with LearnDash 2.6.5
+Tested with LearnDash 2.6.6
 
 ### Who is this for?
 
@@ -49,6 +73,8 @@ You might also want to give your students a heads up that you're updating the de
 We designed the plugin to be just specific enough to override LearnDash's default styles, but not so specific that you'll need to use a ton of selectors to override our specifity. All CSS in child themes and Additional CSS will take precedence over our styles.
 
 ### Pro Version
+
+**NOTE:** The Pro version should be LD3-ready by June 24th. You can still use it in "Legacy" mode, but many more styles will be added for the "LearnDash 3.0" template very soon.
 
 **Need custom styles?** Our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wordpress.org&utm_medium=free%20plugin&utm_campaign=readme) uses the Customizer to bring you **over 80 customizable design options.** Completely customize your LearnDash site with just a few clicks.
 
@@ -77,7 +103,6 @@ Design Upgrade for LearnDash **should work on most themes**, assuming they have 
 
 We have tested with the following themes, and they all appear **to be compatible:**
 
-* Boss. by BuddyBoss (must deactivate Social Learner/"Boss for LearnDash" plugin)
 * Astra
 * Divi
 * GeneratePress
@@ -89,17 +114,20 @@ We have tested with the following themes, and they all appear **to be compatible
 
 #### Incompatible Themes
 
+* BuddyBoss Platform (released June 2019)
+* Boss. / Social Learner (If you deactivate the "Boss for LearnDash" plugin, it will still work in "Legacy" mode)
 * LearnMate by Wbcom Designs
 * eLumine by WisdmLabs
 
 #### Incompatible Plugins
 
 * **LearnDash Visual Customizer by SnapOrbital:** The Visual Customizer takes a similar approach to designing LearnDash components, and thus the code conflicts with ours.
-* **Boss for LearnDash:** We **are** compatible with the Boss. theme, as well as "BuddyPress for LearnDash," but in order to use this plugin, you need to deactivate the "Boss for LearnDash" plugin.
 
 ### Uncanny Owl Toolkit Compatibility
 
 We recognize the [Uncanny LearnDash Toolkit](https://wordpress.org/plugins/uncanny-learndash-toolkit/) by Uncanny Owl is a popular LearnDash plugin that adds some nice features. We're in the process of making our plugin fully compatible with theirs. Here's where we are so far:
+
+The following only applies to the "Legacy" Active Template. We're still working on compatibility with the 3.0 template.
 
 * `[uo_dashboard]`: Compatible; styles upgraded
 * `[uo_breadcrumbs]`: Compatible; no styles changed
@@ -115,8 +143,8 @@ As LearnDash adds new features, it is our goal to keep this plugin updated.
 
 Features planned for future release:
 
-* Evaluating: Switch from SVG icons to font icons
-* Compatibility with LearnDash 3.0 when it is released
+* Consistent & improved form styling for native LearnDash Login/Registration
+* Compatibility with more of the Uncanny LearnDash Toolkit modules
 
 #### We'd love to hear from you!
 
@@ -165,9 +193,7 @@ Absolutely. Feel free to add your own CSS if you want to further customize the l
 
 = Will this slow down my site? =
 
-Nope. We do add one small CSS file to the header (63KB), but as long as you're using a reliable WordPress host with decent performance, you shouldn't notice a difference.
-
-For reference, the LearnDash plugin loads 5 CSS files that total 45KB (7 files totaling 67KB if you count the Course Grid).
+Nope. We do add one CSS file to the header, but as long as you're using a reliable WordPress host with decent performance, you shouldn't notice a difference.
 
 = My course/lesson/topic/quiz still looks weird. Can you help? =
 
@@ -188,6 +214,25 @@ We designed this plugin to be flexible so that it takes on many of the character
 9. Uncanny Owl Toolkit's [uo_dashboard] shortcode output
 
 == Changelog ==
+
+= 2.1 - Jun 22, 2019 =
+
+- Added: Many more CSS custom properties, preparing for Pro version release
+- Added: Course Grid styles are back: equal height columns & other small improvements
+- Added: Stop images from overflowing outside the answer label area when used in single & multiple choice quiz questions (props [Anthony](https://perfectmymusic.com/))
+
+= 2.0.1 - Jun 10, 2019 =
+
+- Added: Styles for Uncanny LearnDash Toolkit Resume button
+- Fixed: Updated all font sizes for broader theme compatibility (specifically with OceanWP)
+- Tweak: Removed more empty `<p>` tags that are output with some LearnDash widgets
+- Tweak: A few other minor adjustments for broader theme compatibility
+
+= 2.0 - Jun 7, 2019 =
+
+- NEW: Now compatible with the "LearnDash 3.0" Active Template
+- [Changelog & New Features →](https://ldx.design/design-upgrade-pro-learndash-3/#free-changelog)
+- NOTE: We're still compatible with LearnDash 2.x, as well as the "Legacy" template, but there are no changes for those versions. All future development will be focused around the new design.
 
 = 1.4.8 - Mar 23, 2019 =
 

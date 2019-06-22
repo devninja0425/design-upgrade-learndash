@@ -1,0 +1,114 @@
+/**
+ * Varibles
+ * This file creates all Sass & CSS variables.
+ * CSS variables are used in the Pro version to update styles.
+ */
+
+/**
+ * Sass Variables
+ */
+$black: #000;
+$white: #fff;
+$positive-color: #019e7c;
+
+$negative-color: #b71c1c;
+
+$ld-blue: #00a2e8;
+
+// Used For:
+// - "in progress" status indicator
+// - Icon: incomplete open circle
+$grey: #e2e7ed;
+
+// Used For:
+// - Alerts: bg color
+// - Assignments box: bg color
+$lightgrey: #f0f3f6;
+
+// Used For:
+// - Assignments: browse button
+// - Various Text: wherever a darker grey is used
+$darkgrey: #728188;
+
+// Used For:
+// - "waiting" status indicator
+$yellow: #ffd200;
+
+// Used For:
+// - Alerts: Warning: bg color
+$lightyellow: #fff6cd;
+
+
+/**
+ * CSS Variables
+ */
+:root {
+	// GENERAL DESIGN
+	--ldx-global-border-radius: 6px;
+	--ldx-color-link: inherit;
+	--ldx-color-link-hover: #00a2e8;
+	--ldx-color-correct: #019e7c;
+	--ldx-color-incorrect: #b71c1c;
+
+	// BUTTONS
+	--ldx-btn-border-radius: 24px;
+	--ldx-btn-primary-bg-color: #00a2e8;
+	--ldx-btn-primary-bg-color-hover: #018ac4;
+	--ldx-btn-primary-text-color: #fff;
+	--ldx-btn-primary-text-color-hover: #fff;
+	--ldx-btn-standard-bg-color: #00a2e8;
+	--ldx-btn-standard-bg-color-hover: #018ac4;
+	--ldx-btn-standard-text-color: #fff;
+	--ldx-btn-standard-text-color-hover: #fff;
+
+	// CONTENT LISTS / LIST TABLES
+	--ldx-content-lists-container-bg-color: transparent;
+	--ldx-content-lists-container-border-width: 0;
+	--ldx-content-lists-container-border-color: transparent;
+	--ldx-content-lists-course-content-bg-color: transparent;
+	--ldx-content-lists-course-content-text-color: inherit;
+	--ldx-content-lists-section-bg-color: transparent;
+	--ldx-content-lists-section-text-color: inherit;
+	--ldx-content-lists-header-bg-color: #00a2e8;
+	--ldx-content-lists-header-text-color: #fff;
+	--ldx-content-lists-lesson-bg-color: #fff;
+	--ldx-content-lists-lesson-bg-color-hover: transparent;
+	--ldx-content-lists-lesson-text-color: inherit;
+	--ldx-content-lists-lesson-text-color-hover: #00a2e8;
+	--ldx-content-lists-lesson-border-width: 2px;
+	--ldx-content-lists-lesson-border-color: #e2e7ed;
+	--ldx-content-lists-separator-color: rgba( 0,0,0,0.15 );
+
+	// FOCUS MODE
+	--ldx-focus-mode-content-bg-color: #fff;
+	--ldx-focus-mode-topmenu-bg-color: #00a2e8;
+	--ldx-focus-mode-topmenu-text-color: #fff;
+	--ldx-focus-mode-sidebar-bg-color: #fff;
+	--ldx-focus-mode-sidebar-course-bg-color: #00a2e8;
+	--ldx-focus-mode-sidebar-course-text-color: #fff;
+
+	// COURSE NAVIGATION (focus mode sidebar AND course nav widget)
+	--ldx-course-nav-section-bg-color: rgba( 0,0,0,0.08 );
+	--ldx-course-nav-section-text-color: inherit;
+	--ldx-course-nav-link-text-color: inherit;
+	--ldx-course-nav-link-text-color-hover: #00a2e8;
+	--ldx-course-nav-link-bg-color-hover: transparent;
+	--ldx-course-nav-line-separator-color: rgba( 0,0,0,0.1 );
+
+	// PROGRESS BAR
+	--ldx-progress-bar-container-bg: #e2e7ed;
+	--ldx-progress-bar-bg: #019e7c;
+	--ldx-progress-bar-border-radius: 7px;
+	--ldx-progress-bar-height: 7px;
+
+	// TOOLTIPS
+	--ldx-tooltip-bg-color: #00a2e8;
+	--ldx-tooltip-text-color: #fff;
+
+	// COURSE GRID
+	--ldx-grid-filter-bg-color: transparent;
+	--ldx-grid-filter-padding: 0.75em;
+	--ldx-grid-item-border-radius: 6px;
+	--ldx-grid-item-border-width: 2px;
+	--ldx-grid-item-border-color: #ddd;
+}
