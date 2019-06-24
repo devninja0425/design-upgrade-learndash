@@ -215,6 +215,14 @@ We designed this plugin to be flexible so that it takes on many of the character
 
 == Changelog ==
 
+= 2.1.1 - Jun 24, 2019 =
+
+- Added: Alerts: Vertically center all icons
+- Added: Focus Mode: Small improvements to spacing of username in header
+- Added: Improved styles when "Mark Complete" button is disabled
+- Fix: Add space for "Download Certificate" button icon, and other small tweaks to buttons within alerts
+- Tweak: More specific button style to avoid some theme conflicts with link colors
+
 = 2.1 - Jun 22, 2019 =
 
 - Added: Many more CSS custom properties, preparing for Pro version release
