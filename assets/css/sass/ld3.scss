@@ -91,7 +91,9 @@
 // Course Grid Button
 .ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary,
 // UO Resume Button
-.learndash-resume-button input[type="submit"] {
+.learndash-resume-button input[type="submit"],
+// "Login/Logout" button [learndash_login]
+.learndash-wrapper .ld-login-button {
 	padding: 0.625em 1.5em;
 	font-size: 95%;
 	font-weight: 700;
@@ -163,6 +165,7 @@
 // - Course Grid buttons
 // - UO "Resume" button
 // - "Login" button (modal)
+// - "Login/Logout" button [learndash_login]
 
 // "Take this Course"
 .learndash-wrapper .btn-join,
@@ -181,7 +184,9 @@
 // UO "Resume"
 .learndash-resume-button input[type="submit"],
 // "Login" modal
-.learndash-wrapper .ld-login-modal input[type="submit"] {
+.learndash-wrapper .ld-login-modal input[type="submit"],
+// "Login/Logout" Shortcode
+.learndash-wrapper .ld-login-button {
 	background: var(--ldx-btn-primary-bg-color);
 	color: var(--ldx-btn-primary-text-color);
 
@@ -214,15 +219,14 @@
 .learndash-wrapper .ld-alert .ld-button {
 	// make space for icon on left
 	// @RTL
-	padding: 0.625em 1em 0.625em 1.5em;
+	padding: 0.625em 1em 0.625em 42px;
 	max-width: unset;
 	width: auto;
-}
 
-.learndash-wrapper .ld-alert-certificate .ld-button {
-	// make room for icon
-	// @RTL
-	padding-left: 40px;
+	// Enable once LD adds @RTL compatibiliy
+	// .rtl & {
+	// 	padding: 0.625em 42px 0.625em 1em;
+	// }
 }
 
 /* Assignments "Upload" Button */
@@ -236,19 +240,82 @@
 	border: 0;
 }
 
+/* LearnDash Login/Logout Button [learndash_login] */
+.learndash-wrapper .ld-login-button {
+	display: inline-block;
+
+	.ld-icon-arrow-right {
+		margin-left: 0.5em;
+	}
+	.ld-icon-login {
+		margin-right: 0.5em;
+	}
+}
+
 
 /**
  * 3.0 - Alerts
  */
 .learndash-wrapper .ld-alert {
 	border-radius: var(--ldx-global-border-radius);
+	border-width: var(--ldx-alert-border-width);
+	border-color: var(--ldx-alert-color-border);
+	background-color: var(--ldx-alert-color-bg);
+	color: var(--ldx-alert-color-text);
+
+	.ld-button,
+	.ld-button:hover {
+		background-color: var(--ldx-alert-color-text);
+		color: $white;
+	}
 }
 
 .learndash-wrapper .ld-alert .ld-alert-icon {
 	// LD uses "top:15px;" // This vertically centers the icon
 	top: 50%;
 	transform: translateY(-50%);
+	background-color: rgba( $black, 0.1 );
+
+	@media (max-width: 768px) {
+		top: 15px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 }
+
+/* WARNING ALERTS */
+.learndash-wrapper .ld-alert-warning {
+	border-color: var(--ldx-alert-warning-color-border);
+	background-color: var(--ldx-alert-warning-color-bg);
+	color: var(--ldx-alert-warning-color-text);
+
+	.ld-alert-icon {
+		background-color: var(--ldx-alert-warning-color-border);
+	}
+	.ld-button,
+	.ld-button:hover {
+		background-color: var(--ldx-alert-warning-color-text);
+		color: $white;
+	}
+
+} // .ld-alert-warning
+
+/* SUCCESS ALERTS */
+.learndash-wrapper .ld-alert-success {
+	border-color: var(--ldx-alert-success-color-border);
+	background-color: var(--ldx-alert-success-color-bg);
+	color: var(--ldx-alert-success-color-text);
+
+	.ld-alert-icon {
+		background-color: var(--ldx-alert-success-color-text);
+	}
+	.ld-button,
+	.ld-button:hover {
+		background-color: var(--ldx-alert-success-color-text);
+		color: $white;
+	}
+
+} // .ld-alert-success
 
 
 /**
@@ -615,6 +682,12 @@
 	color: #728188;
 }
 
+/* "Complete" status label */
+.learndash-wrapper .ld-course-status .ld-status.ld-status-complete,
+.learndash-wrapper .ld-breadcrumbs .ld-status.ld-status-complete {
+	background: var(--ldx-color-correct);
+}
+
 /**
  * 5.1 - Status Indicators
  */
@@ -624,6 +697,10 @@
 
 	.ld-icon {
 		margin-right: 2px;
+
+		.rtl & {
+			margin: 0 0 0 2px;
+		}
 	}
 }
 
@@ -1035,6 +1112,7 @@
 .learndash-wrapper .ld-focus .ld-focus-header .ld-button {
 	height: 51px;
 	border-radius: 0;
+	background: transparent;
 	color: var(--ldx-color-link);
 
 	&:hover {
@@ -1335,7 +1413,15 @@ body.ld-in-focus-mode .learndash-wrapper {
 // Adds margin after icon
 .learndash-wrapper .ld-table-list-title .ld-status-icon {
 	margin-right: 0.375em;
-	// @RTL
+	
+	.rtl & {
+		margin-left: 0.375em;
+	}
+
+}
+
+.learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-details .ld-certificate-link {
+	color: var(--ldx-color-correct);
 }
 
 
@@ -1592,59 +1678,158 @@ body.ld-in-focus-mode .learndash-wrapper {
 /* Modal Parent Container */
 .learndash-wrapper .ld-modal {
 	border-radius: var(--ldx-global-border-radius);
+	border-style: solid;
+	border-width: var(--ldx-log-reg-border-width);
+	border-color: var(--ldx-log-reg-border-color);
 }
 
-/* Text Intro */
+/* Closer X */
+.learndash-wrapper .ld-modal .ld-modal-closer {
+	font-size: 2em;
+	padding: 0.5em;
+}
+.learndash-wrapper .ld-modal .ld-modal-closer,
+.learndash-wrapper .ld-modal.ld-can-register .ld-modal-closer {
+	color: rgba( $black, 0.4 );
+
+	&:hover {
+		color: rgba( $black, 0.7 );
+	}
+}
+
+/* Login Panel */
+.learndash-wrapper .ld-login-modal .ld-login-modal-login {
+	background: var(--ldx-login-panel-bg-color);
+}
+
+/* Login: Heading */
+.learndash-wrapper .ld-login-modal .ld-login-modal-login .ld-modal-heading {
+	color: var(--ldx-login-panel-heading-color);
+}
+
+/* Login: Text Intro */
 .learndash-wrapper .ld-login-modal .ld-login-modal-login .ld-modal-text {
 	font-size: inherit;
-	color: inherit;
+	color: var(--ldx-login-panel-text-color);
 }
 
-/* <label>s */
+/* Login: <label>s */
 .learndash-wrapper .ld-login-modal .ld-login-modal-form label {
 	font-size: 90%;
-	color: inherit;
+	color: var(--ldx-login-panel-text-color);
 }
 .learndash-wrapper .ld-login-modal .ld-login-modal-register label {
 	font-size: 90%;
 }
 
-/* <input> Fields */
+/* Login: <input> Fields */
 .learndash-wrapper .ld-login-modal input[type="text"],
 .learndash-wrapper .ld-login-modal input[type="password"],
 .learndash-wrapper .ld-login-modal .ld-login-field,
 .learndash-wrapper .ld-login-modal .ld-password-field {
+	background-color: var(--ldx-login-panel-input-bg-color);
 	border-radius: 6px;
 	border-radius: var(--ldx-global-border-radius);
+	border: 0;
+	box-shadow: 0 0 0 2px rgba( $black, 0.15 );
 	font-size: 95%;
-	color: inherit;
+	color: var(--ldx-login-panel-input-text-color);
 	transition: all 0.15s ease;
 
 	&:focus {
 		outline: none;
+		box-shadow: 0 0 0 2px var(--ldx-login-panel-input-text-color);
+	}
+}
+/* Login: Input Icons */
+.learndash-wrapper .ld-login-modal .ld-login-modal-form .login-username::before,
+.learndash-wrapper .ld-login-modal .ld-login-modal-form .login-password::before {
+	color: var(--ldx-login-panel-input-text-color);
+}
+
+.learndash-wrapper .ld-login-modal .login-submit input[type="submit"] {
+	background: var(--ldx-login-panel-text-color);
+	color: var(--ldx-login-panel-bg-color);
+	border: 0;
+	box-shadow: none;
+
+	&:hover,
+	&:active,
+	&:focus {
+		outline: none;
+		background: var(--ldx-login-panel-text-color);
+		color: var(--ldx-login-panel-bg-color);
+		box-shadow: 0 0 0 4px rgba( $black, 0.2 );
 	}
 }
 
-/* Registration Only */
+/* Login: Forgot Password Link */
+.learndash-wrapper .ld-login-modal-form a {
+	color: var(--ldx-login-panel-text-color);
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+/* Login: Branding Separator Line */
+.learndash-wrapper .ld-login-modal .ld-login-modal-form .ld-login-modal-branding::before {
+	background-color: rgba( $black, 0.1 );
+}
+
+/* Register Panel */
+.learndash-wrapper .ld-login-modal .ld-login-modal-register {
+	background: var(--ldx-register-panel-bg-color);
+	color: var(--ldx-register-panel-text-color);
+}
+
+/* Register: Heading */
+.learndash-wrapper .ld-login-modal-register .ld-modal-heading {
+	color: var(--ldx-register-panel-heading-color);
+}
+
+/* Register <input> Fields */
 .learndash-wrapper .ld-login-modal .ld-login-modal-register input[type="text"],
 .learndash-wrapper .ld-login-modal .ld-login-modal-register input[type="password"],
 .learndash-wrapper .ld-login-modal .ld-login-modal-register input[type="email"] {
 	margin: 0.5em 0 1em;
 	padding: 0.5em; // matches default LD styles for login inputs
+	background-color: var(--ldx-register-panel-input-bg-color);
 	border-radius: 6px;
 	border-radius: var(--ldx-global-border-radius);
+	border: 0;
+	box-shadow: 0 0 0 2px rgba( $black, 0.15 );
 	font-size: inherit;
-	color: #728188;
+	color: var(--ldx-register-panel-input-text-color);
 	transition: all 0.15s ease;
 
 	&:focus {
-		border-color: $white;
-		box-shadow: 0 0 0 2px rgba( $black, 0.15 );
+		outline: none;
+		background-color: var(--ldx-register-panel-input-bg-color);
+		box-shadow: 0 0 0 2px var(--ldx-register-panel-input-text-color);
 	}
 }
 
 .learndash-wrapper .ld-login-modal .ld-login-modal-register #reg_passmail {
 	font-size: 90%;
+}
+
+/* Register: Submit Button / "Register" Button */
+.learndash-wrapper .ld-login-modal .ld-login-modal-register #wp-submit,
+.learndash-wrapper .ld-login-modal .ld-login-modal-register .ld-js-register-account {
+	background: var(--ldx-register-panel-text-color);
+	color: var(--ldx-register-panel-bg-color);
+	border: 0;
+	box-shadow: none;
+
+	&:hover,
+	&:active,
+	&:focus {
+		outline: none;
+		background: var(--ldx-register-panel-text-color);
+		color: var(--ldx-register-panel-bg-color);
+		box-shadow: 0 0 0 4px rgba( $black, 0.2 ) !important; // needed to override LD styles
+	}
 }
 
 
@@ -2183,6 +2368,8 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 	-moz-box-shadow: 1px 1px 4px rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1);
 	-webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1);
 	border-radius: calc( var(--ldx-grid-item-border-radius) / 2 );
+	background-color: var(--ldx-grid-ribbon-bg-color);
+	color: var(--ldx-grid-ribbon-text-color);
 	font-size: 90%;
 	text-shadow: none;
 
@@ -2193,6 +2380,21 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 	.rtl & {
 		left: unset;
 		right: 8px;
+	}
+
+	&.ribbon-enrolled {
+		background-color: var(--ldx-grid-ribbon-enrolled-bg-color);
+		color: var(--ldx-grid-ribbon-enrolled-text-color);
+	}
+
+	&.custom {
+		background-color: var(--ldx-grid-ribbon-custom-bg-color);
+		color: var(--ldx-grid-ribbon-custom-text-color);
+	}
+
+	&.free {
+		background-color: var(--ldx-grid-ribbon-free-bg-color);
+		color: var(--ldx-grid-ribbon-free-text-color);
 	}
 
 } // .ld_course_grid_price
