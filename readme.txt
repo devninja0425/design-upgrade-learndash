@@ -14,21 +14,21 @@ Instantly improve LearnDash's design -- focus mode, course content lists, profil
 
 LearnDash is a powerful learning management system (LMS) for managing your online courses, but there are some areas where the design falls short. In order to provide your students with an exceptional learning experience, you need a professional design.
 
-### 🎉 Now Compatible with LD3! 🎉
-
-We'll automatically detect whether you're using the "LearnDash 3.0" or "Legacy" template, and assign styles appropriately. If you're still running LearnDash 2.x, all of the same design upgrades that you've always enjoyed will still be there.
-
-See "Features" below for a list of what's new.
-
 ### Enter Design Upgrade for LearnDash
 
 Design Upgrade for LearnDash completely redesigns every aspect of LearnDash so that it closely resembles your existing WordPress theme. No settings or custom code. Just activate & enjoy!
+
+### 🎉 Fully Compatible with LD3! 🎉
+
+We'll automatically detect whether you're using the "LearnDash 3.0" or "Legacy" template, and assign styles appropriately. If you're still running LearnDash 2.x, all of the same design upgrades that you've always enjoyed will still be there.
+
+See below for a list of what's new.
 
 ### Features
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.0.5.1
+Tested with LearnDash 3.0.7
 
 * **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
 * **Buttons:** All buttons have matching rounded corners & increased font size
@@ -74,24 +74,24 @@ We designed the plugin to be just specific enough to override LearnDash's defaul
 
 ### Pro Version
 
-**NOTE:** The Pro version should be LD3-ready by June 24th. You can still use it in "Legacy" mode, but many more styles will be added for the "LearnDash 3.0" template very soon.
-
 **Need custom styles?** Our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wordpress.org&utm_medium=free%20plugin&utm_campaign=readme) uses the Customizer to bring you **over 80 customizable design options.** Completely customize your LearnDash site with just a few clicks.
 
-https://www.youtube.com/watch?v=r2_qewP0auw
+https://www.youtube.com/watch?v=hOUToX87U9E
 
 #### Pro Features
 
 * Show/Hide various course & profile features
 * Disable expand/collapse links & show all by default
-* Course Content Lists: Update background & text colors, add zebra stripes, hover effects, customize line separators, remove the list count numbers
+* Course Content Lists: Update background & text colors, hover effects, customize line separators, remove the list count numbers and more
 * Progress Bar: Customize the color, border radius & height, add stripes, and animate the bar on page load
 * Buttons: Add your own background & text colors
-* `[ld_profile]`: Avatar shape, hide profile info, hide quiz information, and more
-* 15+ design options for the Course Navigation Widget (video below)
-* 20+ design options for the LearnDash Course Grid add-on
-
-https://www.youtube.com/watch?v=IaTMGjA2-Lc
+* `[ld_profile]`: Avatar shape, custom "edit profile" link, hide profile info, hide quiz information, and more
+* Login/Registration Popup: 10+ design options
+* Focus Mode: 15+ design options
+* Course Navigation Widget: 15+ design options
+* Course Grid Add-On: 20+ design options
+* Alerts: 9 custom colors, plus a few other options
+* Tooltips: customize the background & text color
 
 **[Upgrade to Pro Today »](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wordpress.org&utm_medium=free%20plugin&utm_campaign=readme)**
 
@@ -143,7 +143,6 @@ As LearnDash adds new features, it is our goal to keep this plugin updated.
 
 Features planned for future release:
 
-* Consistent & improved form styling for native LearnDash Login/Registration
 * Compatibility with more of the Uncanny LearnDash Toolkit modules
 
 #### We'd love to hear from you!
@@ -214,6 +213,25 @@ We designed this plugin to be flexible so that it takes on many of the character
 9. Uncanny Owl Toolkit's [uo_dashboard] shortcode output
 
 == Changelog ==
+
+= 2.2 - August 23, 2019 =
+
+- Added: Button styles for Login/Logout button when using the `[learndash_login]` shortcode
+- Added: Login/Registration Modal: Close Icon: Increased size & added hover effect
+- Added: Login/Registration Modal: More consistent `<input>` styles
+- Added: Login/Registration Modal: Improved button styles
+- Added: Framework for adding custom login/registration styles into Pro
+- Fixed: Icon spacing for "Download Certificate" button
+
+= 2.1.3 - July 5, 2019 =
+
+- Added: Compatibility for RTL languages
+- Added: Framework for adding custom alert styles into Pro
+- Fixed: Alert icon position on smaller screens
+
+= 2.1.2 - Jun 26, 2019 =
+
+- Added: Framework for adding custom ribbon colors back into Pro
 
 = 2.1.1 - Jun 24, 2019 =
 

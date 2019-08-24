@@ -105,10 +105,47 @@ $lightyellow: #fff6cd;
 	--ldx-tooltip-bg-color: #00a2e8;
 	--ldx-tooltip-text-color: #fff;
 
+	// ALERTS
+	--ldx-alert-border-width: 2px;
+	--ldx-alert-color-text: #728188;
+	--ldx-alert-color-bg: #f0f3f6;
+	--ldx-alert-color-border: #e2e7ed;
+	--ldx-alert-warning-color-text: rgba( 0,0,0,0.65 );
+	--ldx-alert-warning-color-bg: #fff6cd;
+	--ldx-alert-warning-color-border: #ffd200;
+	--ldx-alert-success-color-text: #019e7c;
+	--ldx-alert-success-color-bg: rgba( 1,158,124,0.2 );
+	--ldx-alert-success-color-border: #019e7c;
+
 	// COURSE GRID
 	--ldx-grid-filter-bg-color: transparent;
 	--ldx-grid-filter-padding: 0.75em;
 	--ldx-grid-item-border-radius: 6px;
 	--ldx-grid-item-border-width: 2px;
 	--ldx-grid-item-border-color: #ddd;
+
+	--ldx-grid-ribbon-bg-color: #5cb85c;
+	--ldx-grid-ribbon-text-color: #fff;
+	--ldx-grid-ribbon-enrolled-bg-color: #428bca;
+	--ldx-grid-ribbon-enrolled-text-color: #fff;
+	--ldx-grid-ribbon-custom-bg-color: #5cb85c;
+	--ldx-grid-ribbon-custom-text-color: #fff;
+	--ldx-grid-ribbon-free-bg-color: #5cb85c;
+	--ldx-grid-ribbon-free-text-color: #fff;
+
+	// LOGIN / REGISTRATION
+	--ldx-log-reg-border-width: 0;
+	--ldx-log-reg-border-color: transparent;
+
+	--ldx-login-panel-bg-color: #fff;
+	--ldx-login-panel-text-color: #728188;
+	--ldx-login-panel-heading-color: #00a2e8;
+	--ldx-login-panel-input-bg-color: #f0f3f6;
+	--ldx-login-panel-input-text-color: #728188;
+
+	--ldx-register-panel-bg-color: #00a2e8;
+	--ldx-register-panel-text-color: #fff;
+	--ldx-register-panel-heading-color: #fff;
+	--ldx-register-panel-input-bg-color: #fff;
+	--ldx-register-panel-input-text-color: #728188;
 }

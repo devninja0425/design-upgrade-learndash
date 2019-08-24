@@ -10,7 +10,7 @@ Instantly improve LearnDash's design -- focus mode, course content lists, profil
 
 Design Upgrade for LearnDash completely redesigns every aspect of LearnDash so that it closely resembles your existing WordPress theme. No settings or custom code. Just activate & enjoy!
 
-## 🎉 Now Compatible with LD3! 🎉
+## 🎉 Fully Compatible with LD3! 🎉
 
 We'll automatically detect whether you're using the "LearnDash 3.0" or "Legacy" template, and assign styles appropriately. If you're still running LearnDash 2.x, all of the same design upgrades that you've always enjoyed will still be there.
 
@@ -20,7 +20,7 @@ See "Features" below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.0.5.1
+Tested with LearnDash 3.0.7
 
 * **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
 * **Buttons:** All buttons have matching rounded corners & increased font size
