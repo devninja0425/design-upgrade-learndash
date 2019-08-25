@@ -645,9 +645,36 @@
 	background: rgba( $black, 0.04 );
 	border-radius: var(--ldx-global-border-radius);
 }
+.learndash-wrapper .ld-course-status.ld-course-status-not-enrolled {
+	background: var(--ldx-course-status-bg-color);
+	border-radius: var(--ldx-global-border-radius);
+	border: var(--ldx-course-status-border-width) solid var(--ldx-course-status-border-color);
+}
 
 .learndash-wrapper .ld-course-status.ld-course-status-not-enrolled .ld-course-status-label {
 	font-size: 0.875em;
+	color: var(--ldx-course-status-text-color);
+}
+
+.learndash-wrapper .ld-course-status.ld-course-status-not-enrolled .ld-course-status-price {
+	color: var(--ldx-course-status-text-color);
+}
+
+.learndash-wrapper .ld-course-status.ld-course-status-not-enrolled > * {
+	border-color: rgba( $black, 0.15 );
+}
+
+.learndash-wrapper .ld-course-status.ld-course-status-not-enrolled .ld-course-status-action .ld-text {
+	font-size: 0.9375em;
+	color: var(--ldx-course-status-text-color);
+}
+.learndash-wrapper .ld-course-status.ld-course-status-not-enrolled .ld-course-status-action .ld-text .ld-login-text {
+	opacity: 0.8;
+	color: var(--ldx-course-status-text-color);
+
+	&:hover {
+		opacity: 1;
+	}
 }
 
 /* Make several spacing adjustments on mobile */
@@ -1031,8 +1058,18 @@
 
 /* Brand Logo */
 .learndash-wrapper .ld-focus .ld-focus-header .ld-brand-logo {
-	padding: 5px 1em;
+	padding: 5px 0.75em;
 }
+@media (max-width: 1024px) {
+	.learndash-wrapper .ld-focus .ld-focus-header .ld-brand-logo {
+		flex: 0 0 215px;
+	}
+	.learndash-wrapper .ld-focus .ld-focus-header .ld-brand-logo img {
+		width: 100%;
+		height: auto;
+	}
+}
+
 
 /* Salutation: Name */
 .learndash-wrapper .ld-focus .ld-focus-header .ld-user-menu .ld-text {
@@ -1690,10 +1727,11 @@ body.ld-in-focus-mode .learndash-wrapper {
 }
 .learndash-wrapper .ld-modal .ld-modal-closer,
 .learndash-wrapper .ld-modal.ld-can-register .ld-modal-closer {
-	color: rgba( $black, 0.4 );
+	color: var(--ldx-log-reg-close-icon-color);
+	opacity: 0.7;
 
 	&:hover {
-		color: rgba( $black, 0.7 );
+		opacity: 1;
 	}
 }
 

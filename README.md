@@ -50,7 +50,7 @@ Tested with LearnDash 3.0.7
 * Larger pager navigation buttons to improve usability
 * Full support for RTL languages
 
-Tested with LearnDash 2.6.5
+Tested with LearnDash 2.6.6
 
 ## Who is this for?
 
@@ -66,7 +66,7 @@ We designed the plugin to be just specific enough to override LearnDash's defaul
 
 ## Pro Version
 
-**Need custom styles?** Our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=github.com&utm_medium=free%20plugin&utm_campaign=readme) uses the Customizer to bring you **over 80 customizable design options.** Completely customize your LearnDash site with just a few clicks.
+**Need custom styles?** Our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=github.com&utm_medium=free%20plugin&utm_campaign=readme) uses the Customizer to bring you **over 90 customizable design options.** Completely customize your LearnDash site with just a few clicks.
 
 ## Theme Compatibility
 
@@ -114,7 +114,6 @@ As LearnDash adds new features, it is our goal to keep this plugin updated.
 
 Features planned for future release:
 
-* Consistent & improved form styling for native LearnDash Login/Registration
 * Compatibility with more of the Uncanny LearnDash Toolkit modules
 
 ## We'd love to hear from you!
@@ -129,7 +128,7 @@ We tested it on a handful of popular themes, but we couldn't possibly cover them
 
 The free version doesn't have any. It simply applies a fresh coat of paint behind the scenes.
 
-Check out our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=github.com&utm_medium=free%20plugin&utm_campaign=readme&utm_content=faq) that includes 80+ settings you can customize.
+Check out our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=github.com&utm_medium=free%20plugin&utm_campaign=readme&utm_content=faq) that includes 90+ settings you can customize.
 
 ### Will this affect the rest of my site?
 
