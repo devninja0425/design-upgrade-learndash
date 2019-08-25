@@ -79,6 +79,12 @@ $lightyellow: #fff6cd;
 	--ldx-content-lists-lesson-border-color: #e2e7ed;
 	--ldx-content-lists-separator-color: rgba( 0,0,0,0.15 );
 
+	// COURSE STATUS AREA
+	--ldx-course-status-bg-color: rgba( 0,0,0,0.04 );
+	--ldx-course-status-text-color: inherit;
+	--ldx-course-status-border-width: 0;
+	--ldx-course-status-border-color: transparent;
+
 	// FOCUS MODE
 	--ldx-focus-mode-content-bg-color: #fff;
 	--ldx-focus-mode-topmenu-bg-color: #00a2e8;
@@ -136,6 +142,7 @@ $lightyellow: #fff6cd;
 	// LOGIN / REGISTRATION
 	--ldx-log-reg-border-width: 0;
 	--ldx-log-reg-border-color: transparent;
+	--ldx-log-reg-close-icon-color: rgba(0,0,0,0.7);
 
 	--ldx-login-panel-bg-color: #fff;
 	--ldx-login-panel-text-color: #728188;

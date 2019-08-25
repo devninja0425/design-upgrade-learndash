@@ -214,6 +214,11 @@ We designed this plugin to be flexible so that it takes on many of the character
 
 == Changelog ==
 
+= 2.2.1 - August 25, 2019 =
+
+- Added: Improved styles for the Course Status area at the top of course pages (for non-enrolled users)
+- Added: Focus Mode: Brand logo no longer gets squished on medium-sized devices
+
 = 2.2 - August 23, 2019 =
 
 - Added: Button styles for Login/Logout button when using the `[learndash_login]` shortcode
