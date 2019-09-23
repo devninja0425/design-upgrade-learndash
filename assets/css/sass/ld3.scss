@@ -38,7 +38,7 @@
  * 16.0 - Course Grid Add-On
  * 17.0 - Quizzes (import styles from LQC plugin)
  * 20.0 - Uncanny Owl Toolkit Compatibility
- *     20.1 - Uncanny Owl Dashboard [uo_dashboard]
+ *     20.1 - Simple Course Timer
  * 99.0 - Animations
 
 // @TODO - [learndash_login] shortcode
@@ -90,10 +90,14 @@
 .learndash-wrapper .ld-item-list .ld-item-search .ld-item-search-fields .ld-item-search-submit .ld-button,
 // Course Grid Button
 .ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary,
+// UO "Start Course" Button (enhanced grid)
+.ldx-plugin .uo-toolkit-grid__course-action input,
 // UO Resume Button
 .learndash-resume-button input[type="submit"],
 // "Login/Logout" button [learndash_login]
-.learndash-wrapper .ld-login-button {
+.learndash-wrapper .ld-login-button,
+// UO Reset Progress Button
+.learndash-reset-form .learndash-reset-button[type="submit"] {
 	padding: 0.625em 1.5em;
 	font-size: 95%;
 	font-weight: 700;
@@ -164,6 +168,8 @@
 // - "Upload" Assignment button
 // - Course Grid buttons
 // - UO "Resume" button
+// - UO "Start Course" button in Enhanced Grid
+// - UO Reset Progress button
 // - "Login" button (modal)
 // - "Login/Logout" button [learndash_login]
 
@@ -181,8 +187,12 @@
 .learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-button,
 // Course Grid "See More"
 .ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary,
+// UO "Start Course" Button (enhanced grid)
+.ldx-plugin .uo-toolkit-grid__course-action input,
 // UO "Resume"
 .learndash-resume-button input[type="submit"],
+// UO Reset Progress
+.learndash-reset-form .learndash-reset-button[type="submit"],
 // "Login" modal
 .learndash-wrapper .ld-login-modal input[type="submit"],
 // "Login/Logout" Shortcode
@@ -753,6 +763,19 @@
 // Bar Itself
 .learndash-wrapper .ld-progress .ld-progress-bar .ld-progress-bar-percentage {
 	background-color: var(--ldx-progress-bar-bg);
+}
+
+// [uo_dashboard] progress bar
+.ldx-plugin .ultp-dashboard-course__row .ultp-dashboard-course__details .ultp-dashboard-course__right .ultp-dashboard-course__progress-holder {
+	height: var(--ldx-progress-bar-height);
+	max-height: 8px;
+	background-color: var(--ldx-progress-bar-container-bg);
+	border-radius: var(--ldx-progress-bar-border-radius);
+}
+
+.ldx-plugin .ultp-dashboard .ultp-dashboard-course__row .ultp-dashboard-course__details .ultp-dashboard-course__right .ultp-dashboard-course__progress-bar {
+	background-color: var(--ldx-progress-bar-bg);
+	border-radius: var(--ldx-progress-bar-border-radius);
 }
 
 /* when shortcode is used to place widget inline */
@@ -2398,10 +2421,12 @@ body.ld-in-focus-mode .learndash-wrapper {
 
 // Course Grid Ribbon
 body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_price,
-#et-boc .ld_course_grid .thumbnail.course .ld_course_grid_price {
+#et-boc .ld_course_grid .thumbnail.course .ld_course_grid_price,
+.uo-grid-wrapper #ribbon {
 	top: 8px;
 	left: 8px;
 	padding: 4px 13px;
+	margin: 0; // UO Enhanced Grid compatibility
 	box-shadow: 1px 1px 4px rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1);
 	-moz-box-shadow: 1px 1px 4px rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1);
 	-webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.1), 1px 1px 0 rgba(0,0,0,0.1);
@@ -2411,7 +2436,8 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 	font-size: 90%;
 	text-shadow: none;
 
-	&:before {
+	&::before,
+	&::after {
 		display: none;
 	}
 
@@ -2446,7 +2472,8 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 #ld_topic_categorydropdown,
 #et-boc #ld_course_categorydropdown,
 #et-boc #ld_lesson_categorydropdown,
-#et-boc #ld_topic_categorydropdown {
+#et-boc #ld_topic_categorydropdown,
+#uo_course_categorydropdown form {
 	padding: var(--ldx-grid-filter-padding);
 	margin-bottom: 1em;
 	border-radius: var(--ldx-global-border-radius);
@@ -2455,6 +2482,11 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 	label {
 		display: none;
 	}
+}
+
+#uo_course_categorydropdown form {
+	margin: 0;
+	width: 100%;
 }
 
 // @storefront
@@ -2516,6 +2548,251 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
  */
 
 @import 'quiz';
+
+
+/**
+ * 20.0 - Uncanny LearnDash Toolkit
+ */
+
+/**
+ * 20.1 - Simple Course Timer
+ */
+
+// idle timeout modal
+.dialog-box .dialog-box-container {
+	border-radius: var(--ldx-global-border-radius);
+	box-shadow: 0 0 15px rgba( $black, 0.14 ); // same as login modal
+}
+
+.dialog-box .dialog-btn span {
+	border-radius: var(--ldx-btn-border-radius);
+	font-weight: 700;
+}
+
+.dialog-btn .dialog-btn-cancel {
+	background: var(--ldx-btn-standard-bg-color);
+	color: var(--ldx-btn-standard-text-color);
+
+	&:hover {
+		background: var(--ldx-btn-standard-bg-color-hover);
+		color: var(--ldx-btn-standard-text-color-hover);
+	}
+}
+.dialog-btn .dialog-btn-confirm {
+	background: var(--ldx-btn-primary-bg-color);
+	color: var(--ldx-btn-primary-text-color);
+
+	&:hover {
+		background: var(--ldx-btn-primary-bg-color-hover);
+		color: var(--ldx-btn-primary-text-color-hover);
+	}
+}
+
+
+/**
+ * 20.2 - [uo_dashboard]
+ */
+
+// entire box of courses
+.ultp-dashboard .ultp-dashboard-box {
+	border-radius: var(--ldx-global-border-radius);
+}
+// top-left toggle btn for first course
+.ultp-dashboard-courses .ultp-dashboard-course:first-child .ultp-dashboard-course__toggle-btn {
+	border-radius: var(--ldx-global-border-radius) 0 0 0;
+}
+
+// complete checkmark icon
+.ldx-plugin .ultp-dashboard .ultp-dashboard-topic--completed .ultp-dashboard-topic__row .ultp-dashboard-topic__details .ultp-dashboard-topic__right .ultp-dashboard-topic__status .ultp-dashboard-topic__status-circle,
+.ldx-plugin .ultp-dashboard .ultp-dashboard-lesson--completed .ultp-dashboard-lesson__row .ultp-dashboard-lesson__details .ultp-dashboard-lesson__right .ultp-dashboard-lesson__status .ultp-dashboard-lesson__status-circle {
+	background-color: var(--ldx-color-correct);
+	border-color: var(--ldx-color-correct);
+}
+
+// ALL buttons in [uo_dashboard]
+.ultp-dashboard .ultp-dashboard-btn {
+	border-radius: var(--ldx-btn-border-radius);
+	padding: 6px 14px;
+	transition: all 0.15s ease;
+}
+
+// toolbar buttons (expand all | collapse all)
+.ultp-dashboard-toolbar .ultp-dashboard-btn {
+	border: 0;
+	background-color: var(--ldx-btn-standard-bg-color);
+	color: var(--ldx-btn-standard-text-color);
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: var(--ldx-btn-standard-bg-color-hover);
+		color: var(--ldx-btn-standard-text-color-hover);
+	}
+}
+
+// course action buttons (start | resume)
+.ldx-plugin .ultp-dashboard-course__row .ultp-dashboard-course__details .ultp-dashboard-course__right .ultp-dashboard-course__action {
+	// vertically center the buttons within the row
+	align-self: center;
+}
+.ultp-dashboard-course__action .ultp-dashboard-btn {
+	border: 0;
+	background-color: var(--ldx-btn-primary-bg-color);
+	color: var(--ldx-btn-primary-text-color);
+	font-weight: 700;
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: var(--ldx-btn-primary-bg-color-hover);
+		color: var(--ldx-btn-primary-text-color-hover);
+	}
+}
+
+// quiz action buttons (certificate | statistics)
+.ultp-dashboard-quiz__action .ultp-dashboard-btn {
+	color: var(--ldx-color-link);
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: var(--ldx-color-link-hover);
+		border-color: var(--ldx-color-link-hover);
+	}
+}
+
+// quiz score label
+.ldx-plugin .ultp-dashboard-quiz__row .ultp-dashboard-quiz__details .ultp-dashboard-quiz__right .ultp-dashboard-quiz__score-label {
+	border-radius: var(--ldx-global-border-radius);
+}
+
+
+/**
+ * 20.3 - UO Enhanced Course Grid
+ */
+.ldx-plugin {
+
+	.uo-grid-wrapper .grid-course .uo-border {
+		position: relative; // for better ribbon positioning
+		background: $white;
+		border: var(--ldx-grid-item-border-width) solid var(--ldx-grid-item-border-color);
+		border-radius: var(--ldx-grid-item-border-radius);
+		transition: all 0.15s ease;
+		-moz-transition: all 0.15s ease;
+		-ms-transition: all 0.15s ease;
+		-o-transition: all 0.15s ease;
+		-webkit-transition: all 0.15s ease;
+	}
+
+	.uo-grid-wrapper .grid-course .uo-border > a {
+		border-radius: calc( var(--ldx-grid-item-border-radius) - 2px );
+		overflow: hidden;
+	}
+
+	.uo-grid-wrapper .grid-course:hover .uo-border,
+	.uo-grid-wrapper .grid-course:hover .uo-border.completed {
+		border: var(--ldx-grid-item-border-width) solid var(--ldx-grid-item-border-color);
+	}
+
+	.uo-grid-wrapper .grid-course .course-info-holder {
+		padding: 1em;
+	}
+	.uo-grid-wrapper .grid-course .course-info-holder,
+	.uo-grid-wrapper .grid-course:hover .course-info-holder {
+		background: $white;
+	}
+	.uo-grid-wrapper .grid-course .course-info-holder.bottom {
+		padding-top: 0;
+	}
+	.uo-grid-wrapper .grid-course .course-info-holder.completed,
+	.uo-grid-wrapper .grid-course:hover .course-info-holder.completed {
+		background-color: inherit;
+	}
+
+	// Course Title
+	.uo-grid-wrapper .grid-course .course-title {
+		font-size: 1.25em;
+		font-weight: 700;
+		color: #333;
+	}
+	.uo-grid-wrapper .grid-course:hover .course-title {
+		color: var(--ldx-color-link-hover);
+	}
+
+	// Course Description
+	.uo-grid-wrapper .course-info-holder p {
+		font-size: 1em;
+		line-height: 1.5;
+		color: #808080;
+	}
+
+	// Percentage
+	.uo-grid-wrapper .grid-course .course-info-holder .percentage {
+		margin: 0 2px;
+		font-size: 1.5em;
+		color: var(--ldx-progress-bar-bg);
+	}
+	.uo-grid-wrapper .grid-course .course-info-holder.completed .percentage {
+		color: var(--ldx-color-correct);
+	}
+
+	// Progress Bar
+	dd.uo-course-progress {
+		margin: 5px 0;
+		background-color: var(--ldx-progress-bar-container-bg);
+		border: 0;
+		border-radius: var(--ldx-progress-bar-border-radius);
+		box-shadow: none;
+		height: var(--ldx-progress-bar-height);
+
+		div.course_progress {
+			background-color: var(--ldx-progress-bar-bg);
+			box-shadow: none;
+		}
+	}
+	.uo-grid-wrapper .grid-course .course-info-holder.completed dd.uo-course-progress div.course_progress {
+		background-color: var(--ldx-color-correct);
+	}
+
+	// "Course Status"
+	.uo-grid-wrapper .grid-course .course-info-holder .list-tag-container {
+		color: #aaa;
+		font-weight: 700;
+		padding: 0 2px;
+	}
+	.uo-grid-wrapper .grid-course .course-info-holder.completed .list-tag-container {
+		color: var(--ldx-color-correct);
+	}
+
+	// Action Buttons
+	.uo-toolkit-grid__course-action a {
+		padding: 0 1em 1em;
+	}
+	.uo-toolkit-grid__course-action input {
+		border: 0;
+	}
+
+	// "View More" link
+	.uo-view-more .uo-view-more-anchor {
+		border-radius: var(--ldx-grid-item-border-radius);
+		background-color: var(--ldx-btn-standard-bg-color);
+		color: var(--ldx-btn-standard-text-color);
+		transition: all 0.15s ease;
+		-moz-transition: all 0.15s ease;
+		-ms-transition: all 0.15s ease;
+		-o-transition: all 0.15s ease;
+		-webkit-transition: all 0.15s ease;
+
+		&:hover,
+		&:active,
+		&:focus {
+			background-color: var(--ldx-btn-standard-bg-color-hover);
+			color: var(--ldx-btn-standard-text-color-hover);
+		}
+	}
+
+} // .ldx-plugin
+
 
 
 /**

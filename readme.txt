@@ -3,7 +3,7 @@ Contributors: escapecreative, davewarfel
 Donate link: https://www.paypal.me/escapecreative/10
 Tags: learndash, lms, learning management system, online courses, css
 Requires at least: 4.6
-Tested up to: 5.2.2
+Tested up to: 5.2.3
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -28,7 +28,7 @@ See below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.0.7
+Tested with LearnDash 3.0.7.1
 
 * **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
 * **Buttons:** All buttons have matching rounded corners & increased font size
@@ -127,15 +127,15 @@ We have tested with the following themes, and they all appear **to be compatible
 
 We recognize the [Uncanny LearnDash Toolkit](https://wordpress.org/plugins/uncanny-learndash-toolkit/) by Uncanny Owl is a popular LearnDash plugin that adds some nice features. We're in the process of making our plugin fully compatible with theirs. Here's where we are so far:
 
-The following only applies to the "Legacy" Active Template. We're still working on compatibility with the 3.0 template.
+* Reset Progress button: Button styles upgraded
+* Simple Course Timer modal: Button styles upgraded
+* `[uo_dashboard]`: Styles upgraded
+* `[uo_courses]`: Styles upgraded
+* `[uo_breadcrumbs]`: Compatible; Design upgrades in progress
+* `[uo_lessons_topics_grid]`: Compatible; Design upgrades in progress
+* `[uo_login_ui]`: Compatible; Design upgrades in progress
 
-* `[uo_dashboard]`: Compatible; styles upgraded
-* `[uo_breadcrumbs]`: Compatible; no styles changed
-* `[uo_courses]`: The UO Course Grid comes with a lot of styling options already. We're still evaluating whether or not we should make any design changes to it.
-* `[uo_lessons_topics_grid]`: Compatible; no styles changed
-* `[uo_login_ui]`: Compatible; no styles changed
-
-**Bottom Line:** You are fine to use Design Upgrade for LearnDash with the Uncanny LearnDash Toolkit.
+**NOTE:** Uncanny LearnDash Toolkit styles are only upgraded if you're using the "LearnDash 3.0" active template. Styles do not apply to the "Legacy" template.
 
 ### Roadmap
 
@@ -143,7 +143,7 @@ As LearnDash adds new features, it is our goal to keep this plugin updated.
 
 Features planned for future release:
 
-* Compatibility with more of the Uncanny LearnDash Toolkit modules
+* Compatibility with more Uncanny LearnDash Toolkit modules
 
 #### We'd love to hear from you!
 
@@ -213,6 +213,14 @@ We designed this plugin to be flexible so that it takes on many of the character
 9. Uncanny Owl Toolkit's [uo_dashboard] shortcode output
 
 == Changelog ==
+
+= 2.3 - September 23, 2019 =
+
+- Added: Uncanny LearnDash Toolkit Pro: The Simple Course Timer idle timeout modal now uses consistent button styles
+- Added: Uncanny LearnDash Toolkit Pro: The "Reset Progress" button now uses consistent button styles
+- Added: Uncanny LearnDash Toolkit Pro: Many `[uo_dashboard]` elements now inherit LearnDash default styles, buttons & colors
+- Added: Uncanny LearnDash Toolkit Pro: The `[uo_courses]` enhanced course grid now matches the style of the LearnDash Course Grid add-on.
+- Updated: A handful of small improvements for quizzes
 
 = 2.2.1 - August 25, 2019 =
 

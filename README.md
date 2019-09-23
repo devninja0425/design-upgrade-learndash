@@ -20,7 +20,7 @@ See "Features" below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.0.7
+Tested with LearnDash 3.0.7.1
 
 * **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
 * **Buttons:** All buttons have matching rounded corners & increased font size
@@ -100,13 +100,15 @@ We have tested with the following themes, and they all appear **to be compatible
 
 We recognize the [Uncanny LearnDash Toolkit](https://wordpress.org/plugins/uncanny-learndash-toolkit/) by Uncanny Owl is a popular LearnDash plugin that adds some nice features. We're in the process of making our plugin fully compatible with theirs. Here's where we are so far:
 
-* `[uo_dashboard]`: Compatible; styles upgraded
-* `[uo_breadcrumbs]`: Compatible; no styles changed
-* `[uo_courses]`: The UO Course Grid comes with a lot of styling options already. We're still evaluating whether or not we should make any design changes to it.
-* `[uo_lessons_topics_grid]`: Compatible; no styles changed
-* `[uo_login_ui]`: Compatible; no styles changed
+* Reset Progress button: Button styles upgraded
+* Simple Course Timer modal: Button styles upgraded
+* `[uo_dashboard]`: Styles upgraded
+* `[uo_courses]`: Styles upgraded
+* `[uo_breadcrumbs]`: Compatible; Design upgrades in progress
+* `[uo_lessons_topics_grid]`: Compatible; Design upgrades in progress
+* `[uo_login_ui]`: Compatible; Design upgrades in progress
 
-**Bottom Line:** You are fine to use Design Upgrade for LearnDash with the Uncanny LearnDash Toolkit.
+**NOTE:** Uncanny LearnDash Toolkit styles are only upgraded if you're using the "LearnDash 3.0" active template. Styles do not apply to the "Legacy" template.
 
 ## Roadmap
 
@@ -114,7 +116,7 @@ As LearnDash adds new features, it is our goal to keep this plugin updated.
 
 Features planned for future release:
 
-* Compatibility with more of the Uncanny LearnDash Toolkit modules
+* Compatibility with more Uncanny LearnDash Toolkit modules
 
 ## We'd love to hear from you!
 
