@@ -1,5 +1,13 @@
 == Changelog ==
 
+= 2.3 - September 23, 2019 =
+
+- Added: Uncanny LearnDash Toolkit Pro: The Simple Course Timer idle timeout modal now uses consistent button styles
+- Added: Uncanny LearnDash Toolkit Pro: The "Reset Progress" button now uses consistent button styles
+- Added: Uncanny LearnDash Toolkit Pro: Many `[uo_dashboard]` elements now inherit LearnDash default styles, buttons & colors
+- Added: Uncanny LearnDash Toolkit Pro: The `[uo_courses]` enhanced course grid now matches the style of the LearnDash Course Grid add-on.
+- Updated: A handful of small improvements for quizzes
+
 = 2.2.1 - August 25, 2019 =
 
 - Added: Improved styles for the Course Status area at the top of course pages (for non-enrolled users)
