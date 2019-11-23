@@ -26,6 +26,8 @@
  *     8.1 - Focus Mode: Sidebar
  *     8.2 - Focus Mode: Top Bar
  *     8.3 - Focus Mode: Content Area
+ *     8.4 - Focus Mode: Footer
+ *     8.5 - Focus Mode: Comments
  *  9.0 - Profile
  * 10.0 - Course Navigation
  * 11.0 - Assignments
@@ -97,7 +99,11 @@
 // "Login/Logout" button [learndash_login]
 .learndash-wrapper .ld-login-button,
 // UO Reset Progress Button
-.learndash-reset-form .learndash-reset-button[type="submit"] {
+.learndash-reset-form .learndash-reset-button[type="submit"],
+// Comment "Reply" Button (focus mode)
+.learndash-wrapper .ld-focus-comment .ld-comment-reply a.comment-reply-link,
+// "Post Comment" button (focus mode)
+.learndash-wrapper .ld-focus-comments .form-submit #submit {
 	padding: 0.625em 1.5em;
 	font-size: 95%;
 	font-weight: 700;
@@ -122,6 +128,7 @@
 // - Expand/Collapse All
 // - Buttons within alerts (.learndash-wrapper .ld-alert .ld-button)
 // - "Browse" for uploading assignments
+// - Comment "Reply" Button (focus mode)
 
 // All Standard Buttons
 .learndash-wrapper .ld-button,
@@ -130,9 +137,11 @@
 // "Expand/Collapse All"
 .learndash-wrapper .ld-expand-button,
 // Within Alerts
-.learndash-wrapper .ld-alert .ld-button
+.learndash-wrapper .ld-alert .ld-button,
 // "Browse" for uploading assignments
 // .learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-file-input+label strong
+// - Comment "Reply" Button (focus mode)
+.learndash-wrapper .ld-focus-comment .ld-comment-reply a.comment-reply-link
 {
 	background: var(--ldx-btn-standard-bg-color);
 	color: var(--ldx-btn-standard-text-color);
@@ -172,6 +181,7 @@
 // - UO Reset Progress button
 // - "Login" button (modal)
 // - "Login/Logout" button [learndash_login]
+// - "Post Comment" button (focus mode)
 
 // "Take this Course"
 .learndash-wrapper .btn-join,
@@ -196,7 +206,9 @@
 // "Login" modal
 .learndash-wrapper .ld-login-modal input[type="submit"],
 // "Login/Logout" Shortcode
-.learndash-wrapper .ld-login-button {
+.learndash-wrapper .ld-login-button,
+// "Post Comment" button (focus mode)
+.learndash-wrapper .ld-focus-comments .form-submit #submit {
 	background: var(--ldx-btn-primary-bg-color);
 	color: var(--ldx-btn-primary-text-color);
 
@@ -1267,6 +1279,144 @@ body.ld-in-focus-mode .learndash-wrapper {
  */
 .learndash-wrapper .ld-focus-content .ld-content-actions {
 	border-color: rgba( $black, 0.1 );
+}
+
+/**
+ * 8.5 - Focus Mode: Comments
+ * @since LearnDash 3.1
+ */
+
+/* "Comments" Heading */
+.learndash-wrapper .ld-focus-comments__heading {
+	padding: 0 0.75em;
+	margin-bottom: 0;
+	border-bottom: 2px solid rgba( $black, 0.1 );
+}
+
+/* Logged In As links */
+.ld-focus-comments .logged-in-as a {
+	color: var(--ldx-color-link);
+}
+.ld-focus-comments .logged-in-as a:hover,
+.ld-focus-comments .logged-in-as a:active,
+.ld-focus-comments .logged-in-as a:focus {
+	color: var(--ldx-color-link-hover);
+}
+
+/* Comment Form Container */
+.learndash-wrapper .ld-focus-comments .comment-respond {
+	background: transparent;
+}
+
+/* Comment Form */
+.learndash-wrapper .ld-focus-comments #commentform textarea#comment {
+	border-width: 2px;
+	border-radius: var(--ldx-global-border-radius);
+	resize: vertical;
+}
+
+/* Comment Outer Wrapper */
+.learndash-wrapper .ld-focus-comment {
+	margin: 1.25em 0;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+/* Comment Replies */
+.learndash-wrapper .ld-focus-comment.depth-2,
+.learndash-wrapper .ld-focus-comment.depth-3,
+.learndash-wrapper .ld-focus-comment.depth-4,
+.learndash-wrapper .ld-focus-comment.depth-5 {
+	margin-left: 40px;
+
+	.rtl & {
+		margin-right: 40px;
+		margin-left: 0;
+	}
+}
+
+/* Comment Wrapper */
+.ld-focus-comments .ld-comment-wrapper {
+	background-color: var(--ldx-focus-mode-comment-bg-color);
+	border-radius: var(--ldx-global-border-radius);
+	padding: 1em;
+}
+
+/* Comment Text */
+.ld-comment-body p:last-of-type,
+.ld-comment-body ul:last-of-type,
+.ld-comment-body ol:last-of-type {
+	margin-bottom: 0;
+}
+
+/* Avatar */
+.learndash-wrapper .ld-focus-comment .ld-comment-avatar img {
+	border-width: var(--ldx-focus-mode-comment-admin-avatar-border-width);
+}
+/* Avatar (admins) */
+.learndash-wrapper .ld-focus-comment.bypostauthor > .ld-comment-wrapper > .ld-comment-avatar img,
+.learndash-wrapper .ld-focus-comment.role-group_leader > .ld-comment-wrapper > .ld-comment-avatar img,
+.learndash-wrapper .ld-focus-comment.role-administrator > .ld-comment-wrapper > .ld-comment-avatar img {
+	border-color: var(--ldx-focus-mode-comment-admin-avatar-border-color);
+}
+
+/* Comment Author Info */
+.ld-comment-avatar-author {
+	line-height: 1.3;
+}
+
+/* Comment Permalink */
+.learndash-wrapper .ld-focus-comment .ld-comment-avatar .ld-comment-avatar-author a.ld-comment-permalink {
+	font-size: 0.9375em;
+	color: rgba( $black, 0.6 );
+}
+
+/* Reply Button Wrapper */
+.learndash-wrapper .ld-focus-comment .ld-comment-reply {
+	margin: 0.75em 0 0;
+}
+/* Reply Button */
+.learndash-wrapper .ld-focus-comment .ld-comment-reply a.comment-reply-link {
+	padding: 0.125em 1em;
+	background: transparent;
+	box-shadow: inset 0 0 0 1px rgba( $black, 0.35 ) !important;
+	color: rgba( $black, 0.55 );
+	font-weight: 400;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: transparent;
+		box-shadow: inset 0 0 0 1px rgba( $black, 0.75 ) !important;
+		color: rgba( $black, 0.9 );
+	}
+
+	// Remove arrow that Divi adds on hover
+	&:hover::after {
+		display: none;
+	}
+}
+
+/* Admin Comments */
+.learndash-wrapper .ld-focus-comment.bypostauthor > .ld-comment-wrapper,
+.learndash-wrapper .ld-focus-comment.role-group_leader > .ld-comment-wrapper,
+.learndash-wrapper .ld-focus-comment.role-administrator > .ld-comment-wrapper {
+	border-radius: var(--ldx-global-border-radius);
+	border: var(--ldx-focus-mode-comment-admin-border-width) solid var(--ldx-focus-mode-comment-admin-border-color);
+	background-color: var(--ldx-focus-mode-comment-admin-bg-color);
+}
+
+/* Comment Alert (awaiting approval) */
+.ld-focus-comment .ld-comment-alert {
+	display: inline-block;
+	margin-bottom: 0.5em;
+	padding: 0 0.5em;
+	background-color: rgba( $black, 0.05 );
+	border-radius: var(--ldx-global-border-radius);
+	font-style: italic;
+	font-weight: 700;
 }
 
 

@@ -3,7 +3,7 @@ Contributors: escapecreative, davewarfel
 Donate link: https://www.paypal.me/escapecreative/10
 Tags: learndash, lms, learning management system, online courses, css
 Requires at least: 4.6
-Tested up to: 5.2.3
+Tested up to: 5.3
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -28,8 +28,9 @@ See below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.0.7.1
+Tested with LearnDash 3.1
 
+* **NEW:** Improved styles for Focus Mode comments, which were added in LearnDash 3.1
 * **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
 * **Buttons:** All buttons have matching rounded corners & increased font size
 * **Font Sizes:** These will now be inherited from your theme, which should increase your font sizes across the board
@@ -42,9 +43,7 @@ Tested with LearnDash 3.0.7.1
 
 **Also:** Small tweaks were made to assignments, pagination, the "User Status" widget and more.
 
-**[Full changelog & list of features →](https://ldx.design/design-upgrade-pro-learndash-3/#free-changelog)**
-
-**LearnDash 2.x Features**
+**LearnDash 2.x "Legacy" Features**
 
 * Much improved course grid styles, equal height cards & no more weird spacing issues 👍
 * All fonts have been reset to use your theme's default font family, size & color
@@ -74,7 +73,7 @@ We designed the plugin to be just specific enough to override LearnDash's defaul
 
 ### Pro Version
 
-**Need custom styles?** Our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wordpress.org&utm_medium=free%20plugin&utm_campaign=readme) uses the Customizer to bring you **over 80 customizable design options.** Completely customize your LearnDash site with just a few clicks.
+**Need custom styles?** Our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wordpress.org&utm_medium=free%20plugin&utm_campaign=readme) uses the Customizer to bring you **over 90 customizable design options.** Completely customize your LearnDash site with just a few clicks.
 
 https://www.youtube.com/watch?v=hOUToX87U9E
 
@@ -82,16 +81,16 @@ https://www.youtube.com/watch?v=hOUToX87U9E
 
 * Show/Hide various course & profile features
 * Disable expand/collapse links & show all by default
-* Course Content Lists: Update background & text colors, hover effects, customize line separators, remove the list count numbers and more
-* Progress Bar: Customize the color, border radius & height, add stripes, and animate the bar on page load
-* Buttons: Add your own background & text colors
-* `[ld_profile]`: Avatar shape, custom "edit profile" link, hide profile info, hide quiz information, and more
-* Login/Registration Popup: 10+ design options
-* Focus Mode: 15+ design options
-* Course Navigation Widget: 15+ design options
-* Course Grid Add-On: 20+ design options
-* Alerts: 9 custom colors, plus a few other options
-* Tooltips: customize the background & text color
+* **Course Content Lists:** Update background & text colors, hover effects, customize line separators, remove the list count numbers and more
+* **Progress Bar:** Customize the color, border radius & height, add stripes, and animate the bar on page load
+* **Buttons:** Add your own background & text colors
+* **`[ld_profile]`:** Avatar shape, custom "edit profile" link, hide profile info, hide quiz information, and more
+* **Login/Registration Popup:** 10+ design options
+* **Focus Mode:** 20+ design options, including 7 for Focus Mode comments
+* **Course Navigation Widget:** 15+ design options
+* **Course Grid Add-On:** 20+ design options
+* **Alerts:** 9 custom colors, plus a few other options
+* **Tooltips:** customize the background & text color
 
 **[Upgrade to Pro Today »](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wordpress.org&utm_medium=free%20plugin&utm_campaign=readme)**
 
@@ -108,6 +107,7 @@ We have tested with the following themes, and they all appear **to be compatible
 * GeneratePress
 * OceanWP
 * Storefront
+* Twenty Twenty
 * Twenty Nineteen
 * Twenty Seventeen
 * Twenty Sixteen
@@ -144,6 +144,7 @@ As LearnDash adds new features, it is our goal to keep this plugin updated.
 Features planned for future release:
 
 * Compatibility with more Uncanny LearnDash Toolkit modules
+* Exploring compatibility with a few WisdmLabs plugins
 
 #### We'd love to hear from you!
 
@@ -172,7 +173,7 @@ We tested it on a handful of popular themes, but we couldn't possibly cover them
 
 The free version doesn't have any. It simply applies a fresh coat of paint behind the scenes.
 
-Check out our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wordpress.org&utm_medium=free%20plugin&utm_campaign=readme&utm_content=faq) that includes 80+ settings you can customize.
+Check out our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wordpress.org&utm_medium=free%20plugin&utm_campaign=readme&utm_content=faq) that includes 90+ settings you can customize.
 
 = Will this affect the rest of my site? =
 
@@ -202,17 +203,19 @@ We designed this plugin to be flexible so that it takes on many of the character
 
 == Screenshots ==
 
-1. Much improved styles for the course grid add-on
-2. Course content design with the TwentySixteen theme
-3. Course content expanded with the GeneratePress theme
-4. Improved Profile &amp; My Courses page
-5. Course information widget, before &amp; after the upgrade
-6. Enjoy a cleaner quiz interface
-7. The quiz statistics modal has an improved look
-8. Course navigation widget, with subtle design improvements
-9. Uncanny Owl Toolkit's [uo_dashboard] shortcode output
+1. Much improved styles for the course grid add-on, including equal-height columns
+2. Updated quiz styling for every question type
+3. More usable sidebar navigation with larger clickable areas
+4. Consistent spacing & more subtle "Reply" buttons for Focus Mode comments
+5. Simplified & cleaned up the `[ld_profile]` shortcode/block
 
 == Changelog ==
+
+= 2.4 - November 20, 2019 =
+
+- Added: Improved styles for Focus Mode comments
+- Fixed: Quizzes: Matrix sorting questions spacing issues
+- Tweak: Quizzes: Matrix sorting questions use a slightly different style when viewing correct/incorrect answers after a quiz
 
 = 2.3 - September 23, 2019 =
 

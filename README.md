@@ -20,8 +20,9 @@ See "Features" below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.0.7.1
+Tested with LearnDash 3.1
 
+* **NEW:** Improved styles for Focus Mode comments, which were added in LearnDash 3.1
 * **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
 * **Buttons:** All buttons have matching rounded corners & increased font size
 * **Font Sizes:** These will now be inherited from your theme, which should increase your font sizes across the board
@@ -36,7 +37,7 @@ Tested with LearnDash 3.0.7.1
 
 **[Full changelog & list of features →](https://ldx.design/design-upgrade-pro-learndash-3/#free-changelog)**
 
-**LearnDash 2.x Features**
+**LearnDash 2.x "Legacy" Features**
 
 * Much improved course grid styles, equal height cards & no more weird spacing issues 👍
 * All fonts have been reset to use your theme's default font family, size & color
@@ -81,6 +82,7 @@ We have tested with the following themes, and they all appear **to be compatible
 * GeneratePress
 * OceanWP
 * Storefront
+* Twenty Twenty
 * Twenty Nineteen
 * Twenty Seventeen
 * Twenty Sixteen
@@ -117,6 +119,7 @@ As LearnDash adds new features, it is our goal to keep this plugin updated.
 Features planned for future release:
 
 * Compatibility with more Uncanny LearnDash Toolkit modules
+* Exploring compatibility with a few WisdmLabs plugins
 
 ## We'd love to hear from you!
 
