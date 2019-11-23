@@ -1,5 +1,11 @@
 == Changelog ==
 
+= 2.4 - November 20, 2019 =
+
+- Added: Improved styles for Focus Mode comments
+- Fixed: Quizzes: Matrix sorting questions spacing issues
+- Tweak: Quizzes: Matrix sorting questions use a slightly different style when viewing correct/incorrect answers after a quiz
+
 = 2.3 - September 23, 2019 =
 
 - Added: Uncanny LearnDash Toolkit Pro: The Simple Course Timer idle timeout modal now uses consistent button styles
