@@ -20,7 +20,7 @@ See "Features" below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.1
+Tested with LearnDash 3.1.1
 
 * **NEW:** Improved styles for Focus Mode comments, which were added in LearnDash 3.1
 * **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas

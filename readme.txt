@@ -28,7 +28,7 @@ See below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.1
+Tested with LearnDash 3.1.1
 
 * **NEW:** Improved styles for Focus Mode comments, which were added in LearnDash 3.1
 * **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
@@ -210,6 +210,14 @@ We designed this plugin to be flexible so that it takes on many of the character
 5. Simplified & cleaned up the `[ld_profile]` shortcode/block
 
 == Changelog ==
+
+= 2.4.1 - November 25, 2019 =
+
+- Added: Class name (`.ldx-grid-course-complete`) is applied to completed courses in the course grid
+- Tweak: Quiz Results: Added spacing between paragraphs & lists in the quiz response message displayed on the results page
+- Compatibility: Hello Elementor: Improved styles for better compatibility with the Hello Elementor theme
+- Fixed: Single & Multiple Choice Questions: When an answer is answered incorrectly, the correct answer is highlighted in green (bug introduced in LD 3.1 with a class name change)
+- Fixed: Tooltip alignment
 
 = 2.4 - November 20, 2019 =
 

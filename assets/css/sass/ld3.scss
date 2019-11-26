@@ -109,6 +109,7 @@
 	font-weight: 700;
 	line-height: inherit;
 	letter-spacing: inherit;
+	border: 0; // @helloelementor (and probably other themes)
 	border-radius: 24px; // increase from 20px bc I increased font size
 	border-radius: var(--ldx-btn-border-radius);
 	transition: all 0.15s ease; // LD defaults to 0.3s, only opacity
@@ -1818,7 +1819,7 @@ body.ld-in-focus-mode .learndash-wrapper {
 		font-weight: normal;
 		line-height: 1.25;
 		transition: all 0.15s ease;
-		transform: translateX(-50%) translateY(-30px);
+		transform: translateX(2%) translateY(-32px);
 		border-radius: var(--ldx-global-border-radius);
 		background: var(--ldx-tooltip-bg-color);
 		color: var(--ldx-tooltip-text-color);
@@ -1830,7 +1831,7 @@ body.ld-in-focus-mode .learndash-wrapper {
 		}
 
 		&.ld-visible {
-			transform: translateX(-50%) translateY(-35px);
+			transform: translateX(2%) translateY(-35px);
 		}
 	}
 
