@@ -1,0 +1,51 @@
+/**
+ * LearnDash Widget Areas Plugin Compatibility
+ * CSS that helps style certain widget areas added
+ * by our own LearnDash Widget Areas plugin.
+ */
+
+/* Focus Mode: Sidebar Widget Areas */
+.ldx-widget-area.fm-nav-before,
+.ldx-widget-area.fm-nav-after {
+	margin: 1em;
+}
+
+/* Remove BG color of Focus Mode, if it's set in Design Upgrade Pro */
+body.ld-in-focus-mode .ldx-widget-area .learndash-wrapper {
+	background: transparent;
+}
+
+.ldx-widget-area {
+
+	&.fm-content-start {
+		margin-bottom: 1em;
+	}
+
+	&.fm-content-bottom {
+		margin-top: 1em;
+	}
+
+	.ldx-widget {
+		&:first-child {
+			margin-top: 0;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		p:first-child,
+		ul:first-child,
+		ol:first-child {
+			margin-top: 0;
+			padding-top: 0;
+		}
+
+		p:last-child,
+		ul:last-child,
+		ol:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	} // .ldx-widget
+
+} // .ldx-widget-area
