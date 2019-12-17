@@ -41,6 +41,7 @@
  * 17.0 - Quizzes (import styles from LQC plugin)
  * 20.0 - Uncanny Owl Toolkit Compatibility
  *     20.1 - Simple Course Timer
+ * 21.0 - LearnDash Widget Areas Compatibility
  * 99.0 - Animations
 
 // @TODO - [learndash_login] shortcode
@@ -2943,6 +2944,12 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 	}
 
 } // .ldx-plugin
+
+
+/**
+ * 21.0 - LearnDash Widget Areas Compatibility
+ */
+@import 'learndash-widget-areas';
 
 
 

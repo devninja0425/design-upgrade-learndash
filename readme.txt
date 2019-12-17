@@ -106,6 +106,8 @@ We have tested with the following themes, and they all appear **to be compatible
 * Divi
 * GeneratePress
 * OceanWP
+* LearnMate
+* Edufire
 * Storefront
 * Twenty Twenty
 * Twenty Nineteen
@@ -116,7 +118,6 @@ We have tested with the following themes, and they all appear **to be compatible
 
 * BuddyBoss Platform (released June 2019)
 * Boss. / Social Learner (If you deactivate the "Boss for LearnDash" plugin, it will still work in "Legacy" mode)
-* LearnMate by Wbcom Designs
 * eLumine by WisdmLabs
 
 #### Incompatible Plugins
@@ -210,6 +211,10 @@ We designed this plugin to be flexible so that it takes on many of the character
 5. Simplified & cleaned up the `[ld_profile]` shortcode/block
 
 == Changelog ==
+
+= 2.4.2 - December 17, 2019 =
+
+- Added: CSS compatibility for upcoming Widget Areas for LearnDash plugin
 
 = 2.4.1 - November 25, 2019 =
 
