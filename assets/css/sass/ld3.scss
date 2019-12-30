@@ -42,6 +42,7 @@
  * 20.0 - Uncanny Owl Toolkit Compatibility
  *     20.1 - Simple Course Timer
  * 21.0 - LearnDash Widget Areas Compatibility
+ * 22.0 - WisdmLabs Ratings, Reviews & Feedback Plugin
  * 99.0 - Animations
 
 // @TODO - [learndash_login] shortcode
@@ -1101,10 +1102,12 @@
 	.learndash-wrapper .ld-focus .ld-focus-header .ld-brand-logo {
 		flex: 0 0 215px;
 	}
-	.learndash-wrapper .ld-focus .ld-focus-header .ld-brand-logo img {
+	/* Removed on 12/26/2019 after a FB conversation with Ken Graversen.
+	 * He had issues with an SVG logo that was closer to square. */
+	/*.learndash-wrapper .ld-focus .ld-focus-header .ld-brand-logo img {
 		width: 100%;
 		height: auto;
-	}
+	}*/
 }
 
 
@@ -1910,6 +1913,13 @@ body.ld-in-focus-mode .learndash-wrapper {
 	}
 }
 
+/* Wrapper */
+// LD uses a max-width of 350px but a min-width of 80% overrides it
+// This unsets the min-width so the 350px max kicks in
+.learndash-wrapper .ld-login-modal .ld-login-modal-wrapper {
+	min-width: unset;
+}
+
 /* Login Panel */
 .learndash-wrapper .ld-login-modal .ld-login-modal-login {
 	background: var(--ldx-login-panel-bg-color);
@@ -1972,7 +1982,7 @@ body.ld-in-focus-mode .learndash-wrapper {
 		outline: none;
 		background: var(--ldx-login-panel-text-color);
 		color: var(--ldx-login-panel-bg-color);
-		box-shadow: 0 0 0 4px rgba( $black, 0.2 );
+		box-shadow: 0 0 0 4px rgba( $black, 0.08 );
 	}
 }
 
@@ -2041,7 +2051,7 @@ body.ld-in-focus-mode .learndash-wrapper {
 		outline: none;
 		background: var(--ldx-register-panel-text-color);
 		color: var(--ldx-register-panel-bg-color);
-		box-shadow: 0 0 0 4px rgba( $black, 0.2 ) !important; // needed to override LD styles
+		box-shadow: 0 0 0 4px rgba( $black, 0.08 ) !important; // needed to override LD styles
 	}
 }
 
@@ -2951,6 +2961,11 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
  */
 @import 'learndash-widget-areas';
 
+
+/**
+ * 22.0 - WisdmLabs Ratings, Reviews & Feedback Plugin
+ */
+// @import 'wisdmlabs-ratings-reviews';
 
 
 /**

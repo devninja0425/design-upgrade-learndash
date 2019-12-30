@@ -1,0 +1,200 @@
+/**
+ * WisdmLabs Ratings, Reviews & Feedback Plugin Compatibility
+ * 
+ * CSS that helps style all frontend elements that this plugin
+ * adds to a LearnDash site.
+ */
+
+/**
+ * Course Page
+ */
+
+/**
+ * "Be the first to leave a review" link
+ *
+ * Also appears in Course Grid, below each course title.
+ */
+// @TODO: Could rework this if they move the link outside the <h1> tag
+.wdm_no_reviews {
+	line-height: 22px;
+	font-size: 16px;
+
+	.wdm_crr_no_reviews {
+		display: inline !important;
+		font-size: inherit !important;
+		color: var(--ldx-color-link);
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: var(--ldx-color-link-hover);
+			text-decoration: underline;
+		}
+	}
+
+} // .wdm_no_reviews
+
+/* If there is at least 1 review, this is the container for the stars */
+.wdm-crr-show-popup {
+	margin-top: 5px;
+}
+
+
+/**
+ * Rating Stars
+ */
+.rating-container .clear-rating {
+	color: rgba( $black, 0.32 );
+}
+.rating-container .clear-rating-active:hover {
+	color: var(--ldx-color-incorrect);
+}
+
+.rating-container .rating-stars {
+	// @TODO: add Pro option for size of stars
+	// font-size: 120%;
+
+	.star {
+		margin: 0 2px;
+	}
+
+	.empty-stars {
+		color: var(--ldx-star-rating-color-empty);
+	}
+
+	.filled-stars {
+		color: var(--ldx-star-rating-color-filled);
+		-webkit-text-stroke: 0;
+		text-shadow: none;
+	}
+
+} // .rating-container
+
+.wdm-crr-show-popup .glyphicon-menu-down {
+	color: inherit;
+}
+
+/**
+ * Reviews Popup (on hover)
+ */
+.wdm-crr-show-popup .rating-container .wdm-popup-div {
+	border-radius: var(--ldx-global-border-radius);
+	border-color: #e0e0e0;
+	box-shadow: 0 1px 4px rgba( $black, 0.05 ),
+							0 4px 14px rgba( $black, 0.08 );
+
+	&::before {
+		border-width: 10px;
+		margin-left: -21px;
+		border-bottom-color: #e0e0e0;
+	}
+
+	// 3 out of 5 stars
+	.wdm_crr_rate_out_of {
+		font-weight: 500;
+	}
+
+	// "See all reviews (X)"
+	.wdm_crr_review_link > a,
+	// 5 star, 4 star, 3 star, etc.
+	.review_star_filter_link {
+		color: var(--ldx-color-link);
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: var(--ldx-color-link-hover);
+			text-decoration: underline;
+		}
+	}
+
+} // .wdm-popup-div
+
+.wdm-crr-show-popup .wdm-popup-div .wdm-popup-div-content {
+	padding: 0.75em 1em;
+	font-size: inherit;
+	line-height: 1.2;
+	color: inherit;
+} // .wdm-popup-div-content
+
+/**
+ * Bar Chart
+ */
+.barChart {
+
+	.barChart__bar {
+		height: 18px;
+		border-radius: 2px;
+		background: #f7f7f7;
+		box-shadow: inset 0 0 0 1px rgba( $black, 0.09 ),
+								inset 0 3px 4px rgba( $black, 0.06 );
+	}
+
+	.barChart__barFill {
+		background: var(--ldx-star-rating-color-filled);
+		box-shadow: inset 0 0 0 1px rgba( $black, 0.16 ),
+								inset 0 -5px 7px rgba( $black, 0.05 );
+	}
+
+} // .barChart
+
+
+
+/**
+ * "Your Reviews" Page
+ *
+ * .course_rating_review_page
+ */
+.course_rating_review_page {
+
+	// Reviews Container
+	// .wdm_courses_reviews {
+	// }
+
+	// Each Individual Review Box
+	.wdm_courses_reviews > div {
+		border: 0;
+		border-radius: var(--ldx-global-border-radius);
+		background-color: rgba( $black, 0.04 );
+		margin-bottom: 1em;
+		padding: 1.25em;
+	}
+
+	// Image Container
+	.wdm_course_feature_img.wdm_crr_left_section {
+		padding: 0;
+		margin-right: 3%;
+	}
+
+	// Thumbnail Image <img>
+	.wdm_course_thumb {
+		height: auto;
+		box-shadow: none;
+		border-radius: calc(var(--ldx-global-border-radius) * 0.75);
+	}
+
+	// Right Side Content
+	.wdm_rating_section.wdm_crr_right_section {
+		padding-top: 0;
+	}
+
+	// Course Title
+	.wdm_rating_section.wdm_crr_right_section > a {
+		font-size: 1.375em;
+		font-weight: 500;
+		color: var(--ldx-color-link);
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: var(--ldx-color-link-hover);
+			text-decoration: underline;
+		}
+	}
+
+	// "5 Stars" Caption
+	.rating-container .caption {
+		color: #666;
+	}
+
+} // .course_rating_review_page

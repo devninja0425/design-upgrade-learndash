@@ -1,5 +1,11 @@
 == Changelog ==
 
+= 2.4.3 - December 30, 2019 =
+
+- Added: Max-width for the login & registration forms so they don't stretch all the way across larger screens
+- Removed: Styling on Focus Mode logo images that was causing some taller logos to expand beyond the header area
+- Tweak: Login/Register Buttons: Slightly reduced the opacity of the shadows on hover
+
 = 2.4.2 - December 17, 2019 =
 
 - Added: CSS compatibility for upcoming Widget Areas for LearnDash plugin

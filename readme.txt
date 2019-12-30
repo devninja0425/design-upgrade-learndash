@@ -212,6 +212,12 @@ We designed this plugin to be flexible so that it takes on many of the character
 
 == Changelog ==
 
+= 2.4.3 - December 30, 2019 =
+
+- Added: Max-width for the login & registration forms so they don't stretch all the way across larger screens
+- Removed: Styling on Focus Mode logo images that was causing some taller logos to expand beyond the header area
+- Tweak: Login/Register Buttons: Slightly reduced the opacity of the shadows on hover
+
 = 2.4.2 - December 17, 2019 =
 
 - Added: CSS compatibility for upcoming Widget Areas for LearnDash plugin
@@ -286,42 +292,10 @@ We designed this plugin to be flexible so that it takes on many of the character
 = 2.0 - Jun 7, 2019 =
 
 - NEW: Now compatible with the "LearnDash 3.0" Active Template
-- [Changelog & New Features →](https://ldx.design/design-upgrade-pro-learndash-3/#free-changelog)
 - NOTE: We're still compatible with LearnDash 2.x, as well as the "Legacy" template, but there are no changes for those versions. All future development will be focused around the new design.
 
 = 1.4.8 - Mar 23, 2019 =
 
 - Changed: Course Grid: Buttons are now displayed at the very bottom of each grid item.
 
-= 1.4.7 - Mar 11, 2019 =
-
-- Fixed: Added a min-width of 45px to the number column in the course content table. This accounts for up to 999 items on most devices & themes, without forcing the number to a new line.
-
-= 1.4.6 - Mar 8, 2019 =
-
-- Fixed: Column alignment issues with LearnDash Course Grid version 1.5.2
-
-= 1.4.5 - Jan 23, 2019 =
-
-- Changed: Adjusted alignment for quiz headings inside the [ld_profile] shortcode
-
-= 1.4.4 - Jan 23, 2019 =
-
-- Changed: Tweaked the spacing on list count numbers in the course content table so there's more spacing between the number and the period
-
-= 1.4.3 - Dec 13, 2018 =
-
-- Compatibility: Boss. Theme: We are now compatible with the Boss. theme, but you need to deactivate the "Boss for LearnDash" plugin.
-
-= 1.4.2 - Dec 10, 2018 =
-
-- Compatibility: Twenty Nineteen: Updated a few styles for compatibility with the Twenty Nineteen theme
-- Compatibility: Confirmed compatibility with WordPress 5.0, Gutenberg and the Classic Editor plugin
-
-= 1.4.1 - Nov 2, 2018 =
-
-- Compatibility: Woffice: Tweaked a few styles for compatibility with the Woffice theme from Alkalab
-
-= 1.4 - Oct 31, 2018 =
-
-- Compatibility: OceanWP: Ensured compatibility with OceanWP's new LearnDash styles
+[View full changelog →](https://github.com/escapecreative/design-upgrade-learndash/blob/master/changelog.txt)
