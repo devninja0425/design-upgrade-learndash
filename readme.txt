@@ -220,7 +220,7 @@ We designed this plugin to be flexible so that it takes on many of the character
 
 = 2.5 - January 8, 2020 =
 
-- Integration: Upgraded styles for WisdmLabs Reviews, Ratings & Feedback Plugin
+- Integration: Upgraded styles for WisdmLabs Reviews, Ratings & Feedback Plugin ([learn more](https://ldx.design/design-upgrade-wisdmlabs-ratings-reviews/))
 
 = 2.4.3 - December 30, 2019 =
 
