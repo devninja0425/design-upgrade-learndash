@@ -28,7 +28,7 @@ See below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.1.1
+Tested with LearnDash 3.1.1.1
 
 * **NEW:** Improved styles for Focus Mode comments, which were added in LearnDash 3.1
 * **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
@@ -138,6 +138,12 @@ We recognize the [Uncanny LearnDash Toolkit](https://wordpress.org/plugins/uncan
 
 **NOTE:** Uncanny LearnDash Toolkit styles are only upgraded if you're using the "LearnDash 3.0" active template. Styles do not apply to the "Legacy" template.
 
+### Plugin Compatibility
+
+#### Ratings, Reviews & Feedback plugin by WisdmLabs
+
+As of version 2.5, we now enhance the styles of the Ratings, Reviews & Feedback plugin by WisdmLabs. For a detailed overview, please see our [article on ldx.design](https://ldx.design/design-upgrade-wisdmlabs-ratings-reviews).
+
 ### Roadmap
 
 As LearnDash adds new features, it is our goal to keep this plugin updated.
@@ -145,7 +151,7 @@ As LearnDash adds new features, it is our goal to keep this plugin updated.
 Features planned for future release:
 
 * Compatibility with more Uncanny LearnDash Toolkit modules
-* Exploring compatibility with a few WisdmLabs plugins
+* Exploring compatibility with other WisdmLabs plugins
 
 #### We'd love to hear from you!
 
@@ -211,6 +217,10 @@ We designed this plugin to be flexible so that it takes on many of the character
 5. Simplified & cleaned up the `[ld_profile]` shortcode/block
 
 == Changelog ==
+
+= 2.5 - January 8, 2020 =
+
+- Integration: Upgraded styles for WisdmLabs Reviews, Ratings & Feedback Plugin ([learn more](https://ldx.design/design-upgrade-wisdmlabs-ratings-reviews/))
 
 = 2.4.3 - December 30, 2019 =
 

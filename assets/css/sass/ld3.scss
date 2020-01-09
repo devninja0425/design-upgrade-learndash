@@ -105,7 +105,17 @@
 // Comment "Reply" Button (focus mode)
 .learndash-wrapper .ld-focus-comment .ld-comment-reply a.comment-reply-link,
 // "Post Comment" button (focus mode)
-.learndash-wrapper .ld-focus-comments .form-submit #submit {
+.learndash-wrapper .ld-focus-comments .form-submit #submit,
+// WisdmLabs Ratings/Reviews
+.rrf-modal-content.modal .modal-navigation button,
+// WisdmLabs Ratings/Reviews ("Write a Review")
+.course-reviews-section .write-a-review.not-rated,
+// WisdmLabs Ratings/Reviews ("Login to Review")
+.course-reviews-section .login-to-enroll.button,
+// WisdmLabs Ratings/Reviews ("Provide Your Feedback")
+button.wdm_feedback_form_pop,
+// WisdmLabs Ratings/Reviews ("Send Feedback")
+.wdm_feedback_form .wdm_feedback_submission {
 	padding: 0.625em 1.5em;
 	font-size: 95%;
 	font-weight: 700;
@@ -132,6 +142,7 @@
 // - Buttons within alerts (.learndash-wrapper .ld-alert .ld-button)
 // - "Browse" for uploading assignments
 // - Comment "Reply" Button (focus mode)
+// - WisdmLabs Ratings/Reviews ("Back", "Cancel")
 
 // All Standard Buttons
 .learndash-wrapper .ld-button,
@@ -143,9 +154,12 @@
 .learndash-wrapper .ld-alert .ld-button,
 // "Browse" for uploading assignments
 // .learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-file-input+label strong
-// - Comment "Reply" Button (focus mode)
-.learndash-wrapper .ld-focus-comment .ld-comment-reply a.comment-reply-link
-{
+// Comment "Reply" Button (focus mode)
+.learndash-wrapper .ld-focus-comment .ld-comment-reply a.comment-reply-link,
+// WisdmLabs Ratings/Reviews ("Back")
+.rrf-modal-content.modal .modal-navigation .previous,
+// WisdmLabs Ratings/Reviews ("Cancel")
+.rrf-modal-content.modal .modal-navigation .delete-close {
 	background: var(--ldx-btn-standard-bg-color);
 	color: var(--ldx-btn-standard-text-color);
 
@@ -185,6 +199,7 @@
 // - "Login" button (modal)
 // - "Login/Logout" button [learndash_login]
 // - "Post Comment" button (focus mode)
+// - WisdmLabs Ratings/Reviews ("Delete", "Edit Review", "Write a Review", "Save & Exit", "Login to Review", "Yes, Delete", "Provide Your Feedback", "Send Feedback")
 
 // "Take this Course"
 .learndash-wrapper .btn-join,
@@ -211,7 +226,22 @@
 // "Login/Logout" Shortcode
 .learndash-wrapper .ld-login-button,
 // "Post Comment" button (focus mode)
-.learndash-wrapper .ld-focus-comments .form-submit #submit {
+.learndash-wrapper .ld-focus-comments .form-submit #submit,
+// WisdmLabs Ratings/Reviews ("Delete", "Edit Review")
+.rrf-modal-content.modal .modal-navigation [data-steptype="add"],
+.rrf-modal-content.modal .modal-navigation [data-steptype="delete"],
+// WisdmLabs Ratings/Reviews ("Write a Review")
+.course-reviews-section .write-a-review.not-rated,
+// WisdmLabs Ratings/Reviews ("Save & Exit")
+.rrf-modal-content.modal .modal-navigation .rrf-review-submission,
+// WisdmLabs Ratings/Reviews ("Login to Review")
+.course-reviews-section .login-to-enroll.button,
+// WisdmLabs Ratings/Reviews ("Yes, Delete")
+.rrf-modal-content.modal .modal-navigation .delete-confirm,
+// WisdmLabs Ratings/Reviews ("Provide Your Feedback")
+button.wdm_feedback_form_pop,
+// WisdmLabs Ratings/Reviews ("Send Feedback")
+.wdm_feedback_form .wdm_feedback_submission {
 	background: var(--ldx-btn-primary-bg-color);
 	color: var(--ldx-btn-primary-text-color);
 
@@ -2965,7 +2995,7 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 /**
  * 22.0 - WisdmLabs Ratings, Reviews & Feedback Plugin
  */
-// @import 'wisdmlabs-ratings-reviews';
+@import 'wisdmlabs-ratings-reviews';
 
 
 /**
