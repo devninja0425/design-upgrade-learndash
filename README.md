@@ -20,7 +20,7 @@ See "Features" below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.1.1
+Tested with LearnDash 3.1.1.1
 
 * **NEW:** Improved styles for Focus Mode comments, which were added in LearnDash 3.1
 * **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
@@ -73,7 +73,7 @@ We designed the plugin to be just specific enough to override LearnDash's defaul
 
 Design Upgrade for LearnDash **should work on most themes**, assuming they have not customized the LearnDash markup in any way. While I can't guarantee full compatibility, I have tested with the following themes.
 
-## Tested With
+### Tested With
 
 We have tested with the following themes, and they all appear **to be compatible:**
 
@@ -89,17 +89,17 @@ We have tested with the following themes, and they all appear **to be compatible
 * Twenty Seventeen
 * Twenty Sixteen
 
-## Incompatible Themes
+### Incompatible Themes
 
 * BuddyBoss Platform (released June 2019)
 * Boss. / Social Learner (If you deactivate the "Boss for LearnDash" plugin, it will still work in "Legacy" mode)
 * eLumine by WisdmLabs
 
-## Incompatible Plugins
+### Incompatible Plugins
 
 * **LearnDash Visual Customizer by SnapOrbital:** The Visual Customizer takes a similar approach to designing LearnDash components, and thus the code conflicts with ours.
 
-### Uncanny Owl Toolkit Compatibility
+## Uncanny Owl Toolkit Compatibility
 
 We recognize the [Uncanny LearnDash Toolkit](https://wordpress.org/plugins/uncanny-learndash-toolkit/) by Uncanny Owl is a popular LearnDash plugin that adds some nice features. We're in the process of making our plugin fully compatible with theirs. Here's where we are so far:
 
@@ -113,6 +113,12 @@ We recognize the [Uncanny LearnDash Toolkit](https://wordpress.org/plugins/uncan
 
 **NOTE:** Uncanny LearnDash Toolkit styles are only upgraded if you're using the "LearnDash 3.0" active template. Styles do not apply to the "Legacy" template.
 
+## Plugin Compatibility
+
+### Ratings, Reviews & Feedback plugin by WisdmLabs
+
+As of version 2.5, we now enhance the styles of the Ratings, Reviews & Feedback plugin by WisdmLabs. For a detailed overview, please see our [article on ldx.design](https://ldx.design/design-upgrade-wisdmlabs-ratings-reviews).
+
 ## Roadmap
 
 As LearnDash adds new features, it is our goal to keep this plugin updated.
@@ -120,7 +126,7 @@ As LearnDash adds new features, it is our goal to keep this plugin updated.
 Features planned for future release:
 
 * Compatibility with more Uncanny LearnDash Toolkit modules
-* Exploring compatibility with a few WisdmLabs plugins
+* Exploring compatibility with other WisdmLabs plugins
 
 ## We'd love to hear from you!
 
