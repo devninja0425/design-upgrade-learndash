@@ -1,5 +1,12 @@
 == Changelog ==
 
+= 2.5.1 - January 14, 2020 =
+
+- Fixed: Course Grid Video Previews: Border radius now works properly for top corners
+- Changed: Course Grid Video Previews: Black background color added behind video embeds
+- Changed: Font sizes & weights of several elements within the `[ld_profile]` summary section
+- Added: Framework for a few more profile styles in the Pro version
+
 = 2.5 - January 8, 2020 =
 
 - Integration: Upgraded styles for WisdmLabs Reviews, Ratings & Feedback Plugin ([learn more](https://ldx.design/design-upgrade-wisdmlabs-ratings-reviews/))
