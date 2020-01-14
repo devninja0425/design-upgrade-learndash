@@ -1462,9 +1462,12 @@ body.ld-in-focus-mode .learndash-wrapper {
 /* Sections */
 .learndash-wrapper .ld-profile-summary {
 	margin: 0; // Remove margin on summary container; add individually
+	background-color: var(--ldx-profile-summary-bg-color);
+	color: var(--ldx-profile-summary-text-color);
+	border-radius: var(--ldx-global-border-radius);
 }
 .learndash-wrapper .ld-profile-summary .ld-profile-card {
-	margin: 1.5em 0 0; // Remove bottom margin
+	margin: 0;
 }
 .learndash-wrapper .ld-profile-summary .ld-profile-stats {
 	margin: 1.5em 0 0; // Add top margin
@@ -1480,22 +1483,27 @@ body.ld-in-focus-mode .learndash-wrapper {
 
 /* Avatar */
 .learndash-wrapper .ld-profile-summary .ld-profile-card .ld-profile-avatar {
-	border: 5px solid rgba( $black, 0.1 );
+	border: 5px solid rgba( $black, 0.08 );
 }
 
 /* Name */
 .learndash-wrapper .ld-profile-summary .ld-profile-card .ld-profile-heading {
 	margin-bottom: 0;
+	font-size: 1.375em;
+	font-weight: 500;
 }
 /* Edit Profile link */
 .learndash-wrapper .ld-profile-summary .ld-profile-card .ld-profile-edit-link {
 	font-size: 90%;
-	color: var(--ldx-color-link);
+	color: var(--ldx-profile-summary-text-color);
+	opacity: 0.85;
 
 	&:hover,
 	&:active,
 	&:focus {
-		color: var(--ldx-color-link-hover);
+		color: var(--ldx-profile-summary-text-color);
+		text-decoration: underline;
+		opacity: 1;
 	}
 }
 
@@ -1509,7 +1517,8 @@ body.ld-in-focus-mode .learndash-wrapper {
 }
 
 .learndash-wrapper .ld-profile-summary .ld-profile-stats .ld-profile-stat strong {
-	font-size: 2.25em; // LD forces 36px
+	font-size: 1.75em; // LD forces 36px
+	font-weight: 600;
 }
 
 .learndash-wrapper .ld-profile-summary .ld-profile-stats .ld-profile-stat span {
@@ -2689,7 +2698,8 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 /* Videos */
 .ld-course-list-items .ld_course_grid .ld_course_grid_video_embed {
 	padding: 0; // LD sets this to 1px
-	border-radius: var(--ldx-global-border-radius) var(--ldx-global-border-radius) 0 0;
+	background-color: $black; // LD sets this to #f5f5f5
+	border-radius: 0;
 	overflow: hidden; // to cut off video from overflowing the border-radius
 }
 

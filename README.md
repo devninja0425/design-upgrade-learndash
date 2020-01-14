@@ -20,7 +20,7 @@ See "Features" below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.1.1.1
+Tested with LearnDash 3.1.2
 
 * **NEW:** Improved styles for Focus Mode comments, which were added in LearnDash 3.1
 * **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
@@ -67,7 +67,7 @@ We designed the plugin to be just specific enough to override LearnDash's defaul
 
 ## Pro Version
 
-**Need custom styles?** Our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=github.com&utm_medium=free%20plugin&utm_campaign=readme) uses the Customizer to bring you **over 90 customizable design options.** Completely customize your LearnDash site with just a few clicks.
+**Need custom styles?** Our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=github.com&utm_medium=free%20plugin&utm_campaign=readme) uses the Customizer to bring you **over 100 customizable design options.** Completely customize your LearnDash site with just a few clicks.
 
 ## Theme Compatibility
 
@@ -119,6 +119,22 @@ We recognize the [Uncanny LearnDash Toolkit](https://wordpress.org/plugins/uncan
 
 As of version 2.5, we now enhance the styles of the Ratings, Reviews & Feedback plugin by WisdmLabs. For a detailed overview, please see our [article on ldx.design](https://ldx.design/design-upgrade-wisdmlabs-ratings-reviews).
 
+## Browser Support
+
+A few techniques we use to improve the LearnDash design are only supported in the latest versions of major browsers. For the most part, as long as you're **not** using Internet Explorer, most (if not all) of our plugin's design upgrades will work.
+
+We support the latest versions of the following browsers:
+
+* Google Chrome
+* Mozilla Firefox
+* Apple Safari
+* Microsoft Edge
+* Chrome for Android
+* Firefox for Android
+* iOS Safari (not tested, but should work)
+
+We **do not** support any version of Internet Explorer, however, we do offer a few code snippets & suggestions to fix a few issues in IE11. See the IE11 section below in FAQ.
+
 ## Roadmap
 
 As LearnDash adds new features, it is our goal to keep this plugin updated.
@@ -140,7 +156,7 @@ We tested it on a handful of popular themes, but we couldn't possibly cover them
 
 The free version doesn't have any. It simply applies a fresh coat of paint behind the scenes.
 
-Check out our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=github.com&utm_medium=free%20plugin&utm_campaign=readme&utm_content=faq) that includes 90+ settings you can customize.
+Check out our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=github.com&utm_medium=free%20plugin&utm_campaign=readme&utm_content=faq) that includes 100+ settings you can customize.
 
 ### Will this affect the rest of my site?
 
@@ -161,6 +177,24 @@ Absolutely. Feel free to add your own CSS if you want to further customize the l
 ### Will this slow down my site?
 
 Nope. We do add one CSS file to the header, but as long as you're using a reliable WordPress host with decent performance, you shouldn't notice a difference.
+
+### IE11 Support & Bug Fixes
+
+The two main CSS features we use that cause issues in IE11 are CSS custom properties (variables) and flexbox. You can use the following CSS to fix some of these issues if you're using IE11.
+
+To fix some layout issues with the course grid:
+
+`.ld-course-list-items div.ld_course_grid .thumbnail.course {
+	display: block !important;
+}
+
+.ld-course-list-items div.ld_course_grid .thumbnail.course .caption {
+	display: block;
+}`
+
+To fix colors not appearing, you'll need to use the dev tools to look for all CSS properties that start with `var(--`. These represent CSS custom properties, and they don't work in IE11.
+
+For example, replace `var(--ldx-color-link)` with `#000000`, or whatever hexadecimal color value you'd like to use for your link color.
 
 ### My course/lesson/topic/quiz still looks weird. Can you help?
 
