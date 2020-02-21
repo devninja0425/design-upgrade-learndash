@@ -43,6 +43,7 @@
  *     20.1 - Simple Course Timer
  * 21.0 - LearnDash Widget Areas Compatibility
  * 22.0 - WisdmLabs Ratings, Reviews & Feedback Plugin
+ * 23.0 - WisdmLabs Group Registration Plugin
  * 99.0 - Animations
 
 // @TODO - [learndash_login] shortcode
@@ -115,7 +116,17 @@
 // WisdmLabs Ratings/Reviews ("Provide Your Feedback")
 button.wdm_feedback_form_pop,
 // WisdmLabs Ratings/Reviews ("Send Feedback")
-.wdm_feedback_form .wdm_feedback_submission {
+.wdm_feedback_form .wdm_feedback_submission,
+// WisdmLabs "Update" Group Name
+.ldgr-group-actions #ldgr-update-group-details,
+// WisdmLabs Group Registration ("Bulk Update")
+.wdm-tabs-wrapper #bulk_remove,
+// WisdmLabs Group Registration ("Add Users")
+.wdm-tabs-wrapper #wdm_submit,
+// WisdmLabs Group Registration ("Show Report")
+.wdm-tabs-wrapper #wdm_ldgr_show_report,
+// WisdmLabs Group Registration ("Upload")
+.wdm-tabs-wrapper #wdm_submit_upload {
 	padding: 0.625em 1.5em;
 	font-size: 95%;
 	font-weight: 700;
@@ -200,6 +211,7 @@ button.wdm_feedback_form_pop,
 // - "Login/Logout" button [learndash_login]
 // - "Post Comment" button (focus mode)
 // - WisdmLabs Ratings/Reviews ("Delete", "Edit Review", "Write a Review", "Save & Exit", "Login to Review", "Yes, Delete", "Provide Your Feedback", "Send Feedback")
+// - WisdmLabs Group Registration ("Update", "Bulk Remove", "Add Users", "Show Report", "Upload")
 
 // "Take this Course"
 .learndash-wrapper .btn-join,
@@ -241,7 +253,17 @@ button.wdm_feedback_form_pop,
 // WisdmLabs Ratings/Reviews ("Provide Your Feedback")
 button.wdm_feedback_form_pop,
 // WisdmLabs Ratings/Reviews ("Send Feedback")
-.wdm_feedback_form .wdm_feedback_submission {
+.wdm_feedback_form .wdm_feedback_submission,
+// WisdmLabs Group Registratio ("Update" Group Name)
+.ldgr-group-actions #ldgr-update-group-details,
+// WisdmLabs Group Registration ("Bulk Update")
+.wdm-tabs-wrapper #bulk_remove,
+// WisdmLabs Group Registration ("Add Users")
+.wdm-tabs-wrapper #wdm_submit,
+// WisdmLabs Group Registration ("Show Report")
+.wdm-tabs-wrapper #wdm_ldgr_show_report,
+// WisdmLabs Group Registration ("Upload")
+.wdm-tabs-wrapper #wdm_submit_upload {
 	background: var(--ldx-btn-primary-bg-color);
 	color: var(--ldx-btn-primary-text-color);
 
@@ -258,6 +280,11 @@ button.wdm_feedback_form_pop,
 .learndash-wrapper #learndash_mark_complete_button {
 	// make room for the checkmark icon
 	padding-right: 2.5em;
+
+	.rtl & {
+		padding-left: 2.5em;
+		padding-right: 1.5em;
+	}
 }
 
 /* Mark Complete <form>: Because LD puts the icon on the <form>, not the <input> */
@@ -572,6 +599,10 @@ button.wdm_feedback_form_pop,
 	font-size: inherit;
 }
 
+.learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-list-item-preview .ld-status-icon {
+	margin-top: 0;
+}
+
 
 /* Sample Lesson icon */
 .learndash-wrapper .ld-status-unlocked {
@@ -811,14 +842,17 @@ button.wdm_feedback_form_pop,
 }
 
 // [uo_dashboard] progress bar
-.ldx-plugin .ultp-dashboard-course__row .ultp-dashboard-course__details .ultp-dashboard-course__right .ultp-dashboard-course__progress-holder {
+.ldx-plugin .ultp-dashboard-course__row .ultp-dashboard-course__details .ultp-dashboard-course__right .ultp-dashboard-course__progress-holder,
+// UO Groups progress bar
+.ldx-plugin .ulg-manage-progress-course__row .ulg-manage-progress-course__details .ulg-manage-progress-course__right .ulg-manage-progress-course__progress-holder {
 	height: var(--ldx-progress-bar-height);
 	max-height: 8px;
 	background-color: var(--ldx-progress-bar-container-bg);
 	border-radius: var(--ldx-progress-bar-border-radius);
 }
 
-.ldx-plugin .ultp-dashboard .ultp-dashboard-course__row .ultp-dashboard-course__details .ultp-dashboard-course__right .ultp-dashboard-course__progress-bar {
+.ldx-plugin .ultp-dashboard .ultp-dashboard-course__row .ultp-dashboard-course__details .ultp-dashboard-course__right .ultp-dashboard-course__progress-bar,
+.ldx-plugin .ulg-manage-progress-course__row .ulg-manage-progress-course__details .ulg-manage-progress-course__right .ulg-manage-progress-course__progress-bar {
 	background-color: var(--ldx-progress-bar-bg);
 	border-radius: var(--ldx-progress-bar-border-radius);
 }
@@ -841,11 +875,6 @@ button.wdm_feedback_form_pop,
 	color: var(--ldx-progress-bar-bg);
 }
 
-/* In Focus Mode Header:
- * Container <div> for the bar itself */
-.learndash-wrapper .ld-focus-header .ld-progress .ld-progress-bar {
-	margin-top: 3px;
-}
 // In Focus Mode: Set max height
 .learndash-wrapper .ld-focus .ld-focus-header .ld-progress .ld-progress-bar,
 .learndash-wrapper .ld-focus .ld-focus-header .ld-progress .ld-progress-bar-percentage {
@@ -938,12 +967,20 @@ button.wdm_feedback_form_pop,
 	// remove the "inherit" so that I can add bg hover to parent item
 	background: rgba( $black, 0.1 );
 	padding: 7px;
+
+	.rtl & {
+		transform: translateY(-50%) translateX(20%);
+	}
 }
 
 /* Sidebar in Collapsed Mode */
 .learndash-wrapper .ld-focus-sidebar-collapsed .ld-focus-sidebar .ld-focus-sidebar-trigger .ld-icon {
 	// flip icon
 	transform: translateY(-50%) translateX(-20%) rotate(180deg);
+
+	.rtl & {
+		transform: translateY(-50%) translateX(20%) rotate(180deg);
+	}
 }
 
 /* Icon itself */
@@ -952,6 +989,10 @@ button.wdm_feedback_form_pop,
 	left: -1px;
 	font-size: 16px;
 	color: var(--ldx-focus-mode-sidebar-course-text-color);
+
+	.rtl & {
+		left: 1px;
+	}
 }
 .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-focus-sidebar-trigger:hover .ld-icon::before {
 	opacity: 1;
@@ -1086,9 +1127,11 @@ button.wdm_feedback_form_pop,
 }
 
 /* Lesson: Current Lesson */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-item-preview-heading {
+	background-color: var(--ldx-course-nav-link-bg-color-hover);
+}
 .learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-item-preview-heading,
 .learndash-wrapper .ld-course-navigation .ld-lesson-item.ld-is-current-lesson .ld-lesson-title {
-	background-color: var(--ldx-course-nav-link-bg-color-hover);
 	color: var(--ldx-course-nav-link-text-color-hover);
 }
 /* Lesson: Current Lesson Icons */
@@ -1855,14 +1898,15 @@ body.ld-in-focus-mode .learndash-wrapper {
 	font-size: inherit;
 
 	.ld-tooltip {
-		min-width: unset;
+		/* commented things out bc they were causing horizontal scrolling issues */
+		// min-width: unset;
 		padding: 0.5em 1.125em;
 		box-shadow: inset 0 0 0 1px rgba( $black, 0.1 );
 		font-size: 90%;
 		font-weight: normal;
 		line-height: 1.25;
-		transition: all 0.15s ease;
-		transform: translateX(2%) translateY(-32px);
+		// transition: all 0.15s ease;
+		// transform: translateX(2%) translateY(-32px);
 		border-radius: var(--ldx-global-border-radius);
 		background: var(--ldx-tooltip-bg-color);
 		color: var(--ldx-tooltip-text-color);
@@ -1873,9 +1917,9 @@ body.ld-in-focus-mode .learndash-wrapper {
 			background: var(--ldx-tooltip-bg-color);
 		}
 
-		&.ld-visible {
-			transform: translateX(2%) translateY(-35px);
-		}
+		// &.ld-visible {
+		// 	transform: translateX(2%) translateY(-35px);
+		// }
 	}
 
 } // #learndash-tooltips
@@ -2999,13 +3043,19 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 /**
  * 21.0 - LearnDash Widget Areas Compatibility
  */
-@import 'learndash-widget-areas';
+@import 'integrations/learndash-widget-areas';
 
 
 /**
  * 22.0 - WisdmLabs Ratings, Reviews & Feedback Plugin
  */
-@import 'wisdmlabs-ratings-reviews';
+@import 'integrations/wisdmlabs-ratings-reviews';
+
+
+/**
+ * 23.0 - WisdmLabs Group Registration Plugin
+ */
+@import 'integrations/wisdmlabs-group-registration';
 
 
 /**
@@ -3013,10 +3063,95 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
  */
 /**
  * Progress Bar
- * Animates the progress bar from left-to-right
+ * → Animates the progress bar from left-to-right
  */
-@keyframes progress-bar {
+@keyframes ldx-progress-bar {
 	0% {
 		width: 0;
+	}
+}
+/**
+ * Fade In & Slide Up
+ * → WisdmLabs Group Registration tab content boxes
+ */
+@keyframes ldx-fadein-slideup {
+	0% {
+		opacity: 0.3;
+		transform: translateY(2px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+/**
+ * Fade In & Slide Down
+ * → Uncanny Groups "Customize Columns" checkboxes
+ */
+@keyframes ldx-fadein-slidedown {
+	0% {
+		opacity: 0.3;
+		transform: translateY(-3px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+/**
+ * Content: Fade In: Left
+ * → All the "Content: Fade In" animations are for Focus Mode content on page load
+ */
+@keyframes ldx-content-fadein-left {
+	from {
+		opacity: 0;
+		transform: translateX(7px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+/**
+ * Content: Fade In: Right
+ */
+@keyframes ldx-content-fadein-right {
+	from {
+		opacity: 0;
+		transform: translateX(-7px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+/**
+ * Content: Fade In: Up
+ */
+@keyframes ldx-content-fadein-up {
+	from {
+		opacity: 0;
+		transform: translateY(7px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+/**
+ * Content: Fade In: Down
+ */
+@keyframes ldx-content-fadein-down {
+	from {
+		opacity: 0;
+		transform: translateY(-7px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }

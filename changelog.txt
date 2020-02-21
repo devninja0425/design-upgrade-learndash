@@ -1,5 +1,15 @@
 == Changelog ==
 
+= 2.6 - February 21, 2020 =
+
+- Integration: Upgraded styles for [WisdmLabs Group Registration](https://wisdmlabs.com/group-registration-for-learndash/) plugin
+- Changed: Course Navigation: Removed background color on inner lesson `<div>` tag
+- Changed: Focus Mode: Progress Bar: Increased space between bar & "% Complete"
+- Fixed: RTL: Focus Mode sidebar close icon positioning
+- Fixed: RTL: Focus Mode "Mark Complete" checkmark icon overlap
+- Removed: Transition styles on tooltips because they were conflicting with default LearnDash behavior
+- Tweak: Updated CSS animation names to avoid theme/plugin conflicts
+
 = 2.5.1 - January 14, 2020 =
 
 - Fixed: Course Grid Video Previews: Border radius now works properly for top corners
