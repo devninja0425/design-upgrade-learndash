@@ -20,9 +20,10 @@ See "Features" below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.1.2
+Tested with LearnDash 3.1.3
 
-* **NEW:** Improved styles for Focus Mode comments, which were added in LearnDash 3.1
+* **NEW:** Major design improvements for WisdmLabs' LearnDash Group Registration plugin
+* **Focus Mode:** Improved styles for Focus Mode comments, which were added in LearnDash 3.1
 * **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
 * **Buttons:** All buttons have matching rounded corners & increased font size
 * **Font Sizes:** These will now be inherited from your theme, which should increase your font sizes across the board
@@ -80,6 +81,7 @@ We have tested with the following themes, and they all appear **to be compatible
 * Astra
 * Divi
 * GeneratePress
+* Neve
 * OceanWP
 * LearnMate
 * Edufire
@@ -118,6 +120,10 @@ We recognize the [Uncanny LearnDash Toolkit](https://wordpress.org/plugins/uncan
 ### Ratings, Reviews & Feedback plugin by WisdmLabs
 
 As of version 2.5, we now enhance the styles of the Ratings, Reviews & Feedback plugin by WisdmLabs. For a detailed overview, please see our [article on ldx.design](https://ldx.design/design-upgrade-wisdmlabs-ratings-reviews).
+
+### Group Registration plugin by WisdmLabs
+
+As of version 2.6, we now enhance the styles of the Group Registration plugin by WisdmLabs. General design improvements will be made to all frontend elements output by the `[wdm_group_users]` shortcode.
 
 ## Browser Support
 

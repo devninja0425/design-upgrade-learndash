@@ -3,7 +3,7 @@ Contributors: escapecreative, davewarfel
 Donate link: https://www.paypal.me/escapecreative/10
 Tags: learndash, lms, learning management system, online courses, css
 Requires at least: 4.6
-Tested up to: 5.3
+Tested up to: 5.3.2
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -28,9 +28,10 @@ See below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.1.2
+Tested with LearnDash 3.1.3
 
-* **NEW:** Improved styles for Focus Mode comments, which were added in LearnDash 3.1
+* **NEW:** Major design improvements for WisdmLabs' LearnDash Group Registration plugin
+* **Focus Mode:** Improved styles for Focus Mode comments, which were added in LearnDash 3.1
 * **Global:** Larger clickable areas for all course content, navigation & Focus Mode areas
 * **Buttons:** All buttons have matching rounded corners & increased font size
 * **Font Sizes:** These will now be inherited from your theme, which should increase your font sizes across the board
@@ -91,6 +92,7 @@ https://www.youtube.com/watch?v=hOUToX87U9E
 * **Course Grid Add-On:** 20+ design options
 * **Alerts:** 9 custom colors, plus a few other options
 * **Tooltips:** customize the background & text color
+* **Uncanny Groups:** buttons, border radius & improved styles are applied to many Uncanny Groups frontend elements
 
 **[Upgrade to Pro Today »](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wordpress.org&utm_medium=free%20plugin&utm_campaign=readme)**
 
@@ -105,6 +107,7 @@ We have tested with the following themes, and they all appear **to be compatible
 * Astra
 * Divi
 * GeneratePress
+* Neve
 * OceanWP
 * LearnMate
 * Edufire
@@ -143,6 +146,10 @@ We recognize the [Uncanny LearnDash Toolkit](https://wordpress.org/plugins/uncan
 #### Ratings, Reviews & Feedback plugin by WisdmLabs
 
 As of version 2.5, we now enhance the styles of the Ratings, Reviews & Feedback plugin by WisdmLabs. For a detailed overview, please see our [article on ldx.design](https://ldx.design/design-upgrade-wisdmlabs-ratings-reviews).
+
+#### Group Registration plugin by WisdmLabs
+
+As of version 2.6, we now enhance the styles of the Group Registration plugin by WisdmLabs. General design improvements will be made to all frontend elements output by the `[wdm_group_users]` shortcode.
 
 ### Browser Support
 
@@ -251,6 +258,16 @@ We designed this plugin to be flexible so that it takes on many of the character
 5. Simplified & cleaned up the `[ld_profile]` shortcode/block
 
 == Changelog ==
+
+= 2.6 - February 21, 2020 =
+
+- Integration: Upgraded styles for [WisdmLabs Group Registration](https://wisdmlabs.com/group-registration-for-learndash/) plugin
+- Changed: Course Navigation: Removed background color on inner lesson `<div>` tag
+- Changed: Focus Mode: Progress Bar: Increased space between bar & "% Complete"
+- Fixed: RTL: Focus Mode sidebar close icon positioning
+- Fixed: RTL: Focus Mode "Mark Complete" checkmark icon overlap
+- Removed: Transition styles on tooltips because they were conflicting with default LearnDash behavior
+- Tweak: Updated CSS animation names to avoid theme/plugin conflicts
 
 = 2.5.1 - January 14, 2020 =
 
