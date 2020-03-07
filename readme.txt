@@ -223,7 +223,7 @@ Absolutely. Feel free to add your own CSS if you want to further customize the l
 
 = Will this slow down my site? =
 
-Nope. We do add one CSS file to the header, but as long as you're using a reliable WordPress host with decent performance, you shouldn't notice a difference.
+No. We do add one CSS file to the header, but as long as you're using a reliable WordPress host with decent performance, you shouldn't notice a difference.
 
 = IE11 Support & Bug Fixes =
 
@@ -258,6 +258,10 @@ We designed this plugin to be flexible so that it takes on many of the character
 5. Simplified & cleaned up the `[ld_profile]` shortcode/block
 
 == Changelog ==
+
+= 2.6.1 - March 7, 2020 =
+
+- Compatibility: Updated styles to fix a few small issues with LearnDash 3.1.4 (very minor)
 
 = 2.6 - February 21, 2020 =
 

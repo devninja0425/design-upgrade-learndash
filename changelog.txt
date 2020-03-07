@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 2.6.1 - March 7, 2020 =
+
+- Compatibility: Updated styles to fix a few small issues with LearnDash 3.1.4 (very minor)
+
 = 2.6 - February 21, 2020 =
 
 - Integration: Upgraded styles for [WisdmLabs Group Registration](https://wisdmlabs.com/group-registration-for-learndash/) plugin
