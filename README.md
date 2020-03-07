@@ -182,7 +182,7 @@ Absolutely. Feel free to add your own CSS if you want to further customize the l
 
 ### Will this slow down my site?
 
-Nope. We do add one CSS file to the header, but as long as you're using a reliable WordPress host with decent performance, you shouldn't notice a difference.
+No. We do add one CSS file to the header, but as long as you're using a reliable WordPress host with decent performance, you shouldn't notice a difference.
 
 ### IE11 Support & Bug Fixes
 

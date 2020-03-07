@@ -1341,7 +1341,11 @@ body.ld-in-focus-mode .learndash-wrapper {
 }
 
 /* "Back to Course" link */
-.learndash-wrapper .ld-content-actions > a {
+// @TODO drop backwards compatibility at some point
+// LD 3.1.3 and below
+.learndash-wrapper .ld-content-actions > a,
+// LD 3.1.4 and above
+.learndash-wrapper .ld-content-actions .ld-content-action .ld-course-step-back {
 	font-size: inherit;
 	color: var(--ldx-color-link);
 
