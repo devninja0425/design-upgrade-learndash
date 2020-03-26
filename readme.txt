@@ -259,6 +259,11 @@ We designed this plugin to be flexible so that it takes on many of the character
 
 == Changelog ==
 
+= 2.6.2 - March 26, 2020 =
+
+- Fixed: Width adjustment on buttons within LearnDash alert messages
+- Tweak: Course Grid: Adjusted CSS to account for issues on some sites using the SG Optimizer plugin to combine CSS files
+
 = 2.6.1 - March 7, 2020 =
 
 - Compatibility: Updated styles to fix a few small issues with LearnDash 3.1.4 (very minor)
