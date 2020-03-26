@@ -303,6 +303,7 @@ button.wdm_feedback_form_pop,
 	// @RTL
 	padding: 0.625em 1em 0.625em 42px;
 	max-width: unset;
+	min-width: unset;
 	width: auto;
 
 	// Enable once LD adds @RTL compatibiliy
@@ -2257,7 +2258,7 @@ body.ld-in-focus-mode .learndash-wrapper {
 	margin: 0;
 }
 
-.ld-course-list-content .ld_course_grid,
+body div.ld-course-list-content .ld_course_grid,
 #ld_course_list .ld-course-list-items .ld_course_grid,
 #et-boc .ld-course-list-items .ld_course_grid {
 	box-sizing: border-box;
