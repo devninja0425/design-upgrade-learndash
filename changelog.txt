@@ -1,5 +1,17 @@
 == Changelog ==
 
+<<<<<<< Updated upstream
+=======
+= 2.6.3 - April 4, 2020 =
+
+- Fixed: Quizzes: Proper correct/incorrect highlighting for cloze (fill in the blank) questions
+
+= 2.6.2 - March 26, 2020 =
+
+- Fixed: Width adjustment on buttons within LearnDash alert messages
+- Tweak: Course Grid: Adjusted CSS to account for issues on some sites using the SG Optimizer plugin to combine CSS files
+
+>>>>>>> Stashed changes
 = 2.6.1 - March 7, 2020 =
 
 - Compatibility: Updated styles to fix a few small issues with LearnDash 3.1.4 (very minor)
