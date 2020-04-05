@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 2.6.3 - April 4, 2020 =
+
+- Fixed: Quizzes: Proper correct/incorrect highlighting for cloze (fill in the blank) questions
+
 = 2.6.2 - March 26, 2020 =
 
 - Fixed: Width adjustment on buttons within LearnDash alert messages

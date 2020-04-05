@@ -3,7 +3,7 @@ Contributors: escapecreative, davewarfel
 Donate link: https://www.paypal.me/escapecreative/10
 Tags: learndash, lms, learning management system, online courses, css
 Requires at least: 4.6
-Tested up to: 5.3.2
+Tested up to: 5.4
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -28,7 +28,7 @@ See below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.1.3
+Tested with LearnDash 3.1.6
 
 * **NEW:** Major design improvements for WisdmLabs' LearnDash Group Registration plugin
 * **Focus Mode:** Improved styles for Focus Mode comments, which were added in LearnDash 3.1
@@ -258,6 +258,10 @@ We designed this plugin to be flexible so that it takes on many of the character
 5. Simplified & cleaned up the `[ld_profile]` shortcode/block
 
 == Changelog ==
+
+= 2.6.3 - April 4, 2020 =
+
+- Fixed: Quizzes: Proper correct/incorrect highlighting for cloze (fill in the blank) questions
 
 = 2.6.2 - March 26, 2020 =
 
