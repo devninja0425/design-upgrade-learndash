@@ -49,6 +49,7 @@ $lightyellow: #fff6cd;
 	--ldx-color-link-hover: #00a2e8;
 	--ldx-color-correct: #019e7c;
 	--ldx-color-incorrect: #b71c1c;
+	--ldx-color-in-progress: #ff9e01;
 
 	// BUTTONS
 	--ldx-btn-border-radius: 24px;
@@ -170,4 +171,17 @@ $lightyellow: #fff6cd;
 	// RATINGS / REVIEWS
 	--ldx-star-rating-color-empty: #ccc;
 	--ldx-star-rating-color-filled: #ffce00;
+
+	// TIN CANNY REPORTING
+	--ldx-tincanny-container-border-width: 1px;
+	--ldx-tincanny-container-border-color: #e5e5e5;
+	--ldx-tincanny-container-header-bg-color: transparent;
+	--ldx-tincanny-container-header-text-color: inherit;
+	--ldx-tincanny-table-header-bg-color: transparent;
+	--ldx-tincanny-table-header-text-color: #505050;
+	--ldx-tincanny-table-row-hover-color: #f6f6f6;
+	--ldx-tincanny-chart-course-completions-color: #0290c2;
+	--ldx-tincanny-chart-tincan-statements-color: #d52c82;
+	--ldx-tincanny-user-report-tab-bg-color: transparent;
+	--ldx-tincanny-user-report-tab-text-color: #0290c2;
 }

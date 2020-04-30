@@ -10,7 +10,7 @@ Instantly improve LearnDash's design -- focus mode, course content lists, profil
 
 Design Upgrade for LearnDash completely redesigns every aspect of LearnDash so that it closely resembles your existing WordPress theme. No settings or custom code. Just activate & enjoy!
 
-## 🎉 Fully Compatible with LD3! 🎉
+## Compatible with the LD3 & "Legacy" Template
 
 We'll automatically detect whether you're using the "LearnDash 3.0" or "Legacy" template, and assign styles appropriately. If you're still running LearnDash 2.x, all of the same design upgrades that you've always enjoyed will still be there.
 
@@ -29,16 +29,19 @@ Tested with LearnDash 3.1.6
 * **Font Sizes:** These will now be inherited from your theme, which should increase your font sizes across the board
 * **Focus Mode:** Improved sidebar tray design, Course Sections, shadow added to mobile menu, collapse arrow flips to show current menu state, and more.
 * **Focus Mode:** Top navigation bar received several small improvements
-* **Animations:** Subtle animations for LearnDash tooltips & the Focus Mode menu
+* **Animations:** Subtle animations for LearnDash tooltips & the Focus Mode top menu
 * **Profile:** Several styles were improved & standardized
 * **Login/Registration:** Unified styles for all form fields
 * **Course Grid:** Equal height columns & other small tweaks
+* **WisdmLabs Ratings, Reviews & Feedback** design upgrades
 
 **Also:** Small tweaks were made to assignments, pagination, the "User Status" widget and more.
 
 **[Full changelog & list of features →](https://ldx.design/design-upgrade-pro-learndash-3/#free-changelog)**
 
 **LearnDash 2.x "Legacy" Features**
+
+Tested with LearnDash 2.6.6
 
 * Much improved course grid styles, equal height cards & no more weird spacing issues 👍
 * All fonts have been reset to use your theme's default font family, size & color
@@ -51,8 +54,6 @@ Tested with LearnDash 3.1.6
 * Improved design of the statistics modal window (for quizzes), including row highlights on hover
 * Larger pager navigation buttons to improve usability
 * Full support for RTL languages
-
-Tested with LearnDash 2.6.6
 
 ## Who is this for?
 
@@ -68,7 +69,7 @@ We designed the plugin to be just specific enough to override LearnDash's defaul
 
 ## Pro Version
 
-**Need custom styles?** Our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=github.com&utm_medium=free%20plugin&utm_campaign=readme) uses the Customizer to bring you **over 100 customizable design options.** Completely customize your LearnDash site with just a few clicks.
+**Need custom styles?** Our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=github.com&utm_medium=free%20plugin&utm_campaign=readme) uses the Customizer to bring you **over 110 customizable design options.** Completely customize your LearnDash site with just a few clicks.
 
 ## Theme Compatibility
 
@@ -109,9 +110,9 @@ We recognize the [Uncanny LearnDash Toolkit](https://wordpress.org/plugins/uncan
 * Simple Course Timer modal: Button styles upgraded
 * `[uo_dashboard]`: Styles upgraded
 * `[uo_courses]`: Styles upgraded
-* `[uo_breadcrumbs]`: Compatible; Design upgrades in progress
-* `[uo_lessons_topics_grid]`: Compatible; Design upgrades in progress
-* `[uo_login_ui]`: Compatible; Design upgrades in progress
+* `[uo_breadcrumbs]`: Compatible; Considering upgrades
+* `[uo_lessons_topics_grid]`: Compatible; Considering upgrades
+* `[uo_login_ui]`: Compatible; Considering upgrades
 
 **NOTE:** Uncanny LearnDash Toolkit styles are only upgraded if you're using the "LearnDash 3.0" active template. Styles do not apply to the "Legacy" template.
 

@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 2.6.4 - April 29, 2020 =
+
+- Added: Framework for new Tin Canny Reporting styles in the Pro version
+
 = 2.6.3 - April 4, 2020 =
 
 - Fixed: Quizzes: Proper correct/incorrect highlighting for cloze (fill in the blank) questions

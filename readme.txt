@@ -3,7 +3,7 @@ Contributors: escapecreative, davewarfel
 Donate link: https://www.paypal.me/escapecreative/10
 Tags: learndash, lms, learning management system, online courses, css
 Requires at least: 4.6
-Tested up to: 5.4
+Tested up to: 5.4.1
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -18,7 +18,7 @@ LearnDash is a powerful learning management system (LMS) for managing your onlin
 
 Design Upgrade for LearnDash completely redesigns every aspect of LearnDash so that it closely resembles your existing WordPress theme. No settings or custom code. Just activate & enjoy!
 
-### 🎉 Fully Compatible with LD3! 🎉
+### Compatible with LD3 & "Legacy" Templates
 
 We'll automatically detect whether you're using the "LearnDash 3.0" or "Legacy" template, and assign styles appropriately. If you're still running LearnDash 2.x, all of the same design upgrades that you've always enjoyed will still be there.
 
@@ -37,14 +37,17 @@ Tested with LearnDash 3.1.6
 * **Font Sizes:** These will now be inherited from your theme, which should increase your font sizes across the board
 * **Focus Mode:** Improved sidebar tray design, Course Sections, shadow added to mobile menu, collapse arrow flips to show current menu state, and more.
 * **Focus Mode:** Top navigation bar received several small improvements
-* **Animations:** Subtle animations for LearnDash tooltips & the Focus Mode menu
+* **Animations:** Subtle animations for LearnDash tooltips & the Focus Mode top menu
 * **Profile:** Several styles were improved & standardized
 * **Login/Registration:** Unified styles for all form fields
 * **Course Grid:** Equal height columns & other small tweaks
+* **WisdmLabs Ratings, Reviews & Feedback** design upgrades
 
 **Also:** Small tweaks were made to assignments, pagination, the "User Status" widget and more.
 
 **LearnDash 2.x "Legacy" Features**
+
+Tested with LearnDash 2.6.6
 
 * Much improved course grid styles, equal height cards & no more weird spacing issues 👍
 * All fonts have been reset to use your theme's default font family, size & color
@@ -57,8 +60,6 @@ Tested with LearnDash 3.1.6
 * Improved design of the statistics modal window (for quizzes), including row highlights on hover
 * Larger pager navigation buttons to improve usability
 * Full support for RTL languages
-
-Tested with LearnDash 2.6.6
 
 ### Who is this for?
 
@@ -74,7 +75,7 @@ We designed the plugin to be just specific enough to override LearnDash's defaul
 
 ### Pro Version
 
-**Need custom styles?** Our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wordpress.org&utm_medium=free%20plugin&utm_campaign=readme) uses the Customizer to bring you **over 100 customizable design options.** Completely customize your LearnDash site with just a few clicks.
+**Need custom styles?** Our [pro version](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wordpress.org&utm_medium=free%20plugin&utm_campaign=readme) uses the Customizer to bring you **over 110 customizable design options.** Completely customize your LearnDash site with just a few clicks.
 
 https://www.youtube.com/watch?v=hOUToX87U9E
 
@@ -93,6 +94,7 @@ https://www.youtube.com/watch?v=hOUToX87U9E
 * **Alerts:** 9 custom colors, plus a few other options
 * **Tooltips:** customize the background & text color
 * **Uncanny Groups:** buttons, border radius & improved styles are applied to many Uncanny Groups frontend elements
+* **Tin Canny Reporting:** 12+ design options for Tin Canny reports on the front-end
 
 **[Upgrade to Pro Today »](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wordpress.org&utm_medium=free%20plugin&utm_campaign=readme)**
 
@@ -135,9 +137,9 @@ We recognize the [Uncanny LearnDash Toolkit](https://wordpress.org/plugins/uncan
 * Simple Course Timer modal: Button styles upgraded
 * `[uo_dashboard]`: Styles upgraded
 * `[uo_courses]`: Styles upgraded
-* `[uo_breadcrumbs]`: Compatible; Design upgrades in progress
-* `[uo_lessons_topics_grid]`: Compatible; Design upgrades in progress
-* `[uo_login_ui]`: Compatible; Design upgrades in progress
+* `[uo_breadcrumbs]`: Compatible; Considering upgrades
+* `[uo_lessons_topics_grid]`: Compatible; Considering upgrades
+* `[uo_login_ui]`: Compatible; Considering upgrades
 
 **NOTE:** Uncanny LearnDash Toolkit styles are only upgraded if you're using the "LearnDash 3.0" active template. Styles do not apply to the "Legacy" template.
 
@@ -258,6 +260,10 @@ We designed this plugin to be flexible so that it takes on many of the character
 5. Simplified & cleaned up the `[ld_profile]` shortcode/block
 
 == Changelog ==
+
+= 2.6.4 - April 29, 2020 =
+
+- Added: Framework for new Tin Canny Reporting styles in the Pro version
 
 = 2.6.3 - April 4, 2020 =
 
