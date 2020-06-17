@@ -1,5 +1,13 @@
 == Changelog ==
 
+= 2.6.5 - May 15, 2020 =
+
+- New: eLumine theme: A few design upgrades for the course grid
+- New: eLumine theme: Adjusted styles for progress bar in course grid
+- Fixed: Width adjustment on buttons within LearnDash alert messages
+- Tweak: More specific CSS selectors for buttons in course grid
+- Changed: Focus Mode Sidebar: Adjusted sizing of calendar/unlock icons for drip/sample lessons so the icon fits better inside of the circle
+
 = 2.6.4 - April 29, 2020 =
 
 - Added: Framework for new Tin Canny Reporting styles in the Pro version
