@@ -82,10 +82,11 @@ We have tested with the following themes, and they all appear **to be compatible
 * Astra
 * Divi
 * GeneratePress
-* Neve
-* OceanWP
+* eLumine (when using the "LearnDash 3.0" active template or eLumine's "Elementary Layouts")
 * LearnMate
 * Edufire
+* Neve
+* OceanWP
 * Storefront
 * Twenty Twenty
 * Twenty Nineteen
@@ -96,7 +97,7 @@ We have tested with the following themes, and they all appear **to be compatible
 
 * BuddyBoss Platform (released June 2019)
 * Boss. / Social Learner (If you deactivate the "Boss for LearnDash" plugin, it will still work in "Legacy" mode)
-* eLumine by WisdmLabs
+* eLumine (when using the "Legacy" active template or any version of LearnDash before 3.0)
 
 ### Incompatible Plugins
 

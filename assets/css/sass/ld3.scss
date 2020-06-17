@@ -44,10 +44,8 @@
  * 21.0 - LearnDash Widget Areas Compatibility
  * 22.0 - WisdmLabs Ratings, Reviews & Feedback Plugin
  * 23.0 - WisdmLabs Group Registration Plugin
+ * 24.0 - eLumine Theme
  * 99.0 - Animations
-
-// @TODO - [learndash_login] shortcode
-// @TODO - go through all shortcodes/blocks to double-check
 
 // @RTL  - needs RTL language consideration
 // @TODO - anything else that needs attention
@@ -56,6 +54,7 @@
 // @oceanwp        - OceanWP theme compatibility
 // @storefront     - Storefront theme compatibility
 // @twentynineteen - Twenty Nineteen theme compatibility
+// @elumine        - eLumine theme compatibility
 
 /**
  * 0.0 - Sass Variables & Mixins
@@ -94,7 +93,7 @@
 // LD Profile "Search" button
 .learndash-wrapper .ld-item-list .ld-item-search .ld-item-search-fields .ld-item-search-submit .ld-button,
 // Course Grid Button
-.ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary,
+body div.ld-course-list-items div.ld_course_grid .thumbnail.course a.btn-primary,
 // UO "Start Course" Button (enhanced grid)
 .ldx-plugin .uo-toolkit-grid__course-action input,
 // UO Resume Button
@@ -226,7 +225,7 @@ button.wdm_feedback_form_pop,
 // "Upload" Assignment
 .learndash-wrapper .ld-file-upload .ld-file-upload-form .ld-button,
 // Course Grid "See More"
-.ld-course-list-items .ld_course_grid .thumbnail.course a.btn-primary,
+body div.ld-course-list-items div.ld_course_grid .thumbnail.course a.btn-primary,
 // UO "Start Course" Button (enhanced grid)
 .ldx-plugin .uo-toolkit-grid__course-action input,
 // UO "Resume"
@@ -300,7 +299,6 @@ button.wdm_feedback_form_pop,
 /* Buttons inside Alerts */
 .learndash-wrapper .ld-alert .ld-button {
 	// make space for icon on left
-	// @RTL
 	padding: 0.625em 1em 0.625em 42px;
 	max-width: unset;
 	min-width: unset;
@@ -825,7 +823,10 @@ button.wdm_feedback_form_pop,
 
 // Height & Radius are global to all instances of the bar
 .learndash-wrapper .ld-progress .ld-progress-bar,
-.learndash-wrapper .ld-progress .ld-progress-bar .ld-progress-bar-percentage {
+.learndash-wrapper .ld-progress .ld-progress-bar .ld-progress-bar-percentage,
+// @elumine
+body .el-cls-progress .el-archive-pg-bar,
+body .el-cls-progress .el-archive-pg-bar .el-archive-percentage {
 	height: var(--ldx-progress-bar-height);
 	border-radius: var(--ldx-progress-bar-border-radius);
 }
@@ -833,12 +834,16 @@ button.wdm_feedback_form_pop,
 // Container
 .learndash-wrapper .ld-progress .ld-progress-bar,
 .learndash-wrapper.learndash-widget .ld-progress .ld-progress-bar,
-.learndash-wrapper .ld-focus .ld-focus-header .ld-progress .ld-progress-bar {
+.learndash-wrapper .ld-focus .ld-focus-header .ld-progress .ld-progress-bar,
+// @elumine
+.el-cls-progress .el-archive-pg-bar {
 	background-color: var(--ldx-progress-bar-container-bg);
 }
 
 // Bar Itself
-.learndash-wrapper .ld-progress .ld-progress-bar .ld-progress-bar-percentage {
+.learndash-wrapper .ld-progress .ld-progress-bar .ld-progress-bar-percentage,
+// @elumine
+body .el-cls-progress .el-archive-pg-bar .el-archive-percentage {
 	background-color: var(--ldx-progress-bar-bg);
 }
 
@@ -880,6 +885,20 @@ button.wdm_feedback_form_pop,
 .learndash-wrapper .ld-focus .ld-focus-header .ld-progress .ld-progress-bar,
 .learndash-wrapper .ld-focus .ld-focus-header .ld-progress .ld-progress-bar-percentage {
 	max-height: 14px;
+}
+
+// @elumine
+// Completion % bubble
+body .el-cls-progress .el-archive-percentage-text {
+	top: -11px;
+	width: auto;
+	height: 25px;
+	padding: 1px 4px;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 1;
+	border-radius: 4px;
+	border: 1px solid rgba( $black, 0.3 );
 }
 
 /**
@@ -1161,6 +1180,15 @@ button.wdm_feedback_form_pop,
 		background-color: var(--ldx-course-nav-link-bg-color-hover);
 		color: var(--ldx-course-nav-link-text-color-hover);
 	}
+}
+
+/* Icons within focus mode & course nav widget sidebar (drip content/calendar, sample/unlock, etc.) */
+.learndash-wrapper .ld-course-navigation .ld-lesson-item-preview .ld-lesson-title .ld-status-icon {
+	width: 1.375em;
+	height: 1.375em;
+	-ms-flex: 0 0 1.375em;
+	flex: 0 0 1.375em;
+	margin-top: 0;
 }
 
 
@@ -3061,6 +3089,12 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
  * 23.0 - WisdmLabs Group Registration Plugin
  */
 @import 'integrations/wisdmlabs-group-registration';
+
+
+/**
+ * 24.0 - eLumine Theme
+ */
+@import 'integrations/elumine';
 
 
 /**

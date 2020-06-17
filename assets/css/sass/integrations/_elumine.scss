@@ -1,0 +1,36 @@
+/**
+ * eLumine Theme
+ * 
+ * CSS that helps style all frontend elements for specific eLumine features. Some eLumine styles are included in the main ld3.scss file.
+ */
+
+/**
+ * COURSE GRID
+ */
+body {
+
+	/* Author name link in course grid */
+	.el-cls-instructor .el-cls-author-name,
+	.el-cls-instructor a {
+		color: var(--ldx-color-link);
+
+		&:hover {
+			color: var(--ldx-color-link-hover);
+		}
+
+		&::before {
+			background-color: var(--ldx-color-link-hover);
+		}
+	}
+
+	.el-cls-instructor .el-cls-author-name::before {
+		background-color: var(--ldx-color-link-hover);
+	}
+
+	/* Duration */
+	.el-cls-course-duration span {
+		font-size: 14px;
+		font-weight: 400;
+	}
+
+} // body

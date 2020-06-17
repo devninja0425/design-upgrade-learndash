@@ -109,10 +109,11 @@ We have tested with the following themes, and they all appear **to be compatible
 * Astra
 * Divi
 * GeneratePress
-* Neve
-* OceanWP
+* eLumine (when using the "LearnDash 3.0" active template or eLumine's "Elementary Layouts")
 * LearnMate
 * Edufire
+* Neve
+* OceanWP
 * Storefront
 * Twenty Twenty
 * Twenty Nineteen
@@ -123,7 +124,7 @@ We have tested with the following themes, and they all appear **to be compatible
 
 * BuddyBoss Platform (released June 2019)
 * Boss. / Social Learner (If you deactivate the "Boss for LearnDash" plugin, it will still work in "Legacy" mode)
-* eLumine by WisdmLabs
+* eLumine (when using the "Legacy" active template or any version of LearnDash before 3.0)
 
 #### Incompatible Plugins
 
@@ -260,6 +261,14 @@ We designed this plugin to be flexible so that it takes on many of the character
 5. Simplified & cleaned up the `[ld_profile]` shortcode/block
 
 == Changelog ==
+
+= 2.6.5 - May 15, 2020 =
+
+- New: eLumine theme: A few design upgrades for the course grid
+- New: eLumine theme: Adjusted styles for progress bar in course grid
+- Fixed: Width adjustment on buttons within LearnDash alert messages
+- Tweak: More specific CSS selectors for buttons in course grid
+- Changed: Focus Mode Sidebar: Adjusted sizing of calendar/unlock icons for drip/sample lessons so the icon fits better inside of the circle
 
 = 2.6.4 - April 29, 2020 =
 
