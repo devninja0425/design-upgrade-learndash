@@ -1,5 +1,11 @@
 == Changelog ==
 
+= 2.7 - July 20, 2020 =
+
+- New: Slight improvements to the `[ld_group_list]` grid output
+- New: Slight improvements to the Group Courses List output
+- Tweak: A few small adjustments to help with Pro features for Groups
+
 = 2.6.5 - May 15, 2020 =
 
 - New: eLumine theme: A few design upgrades for the course grid
