@@ -20,7 +20,7 @@ See "Features" below for a list of what's new.
 
 **LearnDash 3.x Features**
 
-Tested with LearnDash 3.1.6
+Tested with LearnDash 3.2.2
 
 * **NEW:** Major design improvements for WisdmLabs' LearnDash Group Registration plugin
 * **Focus Mode:** Improved styles for Focus Mode comments, which were added in LearnDash 3.1

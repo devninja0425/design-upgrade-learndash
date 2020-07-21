@@ -16,7 +16,8 @@
  *  2.0 - Buttons
  *  3.0 - Alerts
  *  4.0 - Course Content / Content Lists
- *     4.1 - Tabs
+ *     4.1 - Group Courses List
+ *     4.2 - Tabs
  *           - __ Content, Materials
  *  5.0 - Course Status
  *     5.1 - Status Indicators
@@ -691,7 +692,55 @@ button.wdm_feedback_form_pop,
 
 
 /**
- * 4.1 - Tabs (Course|Lesson|Topic|Materials)
+ * 4.1 - Group Courses List
+ */
+.learndash-wrapper .ld-item-list .ld-group-courses .ld-item-details .ld-expand-button {
+	margin-right: 1em;
+}
+
+.learndash-wrapper .ld-item-list .ld-group-courses .ld-item-list-item {
+	background: $white;
+	border: 2px solid $grey;
+
+	a.ld-item-name {
+		color: var(--ldx-color-link);
+
+		&:hover {
+			color: var(--ldx-color-link-hover);
+			background: $white;
+		}
+	} // a.ld-item-name
+} // .ld-item-list-item
+
+// So it doesn't use the course content list text color
+.single-groups .learndash-wrapper .ld-item-list .ld-section-heading h2 {
+	color: inherit;
+}
+
+// Disable Expand/Collapse Functionality
+// I need to undo the general one if they enable it for course content lists
+// Then I'll re-enable it for only the group archive page (if enabled in Customizer)
+.learndash_post_groups {
+
+	.learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-list-item-expanded {
+		max-height: 0;
+	}
+
+	.learndash-wrapper .ld-item-list .ld-expand-button {
+		display: block;
+	}
+
+} // .learndash_post_groups
+
+// Protected Content: Alert
+// Adjust padding since this button does NOT have an icon
+.learndash-wrapper .ld-alert .ld-button.learndash-group-membership-link {
+	padding: 0.625em 1.5em;
+}
+
+
+/**
+ * 4.2 - Tabs (Course|Lesson|Topic|Materials)
  */
 
 // Add global border radius
@@ -1691,7 +1740,9 @@ body.ld-in-focus-mode .learndash-wrapper {
 }
 
 /* Course Progress area */
-.learndash-wrapper #ld-profile .ld-item-list .ld-item-list-item .ld-item-list-item-expanded .ld-progress {
+.learndash-wrapper #ld-profile .ld-item-list .ld-item-list-item .ld-item-list-item-expanded .ld-progress,
+// this applies to group courses (which function just like the profile)
+.learndash-wrapper .ld-item-list .ld-group-courses .ld-item-list-item .ld-item-list-item-expanded .ld-progress {
 	margin-bottom: 0;
 	background-color: transparent;
 	padding: 0 calc( 1.75em + 26px ) 0.5em;
@@ -2748,9 +2799,11 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 #ld_course_categorydropdown,
 #ld_lesson_categorydropdown,
 #ld_topic_categorydropdown,
+#ld_group_categorydropdown,
 #et-boc #ld_course_categorydropdown,
 #et-boc #ld_lesson_categorydropdown,
 #et-boc #ld_topic_categorydropdown,
+#et-boc #ld_group_categorydropdown,
 #uo_course_categorydropdown form {
 	padding: var(--ldx-grid-filter-padding);
 	margin-bottom: 1em;
@@ -3100,6 +3153,16 @@ body .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_pri
 /**
  * 99.0 - Animations
  */
+
+// :-moz-full-screen-ancestor{
+// 	-webkit-animation-fill-mode: none !important;
+// 	animation-fill-mode: none !important;	  
+// }
+// :-webkit-full-screen-ancestor:not(iframe) {
+// 	-webkit-animation-fill-mode: none !important;
+// 	animation-fill-mode: none !important;
+// }
+
 /**
  * Progress Bar
  * → Animates the progress bar from left-to-right
