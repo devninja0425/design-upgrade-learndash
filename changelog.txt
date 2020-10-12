@@ -1,5 +1,14 @@
 == Changelog ==
 
+= 2.7.1 - October 11, 2020 =
+
+- Tweak: Focus Mode: Slightly reduced font size in sidebar navigation
+- Tweak: Progress Bar: "% Complete" was off-center on mobile devices
+- Tweak: Lesson/Topic Timer now inherits text color
+- Tweaks: CSS updates for compatibility with LearnDash 3.2.3.3 (see below)
+- Tweak: Focus Mode: Header content action buttons spacing/layout
+- Tweak: Focus Mode: Sidebar Navigation: Removed rotation on collapse arrow because LearnDash is now including it
+
 = 2.7 - July 20, 2020 =
 
 - New: Slight improvements to the `[ld_group_list]` grid output

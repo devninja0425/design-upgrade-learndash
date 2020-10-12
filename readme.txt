@@ -3,12 +3,12 @@ Contributors: escapecreative, davewarfel
 Donate link: https://www.paypal.me/escapecreative/10
 Tags: learndash, lms, learning management system, online courses, css
 Requires at least: 4.6
-Tested up to: 5.4.2
+Tested up to: 5.5
 Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Instantly improve LearnDash's design -- focus mode, course content lists, profile page, course navigation & course grid -- to more closely match your WordPress theme, and improve LearnDash styles.
+Instantly improve LearnDash's design -- focus mode, course content, profile page, course navigation & course grid -- to more closely match your WordPress theme, and improve LearnDash styles.
 
 == Description ==
 
@@ -115,10 +115,6 @@ We have tested with the following themes, and they all appear **to be compatible
 * Neve
 * OceanWP
 * Storefront
-* Twenty Twenty
-* Twenty Nineteen
-* Twenty Seventeen
-* Twenty Sixteen
 
 #### Incompatible Themes
 
@@ -177,7 +173,6 @@ As LearnDash adds new features, it is our goal to keep this plugin updated.
 Features planned for future release:
 
 * Compatibility with more Uncanny LearnDash Toolkit modules
-* Exploring compatibility with other WisdmLabs plugins
 
 #### We'd love to hear from you!
 
@@ -215,6 +210,12 @@ No. We've carefully crafted it to only apply to LearnDash elements. The rest of 
 = Can I use this plugin with the LearnDash Visual Customizer? =
 
 Technically, yes, but you will encounter some weird design issues. We recommend you check out our similar [pro plugin](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=wordpress.org&utm_medium=free%20plugin&utm_campaign=readme&utm_content=faq) to customize LearnDash styles.
+
+= Is this compatible with the Elementor for LearnDash Integration? =
+
+The general design & UX improvements that Design Upgrade makes will still take effect. However, any customizations you make to LearnDash elements in Elementor will override our plugin's styles.
+
+But yes, you can use the two together without any issues.
 
 = Can I use this plugin with the Divi LearnDash Kit? =
 
@@ -261,6 +262,15 @@ We designed this plugin to be flexible so that it takes on many of the character
 5. Simplified & cleaned up the `[ld_profile]` shortcode/block
 
 == Changelog ==
+
+= 2.7.1 - October 11, 2020 =
+
+- Tweak: Focus Mode: Slightly reduced font size in sidebar navigation
+- Tweak: Progress Bar: "% Complete" was off-center on mobile devices
+- Tweak: Lesson/Topic Timer now inherits text color
+- Tweaks: CSS updates for compatibility with LearnDash 3.2.3.3 (see below)
+- Tweak: Focus Mode: Header content action buttons spacing/layout
+- Tweak: Focus Mode: Sidebar Navigation: Removed rotation on collapse arrow because LearnDash is now including it
 
 = 2.7 - July 20, 2020 =
 

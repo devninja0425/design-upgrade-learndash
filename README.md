@@ -88,10 +88,6 @@ We have tested with the following themes, and they all appear **to be compatible
 * Neve
 * OceanWP
 * Storefront
-* Twenty Twenty
-* Twenty Nineteen
-* Twenty Seventeen
-* Twenty Sixteen
 
 ### Incompatible Themes
 
@@ -150,7 +146,6 @@ As LearnDash adds new features, it is our goal to keep this plugin updated.
 Features planned for future release:
 
 * Compatibility with more Uncanny LearnDash Toolkit modules
-* Exploring compatibility with other WisdmLabs plugins
 
 ## We'd love to hear from you!
 
@@ -173,6 +168,12 @@ No. We've carefully crafted it to only apply to LearnDash elements. The rest of 
 ### Can I use this plugin with the LearnDash Visual Customizer?
 
 Technically, yes, but you will encounter some weird design issues. We recommend you check out our similar [pro plugin](https://escapecreative.com/products/design-upgrade-learndash/?utm_source=github.com&utm_medium=free%20plugin&utm_campaign=readme&utm_content=faq) to customize LearnDash styles.
+
+### Is this compatible with the Elementor for LearnDash Integration?
+
+The general design & UX improvements that Design Upgrade makes will still take effect. However, any customizations you make to LearnDash elements in Elementor will override our plugin's styles.
+
+But yes, you can use the two together without any issues.
 
 ### Can I use this plugin with the Divi LearnDash Kit?
 
