@@ -72,6 +72,12 @@
 	line-height: inherit;
 }
 
+// Lesson/Topic Timer
+.learndash-wrapper .ld-content-actions #learndash_timer,
+.learndash-wrapper .ld-content-actions .learndash_timer {
+	color: inherit;
+}
+
 
 /**
  * 2.0 - Buttons
@@ -928,7 +934,13 @@ body .el-cls-progress .el-archive-pg-bar .el-archive-percentage {
 .learndash-wrapper .ld-progress .ld-progress-heading .ld-progress-stats .ld-progress-percentage {
 	font-weight: 700;
 	color: var(--ldx-progress-bar-bg);
+
+	@media (max-width:640px) {
+		margin-right: 0;
+		margin-bottom: 5px;
+	}
 }
+
 
 // In Focus Mode: Set max height
 .learndash-wrapper .ld-focus .ld-focus-header .ld-progress .ld-progress-bar,
@@ -995,6 +1007,7 @@ body .el-cls-progress .el-archive-percentage-text {
 
 /* Sidebar */
 .learndash-wrapper .ld-focus .ld-focus-sidebar {
+	font-size: 90%;
 	background-color: var(--ldx-focus-mode-sidebar-bg-color);
 	border-right: 1px solid var(--ldx-course-nav-line-separator-color);
 }
@@ -1043,14 +1056,14 @@ body .el-cls-progress .el-archive-percentage-text {
 }
 
 /* Sidebar in Collapsed Mode */
-.learndash-wrapper .ld-focus-sidebar-collapsed .ld-focus-sidebar .ld-focus-sidebar-trigger .ld-icon {
-	// flip icon
-	transform: translateY(-50%) translateX(-20%) rotate(180deg);
+// .learndash-wrapper .ld-focus-sidebar-collapsed .ld-focus-sidebar .ld-focus-sidebar-trigger .ld-icon {
+// 	// flip icon
+// 	transform: translateY(-50%) translateX(-20%) rotate(180deg);
 
-	.rtl & {
-		transform: translateY(-50%) translateX(20%) rotate(180deg);
-	}
-}
+// 	.rtl & {
+// 		transform: translateY(-50%) translateX(20%) rotate(180deg);
+// 	}
+// }
 
 /* Icon itself */
 .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-focus-sidebar-trigger .ld-icon::before {
@@ -1061,6 +1074,13 @@ body .el-cls-progress .el-archive-percentage-text {
 
 	.rtl & {
 		left: 1px;
+	}
+}
+.learndash-wrapper .ld-focus-sidebar-collapsed .ld-focus-sidebar .ld-focus-sidebar-trigger .ld-icon::before {
+	left: 1px;
+
+	.rtl & {
+		left: -1px;
 	}
 }
 .learndash-wrapper .ld-focus .ld-focus-sidebar .ld-focus-sidebar-trigger:hover .ld-icon::before {
@@ -1334,6 +1354,7 @@ body .el-cls-progress .el-archive-percentage-text {
 }
 .learndash-wrapper .ld-focus .ld-focus-header .ld-content-action {
 	height: 51px; // LD incorrectly set it to 50px
+	padding: 0; // remove 5px padding that LD adds
 }
 
 /* Prev/Next Buttons */
@@ -1373,6 +1394,10 @@ body .el-cls-progress .el-archive-percentage-text {
 .learndash-wrapper .ld-focus .ld-focus-header .sfwd-mark-complete::after,
 .learndash-wrapper .ld-focus .ld-focus-header #sfwd-mark-complete::after {
 	color: var(--ldx-color-correct);
+
+	@media (max-width: 640px) {
+		left: 12px;
+	}
 }
 
 .learndash-wrapper .learndash_mark_complete_button[disabled],
@@ -1400,6 +1425,14 @@ body .el-cls-progress .el-archive-percentage-text {
 		background: none !important;
 		color: #888;
 		opacity: 0.6;
+	}
+}
+
+@media (max-width: 768px) {
+	.learndash-wrapper .ld-focus .ld-focus-header .ld-button,
+	.learndash-wrapper .ld-focus .ld-focus-header .ld-content-action .sfwd-mark-complete input[type="submit"] {
+		padding: 0.5em;
+		font-size: 85%;
 	}
 }
 
